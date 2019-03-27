@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Items/Gift.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tile Map/TileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://Bodies/Santa.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Items/HP.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bodies/Skeleton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Items/HP.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node" groups=[
 "Main",
@@ -26,6 +27,8 @@ pause_mode = 1
 
 [node name="TileMap" type="TileMap" parent="Nivel 01"]
 scale = Vector2( 2, 2 )
+z_index = 10
+z_as_relative = false
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 16 )
 collision_layer = 0
@@ -35,24 +38,27 @@ tile_data = PoolIntArray( 2621439, 2, 0, 2555932, 0, 0, 2686975, 2, 0, 2621468, 
 [node name="Santa" parent="Nivel 01" instance=ExtResource( 4 )]
 position = Vector2( 650.79, 1407.57 )
 
-[node name="HP" parent="Nivel 01" instance=ExtResource( 5 )]
+[node name="Skeleton" parent="Nivel 01" instance=ExtResource( 5 )]
+position = Vector2( 903.795, 1080.02 )
+
+[node name="HP" parent="Nivel 01" instance=ExtResource( 6 )]
 position = Vector2( 56.2667, 1305.51 )
 
-[node name="HP2" parent="Nivel 01" instance=ExtResource( 5 )]
+[node name="HP2" parent="Nivel 01" instance=ExtResource( 6 )]
 position = Vector2( 196.026, 1334.11 )
 
-[node name="HP3" parent="Nivel 01" instance=ExtResource( 5 )]
+[node name="HP3" parent="Nivel 01" instance=ExtResource( 6 )]
 position = Vector2( 328.82, 1363.01 )
 
-[node name="HP4" parent="Nivel 01" instance=ExtResource( 5 )]
+[node name="HP4" parent="Nivel 01" instance=ExtResource( 6 )]
 position = Vector2( 1735.07, 1311.07 )
 
-[node name="HP5" parent="Nivel 01" instance=ExtResource( 5 )]
+[node name="HP5" parent="Nivel 01" instance=ExtResource( 6 )]
 position = Vector2( 1604.89, 1350.36 )
 
-[node name="HP6" parent="Nivel 01" instance=ExtResource( 5 )]
+[node name="HP6" parent="Nivel 01" instance=ExtResource( 6 )]
 position = Vector2( 1462.42, 1379.07 )
 
-[node name="HP7" parent="Nivel 01" instance=ExtResource( 5 )]
+[node name="HP7" parent="Nivel 01" instance=ExtResource( 6 )]
 position = Vector2( 771.381, 1413.93 )
 

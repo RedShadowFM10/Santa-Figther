@@ -247,6 +247,7 @@ func Ajustar_Izquierda():
 		$"Lanzar 02/Derecha".disabled = true
 		$"Lanzar 02/Izquierda".disabled = false
 		ajustar = false
+		modulate = Color("000000")
 
 func Punch_Frames():
 	if($AnimatedSprite.flip_h):
