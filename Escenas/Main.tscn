@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Items/Gift.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tile Map/TileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://Bodies/Santa.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Items/HP.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node" groups=[
+"Main",
+]]
+pause_mode = 2
+script = ExtResource( 1 )
+Gift = ExtResource( 2 )
+
+[node name="GUI" type="CanvasLayer" parent="." groups=[
+"GUI",
+]]
+
+[node name="Objetos" type="Node" parent="." groups=[
+"Objetos",
+]]
+
+[node name="Nivel 01" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="TileMap" type="TileMap" parent="Nivel 01"]
+scale = Vector2( 2, 2 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 16 )
+collision_layer = 0
+format = 1
+tile_data = PoolIntArray( 2621439, 2, 0, 2555932, 0, 0, 2686975, 2, 0, 2621468, 0, 0, 2752511, 2, 0, 2687004, 0, 0, 2818047, 2, 0, 2752540, 0, 0, 2818048, 0, 0, 2818049, 2, 0, 2818074, 0, 0, 2818075, 2, 0, 2883586, 0, 0, 2883587, 2, 0, 2883608, 0, 0, 2883609, 2, 0, 2949124, 0, 0, 2949125, 2, 0, 2949142, 0, 0, 2949143, 2, 0, 3014663, 0, 0, 3014664, 1, 0, 3014665, 1, 0, 3014666, 1, 0, 3014667, 1, 0, 3014668, 1, 0, 3014669, 1, 0, 3014670, 1, 0, 3014671, 1, 0, 3014672, 1, 0, 3014673, 1, 0, 3014674, 1, 0, 3014675, 1, 0, 3014676, 2, 0 )
+
+[node name="Santa" parent="Nivel 01" instance=ExtResource( 4 )]
+position = Vector2( 650.79, 1407.57 )
+
+[node name="HP" parent="Nivel 01" instance=ExtResource( 5 )]
+position = Vector2( 56.2667, 1305.51 )
+
+[node name="HP2" parent="Nivel 01" instance=ExtResource( 5 )]
+position = Vector2( 196.026, 1334.11 )
+
+[node name="HP3" parent="Nivel 01" instance=ExtResource( 5 )]
+position = Vector2( 328.82, 1363.01 )
+
+[node name="HP4" parent="Nivel 01" instance=ExtResource( 5 )]
+position = Vector2( 1735.07, 1311.07 )
+
+[node name="HP5" parent="Nivel 01" instance=ExtResource( 5 )]
+position = Vector2( 1604.89, 1350.36 )
+
+[node name="HP6" parent="Nivel 01" instance=ExtResource( 5 )]
+position = Vector2( 1462.42, 1379.07 )
+
+[node name="HP7" parent="Nivel 01" instance=ExtResource( 5 )]
+position = Vector2( 771.381, 1413.93 )
+
