@@ -13,6 +13,7 @@ extents = Vector2( 0.869881, 1.22124 )
 editor/display_folded = true
 z_index = 2
 z_as_relative = false
+collision_layer = 8
 collision_mask = 0
 script = ExtResource( 1 )
 

@@ -3,7 +3,6 @@ extends KinematicBody2D
 var move = Vector2()
 var gravedad = 600
 
-var dimension
 var ajustar = true # Para que ajuste una vez el offset, flip_h, etc
 
 # Estados
@@ -29,16 +28,17 @@ func _physics_process(delta):
 				else:
 					Ajustar_Izquierda()
 			
+			
+			if(!$RayCastSuelo.is_colliding()):
+				if(direccion):
+					Ajustar_Izquierda()
+				else:
+					Ajustar_Derecha()
+			
 			if(direccion):
 				move.x = 200
 			else:
 				move.x = -200
-#
-#			dimension = transform
-#			dimension[2].x += 55 / 2
-#
-#			if(!test_move(dimension, Vector2(0, 1))):
-#				direccion = false
 	
 	move_and_slide(move, Vector2(0, -1))
 
@@ -48,6 +48,7 @@ func Ajustar_Derecha():
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.offset.x = 0
 		$CollisionShape2D.position = Vector2(-18.091, 28.057)
+		$RayCastSuelo.position = Vector2(-0.05, 76.153)
 		ajustar = true
 
 func Ajustar_Izquierda():
@@ -56,4 +57,5 @@ func Ajustar_Izquierda():
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.offset.x = -8
 		$CollisionShape2D.position = Vector2(-10.08, 28.057)
+		$RayCastSuelo.position = Vector2(-28.084, 76.153)
 		ajustar = false
