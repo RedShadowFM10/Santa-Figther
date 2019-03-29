@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Scripts/Skeleton.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Skeleton/Move/01.png" type="Texture" id=2]
@@ -56,18 +56,18 @@
 [ext_resource path="res://Sprites/Skeleton/Dead/11.png" type="Texture" id=54]
 [ext_resource path="res://Sprites/Skeleton/Dead/12.png" type="Texture" id=55]
 [ext_resource path="res://Sprites/Skeleton/Dead/13.png" type="Texture" id=56]
-[ext_resource path="res://Sprites/Skeleton/React/01.png" type="Texture" id=57]
-[ext_resource path="res://Sprites/Skeleton/React/02.png" type="Texture" id=58]
-[ext_resource path="res://Sprites/Skeleton/React/03.png" type="Texture" id=59]
-[ext_resource path="res://Sprites/Skeleton/React/04.png" type="Texture" id=60]
-[ext_resource path="res://Sprites/Skeleton/Hit/01.png" type="Texture" id=61]
-[ext_resource path="res://Sprites/Skeleton/Hit/02.png" type="Texture" id=62]
-[ext_resource path="res://Sprites/Skeleton/Hit/03.png" type="Texture" id=63]
-[ext_resource path="res://Sprites/Skeleton/Hit/04.png" type="Texture" id=64]
-[ext_resource path="res://Sprites/Skeleton/Hit/05.png" type="Texture" id=65]
-[ext_resource path="res://Sprites/Skeleton/Hit/06.png" type="Texture" id=66]
-[ext_resource path="res://Sprites/Skeleton/Hit/07.png" type="Texture" id=67]
-[ext_resource path="res://Sprites/Skeleton/Hit/08.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/Skeleton/Hit/01.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Skeleton/Hit/02.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Skeleton/Hit/03.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Skeleton/Hit/04.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Skeleton/Hit/05.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Skeleton/Hit/06.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Skeleton/Hit/07.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Skeleton/Hit/08.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Skeleton/React/03.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Skeleton/React/01.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/Skeleton/React/02.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/Skeleton/React/04.png" type="Texture" id=68]
 [ext_resource path="res://Sprites/Skeleton/Hit Dead/01.png" type="Texture" id=69]
 [ext_resource path="res://Sprites/Skeleton/Hit Dead/02.png" type="Texture" id=70]
 
@@ -93,25 +93,20 @@ animations = [ {
 "name": "Dead",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ) ],
-"loop": false,
-"name": "React",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ) ],
+"frames": [ ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ) ],
 "loop": false,
 "name": "Hit",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 56 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 59 ) ],
+"frames": [ ExtResource( 56 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 65 ) ],
 "loop": false,
 "name": "Revive",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 66 ), ExtResource( 67 ), ExtResource( 65 ), ExtResource( 68 ) ],
 "loop": false,
-"name": "Fall",
-"speed": 1.0
+"name": "React",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 69 ), ExtResource( 70 ) ],
 "loop": false,
@@ -121,6 +116,12 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 22.0091, 47.938 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 23.591, 49.0637 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 45.8395, 6.04845 )
 
 [node name="Skeleton" type="KinematicBody2D"]
 z_index = 6
@@ -132,24 +133,85 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
-animation = "Idle"
+animation = "Revive"
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 visible = false
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "Revive"
-frame = 11
-playing = true
 offset = Vector2( -8, 0 )
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -18.091, 28.057 )
 shape = SubResource( 2 )
 
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 102.263, 22.6413 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -17.8717, 27.5699 )
+shape = SubResource( 3 )
+
+[node name="Area_Muerte" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Muerte"]
+position = Vector2( -30.06, 70.533 )
+shape = SubResource( 4 )
+disabled = true
+
 [node name="RayCastSuelo" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( -0.05, 76.153 )
 enabled = true
 cast_to = Vector2( 0, 35 )
 
+[node name="React" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 112.57, -2.85979 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 250 )
+collision_mask = 3
+
+[node name="Attack" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 4.841, 3.634 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 95 )
+collision_mask = 3
+
+[node name="Idle" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Idle2" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Move" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Revivir" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Area_Muerte" to="." method="_on_Area_Muerte_area_entered"]
+[connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]
+[connection signal="timeout" from="Idle2" to="." method="_on_Idle2_timeout"]
+[connection signal="timeout" from="Move" to="." method="_on_Move_timeout"]
+[connection signal="timeout" from="Revivir" to="." method="_on_Revivir_timeout"]

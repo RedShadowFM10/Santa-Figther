@@ -71,7 +71,7 @@ func _physics_process(delta):
 				move.x = -speed
 				Ajustar_Izquierda() # Llama a la funcion
 	else:
-		move.y = 13 # Para evitar que rebote
+		move.y = 15 # Para evitar que rebote
 		jump = true
 		if(!dead): # Si está vivo
 			if(ha_saltado):
@@ -247,7 +247,6 @@ func Ajustar_Izquierda():
 		$"Lanzar 02/Derecha".disabled = true
 		$"Lanzar 02/Izquierda".disabled = false
 		ajustar = false
-		modulate = Color("000000")
 
 func Punch_Frames():
 	if($AnimatedSprite.flip_h):

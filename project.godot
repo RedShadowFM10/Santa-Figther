@@ -112,6 +112,7 @@ Enter={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemigos"
 2d_physics/layer_4="Items"
+2d_physics/layer_5="Ataques"
 
 [rendering]
 
