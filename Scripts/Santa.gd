@@ -250,28 +250,28 @@ func Ajustar_Izquierda():
 
 func Punch_Frames():
 	if($AnimatedSprite.flip_h):
-		if(!punch01_02):
+		if(!punch01_02): # 01
 			if($AnimatedSprite.frame == 2):
-				$Punch/CollisionShape2D.position = Vector2(-168.707, 7.108)
+				$Punch/CollisionShape2D.position = Vector2(-158.495, 7.108)
 				$Punch/CollisionShape2D.disabled = false
 			elif($AnimatedSprite.frame == 4):
 				$Punch/CollisionShape2D.disabled = true
-		else:
+		else: # 02
 			if($AnimatedSprite.frame == 2):
-				$Punch/CollisionShape2D.position = Vector2(-158.033, 7.108)
+				$Punch/CollisionShape2D.position = Vector2(-147.841, 7.108)
 				$Punch/CollisionShape2D.disabled = false
 			elif($AnimatedSprite.frame == 4):
 				$Punch/CollisionShape2D.disabled = true
 	else:
-		if(!punch01_02):
+		if(!punch01_02): # 01
 			if($AnimatedSprite.frame == 2):
-				$Punch/CollisionShape2D.position = Vector2(-55.61, 7.108)
+				$Punch/CollisionShape2D.position = Vector2(-65.469, 7.108)
 				$Punch/CollisionShape2D.disabled = false
 			elif($AnimatedSprite.frame == 4):
 				$Punch/CollisionShape2D.disabled = true
-		else:
+		else: # 02
 			if($AnimatedSprite.frame == 2):
-				$Punch/CollisionShape2D.position = Vector2(-65.83, 7.108)
+				$Punch/CollisionShape2D.position = Vector2(-75.868, 7.108)
 				$Punch/CollisionShape2D.disabled = false
 			elif($AnimatedSprite.frame == 4):
 				$Punch/CollisionShape2D.disabled = true

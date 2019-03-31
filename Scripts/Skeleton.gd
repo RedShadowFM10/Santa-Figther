@@ -173,7 +173,17 @@ func _on_Move_timeout():
 
 # Timer para revivir
 func _on_Revivir_timeout():
-	pass # Replace with function body.
+	$Area_Muerte/CollisionShape2D.disabled = true
+	contador = 0
+	$AnimatedSprite.frame = 0
+	$AnimatedSprite.play("Revive")
+	yield($AnimatedSprite, "animation_finished")
+	$Area2D/CollisionShape2D.disabled = false
+	dead = false
+	seguir_player = false
+	idle = false
+	$React.enabled = true
+	$Move.start()
 
 # Deteccion de ataques
 func _on_Area2D_area_entered(area):
@@ -181,32 +191,36 @@ func _on_Area2D_area_entered(area):
 		if(!seguir_player):
 			seguir_player = true
 			$React.enabled = false
-	
+
 	if(area.is_in_group("Punch")):
-		Ataques_Recibidos(0.5, true)
+		Ataques_Recibidos(0.5)
 	elif(area.is_in_group("Kick")):
-		Ataques_Recibidos(2, true)
+		Ataques_Recibidos(2)
 	elif(area.is_in_group("Super Attack")):
-		Ataques_Recibidos(3, true)
+		Ataques_Recibidos(3)
 
 # Area cuando cae al suelo
 func _on_Area_Muerte_area_entered(area):
 	if(area.is_in_group("Super Attack")):
 		$AnimatedSprite.frame = 0
 		$AnimatedSprite.play("Hit Dead")
-		Ataques_Recibidos(3, false)
+		Ataques_Recibidos(3)
 
 # Funcion para los golpes recibidos
-func Ataques_Recibidos(var numero, var tipo):
+func Ataques_Recibidos(numero):
 	contador += numero
-	print(contador)
-	if(contador >= 5 && !dead):
+	if(contador >= 5):
 		contador = 0
 		Stop_Timers()
-		dead = true
-		$AnimatedSprite.frame = 0
-		$AnimatedSprite.play("Dead")
-		$Area2D/CollisionShape2D.disabled = true
-		anim()
-	elif(contador >= 5 && !tipo):
-		pass
+		if(dead):
+			$Area_Muerte.queue_free()
+			$Revivir.stop()
+			yield(get_tree().create_timer(2), "timeout")
+			queue_free()
+		else:
+			dead = true
+			$AnimatedSprite.frame = 0
+			$AnimatedSprite.play("Dead")
+			yield(get_tree().create_timer(0.1), "timeout")
+			$Area2D/CollisionShape2D.disabled = true
+			anim()
