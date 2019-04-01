@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Gift.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Santa Claus/Gift 01/Gift.png" type="Texture" id=2]
@@ -19,6 +19,9 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 19.2697, 15.9534 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 63.3735, 64.2069 )
 
 [node name="Gift" type="KinematicBody2D"]
 position = Vector2( 0, -0.880264 )
@@ -43,7 +46,9 @@ animation = "Explosion"
 visible = false
 polygon = PoolVector2Array( -19.3012, 3.31006, -15.9926, 3.38701, -15.8387, 17.3141, -12.2992, 17.4679, -12.2223, 20.8535, 12.2463, 21.0844, 12.3232, 17.391, 15.8627, 17.5449, 15.8627, 3.31006, 19.1713, 3.38701, 19.3252, -10.3092, -19.2243, -10.3092 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Regalo",
+]]
 editor/display_folded = true
 collision_layer = 8
 collision_mask = 4
@@ -52,10 +57,22 @@ collision_mask = 4
 position = Vector2( -3.8147e-006, 5.10322 )
 shape = SubResource( 2 )
 
+[node name="Area_Explosion" type="Area2D" parent="." groups=[
+"Regalo",
+]]
+editor/display_folded = true
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Explosion"]
+position = Vector2( -0.836243, 0 )
+shape = SubResource( 3 )
+disabled = true
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

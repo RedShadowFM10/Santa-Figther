@@ -30,11 +30,14 @@ func _physics_process(delta):
 	move_and_slide(move, Vector2(0, -1))
 
 # Deteccion de enemigos
-func _on_Area2D_body_entered(body):
-	pass
+func _on_Area2D_area_entered(area):
+	if(area.is_in_group("Enemigo")):
+		explotar()
 
 func explotar():
 	detener = true
+	$Area_Explosion/CollisionShape2D.disabled = false
+	$Timer.stop()
 	move.x = 0
 	move.y = 0
 	$Sprite.visible = false

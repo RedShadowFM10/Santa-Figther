@@ -7,7 +7,7 @@ var direccion = true # false izquierda / true derecha
 var ajustar = true # Para que ajuste una vez el offset, flip_h, etc
 
 # Estados
-var dead = false
+var dead = true
 var idle = false
 var moverse = false
 var react = false
@@ -219,7 +219,10 @@ func _on_Area2D_area_entered(area):
 		if(!seguir_player):
 			seguir_player = true
 			$React.enabled = false
-
+	
+	if(area.is_in_group("Regalo")):
+		morir()
+	
 	if(area.is_in_group("Punch")):
 		Ataques_Recibidos(0.5)
 	elif(area.is_in_group("Kick")):
@@ -233,6 +236,9 @@ func _on_Area_Muerte_area_entered(area):
 		$AnimatedSprite.frame = 0
 		$AnimatedSprite.play("Hit Dead")
 		Ataques_Recibidos(3)
+	
+	if(area.is_in_group("Regalo")):
+		morir2()
 
 # Funcion para los golpes recibidos
 func Ataques_Recibidos(numero):
@@ -241,14 +247,21 @@ func Ataques_Recibidos(numero):
 		contador = 0
 		Stop_Timers()
 		if(dead):
-			$Area_Muerte.queue_free()
-			$Revivir.stop()
-			yield(get_tree().create_timer(2), "timeout")
-			queue_free()
+			morir2()
 		else:
-			dead = true
-			$AnimatedSprite.frame = 0
-			$AnimatedSprite.play("Dead")
-			yield(get_tree().create_timer(0.1), "timeout")
-			$Area2D/CollisionShape2D.disabled = true
-			anim()
+			morir()
+
+func morir():
+	dead = true
+	move.x = 0
+	$AnimatedSprite.frame = 0
+	$AnimatedSprite.play("Dead")
+	yield(get_tree().create_timer(0.1), "timeout")
+	$Area2D/CollisionShape2D.disabled = true
+	anim()
+
+func morir2():
+	$Area_Muerte.queue_free()
+	$Revivir.stop()
+	yield(get_tree().create_timer(2), "timeout")
+	queue_free()
