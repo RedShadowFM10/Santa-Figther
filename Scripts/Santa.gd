@@ -328,7 +328,7 @@ func _on_Area2D_area_entered(area):
 		agregar_vidas()
 	if(area.is_in_group("Gift")):
 		agregar_regalos()
-	if(area.is_in_group("Attack Enemy")):
+	if(area.is_in_group("Ataque Enemigo")):
 		eliminar_vidas()
 
 func dead():

@@ -15,6 +15,8 @@ var seguir_player = false
 var attack = false
 
 var santa # Será igual a las propiedades del Santa
+var dead_santa = false # Si santa esta vivo
+var verificar = false # Para que verifique una vez
 
 var contador = 0 # Contador para los golpes recibidos
 
@@ -26,6 +28,16 @@ func _physics_process(delta):
 		move.y += gravedad * delta
 	else:
 		move.y = 15 # Para evitar que rebote
+		
+		if(!dead_santa):
+			dead_santa = santa.dead
+		elif(dead_santa && !verificar):
+			seguir_player = false
+			moverse = false
+			idle = false
+			$Move.start()
+			verificar = true
+		
 		if(!dead):
 			if(!$RayCastSuelo.is_colliding()): # Deteccion de precipicios
 				if(seguir_player):
@@ -74,7 +86,11 @@ func _physics_process(delta):
 					anim()
 					$React.enabled = false
 			
-			if(seguir_player):
+			# Ataque
+			if(attack):
+				Attack_Frames()
+			
+			if(seguir_player && !dead_santa):
 				if(santa.global_position.x > $Position2D.global_position.x):
 					Ajustar_Derecha()
 					Mover_Derecha()
@@ -146,6 +162,18 @@ func anim():
 			$Area_Muerte/CollisionShape2D.position = Vector2(-30.06, 70.533)
 			$Area_Muerte/CollisionShape2D.disabled = false
 		$Revivir.start()
+
+func Attack_Frames():
+	if($AnimatedSprite.flip_h):
+		if($AnimatedSprite.frame == 7):
+			$Ataque/Izquierda.disabled = false
+		if($AnimatedSprite.frame == 8):
+			$Ataque/Izquierda.disabled = true
+	else:
+		if($AnimatedSprite.frame == 7):
+			$Ataque/Derecha.disabled = false
+		if($AnimatedSprite.frame == 8):
+			$Ataque/Derecha.disabled = true
 
 # Detener Timers
 func Stop_Timers():
