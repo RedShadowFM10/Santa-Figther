@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Items/Regalo/Sprites/Gift 01/Gift.png" type="Texture" id=1]
+[ext_resource path="res://Bodies/Gift/Sprites/Gift 01/Gift.png" type="Texture" id=1]
+
+
 
 
 [node name="Gift" type="Sprite"]
