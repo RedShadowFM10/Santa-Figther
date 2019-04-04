@@ -107,7 +107,7 @@ func _physics_process(delta):
 					$AnimatedSprite.play("Idle")
 					move.x = 0
 	
-	move_and_slide(move, Vector2(0, -1))
+	move = move_and_slide(move, Vector2(0, -1))
 
 func Move_Right():
 	move.x = 200
@@ -210,7 +210,7 @@ func _on_Move_timeout():
 	movement = true
 
 # Timer para revivir
-func _on_Revivir_timeout():
+func _on_Revive_timeout():
 	$Area_Dead/CollisionShape2D.disabled = true
 	counter = 0
 	$AnimatedSprite.frame = 0
@@ -243,7 +243,7 @@ func _on_Area2D_area_entered(area):
 		Attacks_Received(3)
 
 # Area cuando cae al suelo
-func _on_Area_Muerte_area_entered(area):
+func _on_Area_Dead_area_entered(area):
 	if area.is_in_group("Super_Attack"):
 		Attacks_Received(3)
 	

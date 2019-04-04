@@ -1,16 +1,16 @@
 extends KinematicBody2D
 
-var gravedad = 600
+var gravity = 600
 var move = Vector2()
 var speed = 350
 
 # Estados
 var dead = false
 var jump = false
-var ha_saltado = false # Verifica si saltó o solo cae de un precipicio
+var has_jumped = false # Verifica si saltó o solo cae de un precipicio
 
 var anim = false # Para verificar que se ejecute una vez la animación
-var ajustar = true # Para que ajuste una vez el offset, flip_h, etc
+var adjust = true # Para que ajuste una vez el offset, flip_h, etc
 
 # Ataques
 var punch = false
@@ -24,303 +24,304 @@ var gift02 = false
 var punch01_02 = false # false Punch 01 / true Punch 02
 
 # Verifica el tipo de regalo que se lanza
-var lanzar01 = false
-var lanzar02 = false
+var throw01 = false
+var throw02 = false
 
-var offset = 50 # La distancia de dibujado entre cada Sprite
+var offset = 50 # La distancia de dibujado entre cada Sprite del GUI
 
-# Sprites vidas
-export (PackedScene) var Sprite_Vidas
-export (PackedScene) var Sprite_Empty
+# Sprites vidas GUI
+export (PackedScene) var hp_gui
+export (PackedScene) var hp_empty_gui
 
-var vidas = 3 # Limite de vidas
-var lista_vidas = [] # Contendrá las vidas instanciadas
+var lives = 3 # Limite de vidas
+var list_lives = [] # Contendrá las vidas instanciadas
 
-# Sprite regalo
-export (PackedScene) var regalo_gui
+# Sprite regalo GUI
+export (PackedScene) var gift_gui
 
-var regalos = 3
-var lista_regalos = []
+var gifts = 3 # Liimite de regalos
+var list_gifts = [] # Contrendrá los regalos instanciados
 
 func _ready():
-	crear_vidas()
-	crear_regalos()
+	Create_lives()
+	Create_Gifts()
 
 func _physics_process(delta):
-	if !is_on_floor()): # Si no está en el suelo
-		move.y += gravedad * delta
+	if !is_on_floor(): # Si no está en el suelo
+		move.y += gravity * delta
 		jump = false
-		if !dead): # Si está vivo
+		if !dead: # Si está vivo
 			# Ajustar las colisiones
-			if(kick_jump):
+			if kick_jump:
 				Kick_Frames()
 			
-			if(Input.is_action_pressed("N") && !anim): # Kick
+			if Input.is_action_pressed("N") && !anim: # Kick
 				$AnimatedSprite.frame = 0
 				$AnimatedSprite.play("Kick")
 				kick_jump = true
 				anim = true
-				anim_salto()
+				Anim_Jump()
 			# Movimiento
-			elif !ha_saltado && !anim):
+			elif !has_jumped && !anim:
 				$AnimatedSprite.play("Jump 01")
-			if(Input.is_action_pressed("Derecha")):
+			if Input.is_action_pressed("Right"):
 				move.x = speed
-				Ajustar_Derecha() # Llama la funcion
-			elif(Input.is_action_pressed("Izquierda")):
+				Adjust_Right() # Llama a la funcion y ajusta
+			elif Input.is_action_pressed("Left"):
 				move.x = -speed
-				Ajustar_Izquierda() # Llama a la funcion
+				Adjust_Left() # Llama a la funcion y ajusta
 	else:
 		move.y = 15 # Para evitar que rebote
 		jump = true
-		if !dead): # Si está vivo
-			if(ha_saltado):
-				ha_saltado = false
+		if !dead: # Si está vivo
+			if has_jumped:
+				has_jumped = false
 			
-			if(anim): # Si está en el aire y toca el suelo depues de hacer una patada
+			if anim: # Si está en el aire y toca el suelo depues de hacer una patada
 				move.x = 0
-				if(kick_jump):
+				if kick_jump:
 					Kick_Frames()
 			# Ajustar las colisiones
-			if(punch):
+			if punch:
 				Punch_Frames()
-			elif(super_attack):
+			elif super_attack:
 				Super_Attack_Frames()
-			elif(kick):
+			elif kick:
 				Kick_Frames()
-			elif(gift01):
-				Gift_Instanciar(true)
-			elif(gift02):
-				Gift_Instanciar(false)
+			elif gift01:
+				Gift_Instance(true)
+			elif gift02:
+				Gift_Instance(false)
 			
-			if !anim): # Si no se está ejecutando una animación
-				if(Input.is_action_pressed("Space") && !anim): # Punch
+			if !anim: # Si no se está ejecutando una animación
+				if Input.is_action_pressed("Space") && !anim: # Punch
 					move.x = 0
 					punch = true
 					anim = true
 					$AnimatedSprite.frame = 0
-					if !punch01_02):
+					if !punch01_02:
 						$AnimatedSprite.play("Punch 01")
 					else:
 						$AnimatedSprite.play("Punch 02")
-					anim()
-				elif(Input.is_action_pressed("N") && !anim): # Kick
+					Anim()
+				elif Input.is_action_pressed("N") && !anim: # Kick
 					move.x = 0
 					kick = true
 					anim = true
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Kick")
-					anim()
-				elif(Input.is_action_pressed("Abajo") && !anim): # Super Attack
+					Anim()
+				elif Input.is_action_pressed("Down") && !anim: # Super Attack
 					move.x = 0
 					anim = true
 					super_attack = true
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Super Attack")
-					anim()
-				elif(Input.is_action_pressed("B") && !anim && !lanzar01 && regalos >= 1): # Gift 01
+					Anim()
+				elif Input.is_action_pressed("B") && !anim && !throw01 && gifts >= 1: # Gift 01
 					move.x = 0
 					gift01 = true
 					anim = true
-					eliminar_regalos()
+					Delete_Gifts()
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Gift 01")
-					anim()
-				elif(Input.is_action_pressed("V") && !anim && !lanzar02 && regalos >= 1): # Gift 02
+					Anim()
+				elif Input.is_action_pressed("V") && !anim && !throw02 && gifts >= 1: # Gift 02
 					move.x = 0
 					gift02 = true
 					anim = true
-					eliminar_regalos()
+					Delete_Gifts()
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Gift 02")
-					anim()
+					Anim()
 				# Movimiento
-				elif(Input.is_action_pressed("Derecha")):
+				elif Input.is_action_pressed("Right"):
 					move.x = speed
-					Ajustar_Derecha() # Llama la funcion
+					Adjust_Right() # Llama la funcion y ajusta
 					$AnimatedSprite.play("Move")
-				elif(Input.is_action_pressed("Izquierda")):
+				elif Input.is_action_pressed("Left"):
 					move.x = -speed
-					Ajustar_Izquierda() # Llama a la funcion
+					Adjust_Left() # Llama a la funcion y ajusta
 					$AnimatedSprite.play("Move")
 				else:
 					move.x = 0
 					$AnimatedSprite.play("Idle")
 				# Salto
-				if(Input.is_action_pressed("Arriba") && jump):
+				if Input.is_action_pressed("Up") && jump:
 					move.y = -300
 					$AnimatedSprite.play("Jump 02")
-					ha_saltado = true
+					has_jumped = true
 	
-	move_and_slide(move, Vector2(0, -1))
+	move = move_and_slide(move, Vector2(0, -1))
 
 # Crea las tres vidas al iniciar el juego
-func crear_vidas():
-	for i in vidas:
-		var newVida = Sprite_Vidas.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(newVida)
-		newVida.global_position.x += offset * i
-		lista_vidas.append(newVida)
+func Create_lives():
+	for i in lives:
+		var new_hp = hp_gui.instance()
+		get_tree().get_nodes_in_group("GUI")[0].add_child(new_hp)
+		new_hp.global_position.x += offset * i
+		list_lives.append(new_hp)
 
-func agregar_vidas():
-	if !vidas == 3): # Limite
-		var newVida = Sprite_Vidas.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(newVida)
-		newVida.global_position.x += offset * vidas
-		lista_vidas[vidas].queue_free() # Elimina el corazon vacio en el Array
-		lista_vidas[vidas] = newVida # El Array vacio guarda el corazon nuevo
-		vidas += 1
+func Add_Lives():
+	if !lives == 3: # Limite
+		var new_hp = hp_gui.instance()
+		get_tree().get_nodes_in_group("GUI")[0].add_child(new_hp)
+		new_hp.global_position.x += offset * lives
+		list_lives[lives].queue_free() # Elimina el corazon vacio en el Array
+		list_lives[lives] = new_hp # El Array vacio guarda el corazon nuevo
+		lives += 1
 
-func eliminar_vidas():
-	if !vidas == 0):
-		vidas -= 1
-		var newEmpty = Sprite_Empty.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(newEmpty)
-		newEmpty.global_position.x += offset * vidas
-		lista_vidas[vidas].queue_free() # Elimina el corazon
-		lista_vidas[vidas] = newEmpty # El array vacio guarda el corazon nuevo
-		if(vidas == 0):
+func Delete_Lives():
+	if !lives == 0:
+		lives -= 1
+		var new_empty = hp_empty_gui.instance()
+		get_tree().get_nodes_in_group("GUI")[0].add_child(new_empty)
+		new_empty.global_position.x += offset * lives
+		list_lives[lives].queue_free() # Elimina el corazon
+		list_lives[lives] = new_empty # El array vacio guarda el corazon nuevo
+		if lives == 0:
 			dead = true
-			dead()
+			Dead()
 
-func crear_regalos():
-	for i in regalos:
-		var newRegalo = regalo_gui.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(newRegalo)
-		newRegalo.global_position.x += offset * i
-		lista_regalos.append(newRegalo)
+func Create_Gifts():
+	for i in gifts:
+		var new_gift = gift_gui.instance()
+		get_tree().get_nodes_in_group("GUI")[0].add_child(new_gift)
+		new_gift.global_position.x += offset * i
+		list_gifts.append(new_gift)
 
-func agregar_regalos():
-	if !regalos == 3): # Limite
-		var newRegalo = regalo_gui.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(newRegalo)
-		newRegalo.global_position.x += offset * regalos
-		lista_regalos[regalos] = newRegalo
-		regalos += 1
+func Add_Gifts():
+	if !gifts == 3: # Limite
+		var new_gift = gift_gui.instance()
+		get_tree().get_nodes_in_group("GUI")[0].add_child(new_gift)
+		new_gift.global_position.x += offset * gifts
+		list_gifts[gifts] = new_gift
+		gifts += 1
 
-func eliminar_regalos():
-	if !regalos == 0):
-		regalos -= 1
-		lista_regalos[regalos].queue_free()
+func Delete_Gifts():
+	if !gifts == 0:
+		gifts -= 1
+		list_gifts[gifts].queue_free()
 
-func anim():
+func Anim():
 	yield($AnimatedSprite, "animation_finished")
 	anim = false
 	# Reinicia variables de ataques
 	super_attack = false
 	kick = false
 	kick_jump = false
-	if(punch): 
-		if !punch01_02): # Cambiamos entre golpe 1 y 2
+	if punch: 
+		if !punch01_02: # Cambiamos entre golpe 1 y 2
 			punch01_02 = true
 		else:
 			punch01_02 = false
 		punch = false
-	if(gift01): # Instancia al regalo cuando acaba la animacion
+	if gift01: # Instancia al regalo cuando acaba la animacion
 		get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(true, $"Gift 01".global_position, false)
 	gift01 = false
 
 # Cuando acaba de hacer la patada en el aire
-func anim_salto():
+func Anim_Jump():
 	yield($AnimatedSprite, "animation_finished")
 	anim = false
-	$AnimatedSprite.play("Jump 01")
+	if !dead:
+		$AnimatedSprite.play("Jump 01")
 
 # Ajusta la posicion del Sprite y la Colision
-func Ajustar_Derecha():
-	if !ajustar):
+func Adjust_Right():
+	if !adjust:
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.offset.x = 0
 		$"Lanzar 01/Derecha".disabled = false
 		$"Lanzar 01/Izquierda".disabled = true
 		$"Lanzar 02/Derecha".disabled = false
 		$"Lanzar 02/Izquierda".disabled = true
-		ajustar = true
+		adjust = true
 
 # Ajusta la posicion del Sprite y la Colision
-func Ajustar_Izquierda():
-	if(ajustar):
+func Adjust_Left():
+	if adjust:
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.offset.x = -64
 		$"Lanzar 01/Derecha".disabled = true
 		$"Lanzar 01/Izquierda".disabled = false
 		$"Lanzar 02/Derecha".disabled = true
 		$"Lanzar 02/Izquierda".disabled = false
-		ajustar = false
+		adjust = false
 
-func cambiar_modulate():
-	if $AnimatedSprite.modulate == Color(1, 1, 1)):
+func Change_Modulate():
+	if $AnimatedSprite.modulate == Color(1, 1, 1):
 		$AnimatedSprite.modulate = Color(10, 10, 10)
 		yield(get_tree().create_timer(0.2), "timeout")
 		$AnimatedSprite.modulate = Color(1, 1, 1)
 
 func Punch_Frames():
-	if $AnimatedSprite.flip_h):
-		if !punch01_02): # 01
-			if $AnimatedSprite.frame == 2):
+	if $AnimatedSprite.flip_h:
+		if !punch01_02: # 01
+			if $AnimatedSprite.frame == 2:
 				$Punch/CollisionShape2D.position = Vector2(-158.495, 7.108)
 				$Punch/CollisionShape2D.disabled = false
-			elif $AnimatedSprite.frame == 4):
+			elif $AnimatedSprite.frame == 4:
 				$Punch/CollisionShape2D.disabled = true
 		else: # 02
-			if $AnimatedSprite.frame == 2):
+			if $AnimatedSprite.frame == 2:
 				$Punch/CollisionShape2D.position = Vector2(-147.841, 7.108)
 				$Punch/CollisionShape2D.disabled = false
-			elif $AnimatedSprite.frame == 4):
+			elif $AnimatedSprite.frame == 4:
 				$Punch/CollisionShape2D.disabled = true
 	else:
-		if !punch01_02): # 01
-			if $AnimatedSprite.frame == 2):
+		if !punch01_02: # 01
+			if $AnimatedSprite.frame == 2:
 				$Punch/CollisionShape2D.position = Vector2(-65.469, 7.108)
 				$Punch/CollisionShape2D.disabled = false
-			elif $AnimatedSprite.frame == 4):
+			elif $AnimatedSprite.frame == 4:
 				$Punch/CollisionShape2D.disabled = true
 		else: # 02
-			if $AnimatedSprite.frame == 2):
+			if $AnimatedSprite.frame == 2:
 				$Punch/CollisionShape2D.position = Vector2(-75.868, 7.108)
 				$Punch/CollisionShape2D.disabled = false
-			elif $AnimatedSprite.frame == 4):
+			elif $AnimatedSprite.frame == 4:
 				$Punch/CollisionShape2D.disabled = true
 
 func Kick_Frames():
-	if $AnimatedSprite.flip_h):
-		if $AnimatedSprite.frame == 6):
+	if $AnimatedSprite.flip_h:
+		if $AnimatedSprite.frame == 6:
 			$Kick/CollisionShape2D.position = Vector2(-148.878, 17.967)
 			$Kick/CollisionShape2D.disabled = false
-		elif $AnimatedSprite.frame == 7):
+		elif $AnimatedSprite.frame == 7:
 			$Kick/CollisionShape2D.disabled = true
 	else:
-		if $AnimatedSprite.frame == 6):
+		if $AnimatedSprite.frame == 6:
 			$Kick/CollisionShape2D.position = Vector2(-74.976, 17.967)
 			$Kick/CollisionShape2D.disabled = false
-		elif $AnimatedSprite.frame == 7):
+		elif $AnimatedSprite.frame == 7:
 			$Kick/CollisionShape2D.disabled = true
 
 func Super_Attack_Frames():
-	if $AnimatedSprite.flip_h):
-		if $AnimatedSprite.frame == 3):
+	if $AnimatedSprite.flip_h:
+		if $AnimatedSprite.frame == 3:
 			$"Super Attack/CollisionShape2D".position = Vector2(-131.171, 29.302)
 			$"Super Attack/CollisionShape2D".disabled = false
-		elif $AnimatedSprite.frame == 5):
+		elif $AnimatedSprite.frame == 5:
 			$"Super Attack/CollisionShape2D".disabled = true
 	else:
-		if $AnimatedSprite.frame == 3):
+		if $AnimatedSprite.frame == 3:
 			$"Super Attack/CollisionShape2D".position = Vector2(-92.718, 29.302)
 			$"Super Attack/CollisionShape2D".disabled = false
-		elif $AnimatedSprite.frame == 5):
+		elif $AnimatedSprite.frame == 5:
 			$"Super Attack/CollisionShape2D".disabled = true
 
-# Instanciar los regalos
-func Gift_Instanciar(var tipo_gift):
-	if(tipo_gift):
-		if $AnimatedSprite.frame == 5):
-			if $AnimatedSprite.flip_h):
+# Instanciar los gifts
+func Gift_Instance(tipo_gift):
+	if tipo_gift:
+		if $AnimatedSprite.frame == 5:
+			if $AnimatedSprite.flip_h:
 				$"Gift 01".position = Vector2(-148, -17)
 			else:
 				$"Gift 01".position = Vector2(-75, -17)
 	else:
-		if $AnimatedSprite.frame == 1 && gift02):
-			if $AnimatedSprite.flip_h):
+		if $AnimatedSprite.frame == 1 && gift02:
+			if $AnimatedSprite.flip_h:
 				$"Gift 02".position = Vector2(-113, -61)
 				get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(false, $"Gift 02".global_position, false)
 			else:
@@ -330,19 +331,19 @@ func Gift_Instanciar(var tipo_gift):
 
 # Deteccion de ataques e items
 func _on_Area2D_area_entered(area):
-	if(area.is_in_group("HP")):
-		agregar_vidas()
-	if(area.is_in_group("Gift")):
-		agregar_regalos()
-	if(area.is_in_group("Ataque Enemigo")):
-		cambiar_modulate()
-		eliminar_vidas()
-	if(area.is_in_group("Explosion")):
-		cambiar_modulate()
-		for i in vidas:
-			eliminar_vidas()
+	if area.is_in_group("Hearth"):
+		Add_Lives()
+	if area.is_in_group("Gift"):
+		Add_Gifts()
+	if area.is_in_group("Attack_Enemy"):
+		Change_Modulate()
+		Delete_Lives()
+	if area.is_in_group("Explosion"):
+		Change_Modulate()
+		for i in lives:
+			Delete_Lives()
 
-func dead():
+func Dead():
 	dead = true
 	move.x = 0
 	$AnimatedSprite.play("Dead")
@@ -352,19 +353,19 @@ func dead():
 	$"Super Attack/CollisionShape2D".disabled = true
 	remove_from_group("Player")
 
-# Evita que Santa lance regalos dentro de paredes
+# Evita que Santa lance gifts dentro de paredes
 func _on_Lanzar_01_body_entered(body):
-	if(body.is_in_group("Suelo")):
-		lanzar01 = true
+	if body.is_in_group("Floor"):
+		throw01 = true
 
 func _on_Lanzar_01_body_exited(body):
-	if(body.is_in_group("Suelo")):
-		lanzar01 = false
+	if body.is_in_group("Floor"):
+		throw01 = false
 
 func _on_Lanzar_02_body_entered(body):
-	if(body.is_in_group("Suelo")):
-		lanzar02 = true
+	if body.is_in_group("Floor"):
+		throw02 = true
 
 func _on_Lanzar_02_body_exited(body):
-	if(body.is_in_group("Suelo")):
-		lanzar02 = false
+	if body.is_in_group("Floor"):
+		throw02 = false

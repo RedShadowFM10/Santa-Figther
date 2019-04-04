@@ -28,14 +28,14 @@ func _physics_process(delta):
 	if $AnimatedSprite.frame == 3:
 		$Area_Explosion/CollisionShape2D.disabled = false
 	
-	move_and_slide(move, Vector2(0, -1))
+	move = move_and_slide(move, Vector2(0, -1))
 
 # Deteccion de enemigos
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Enemy"):
-		explosion()
+		Explosion()
 
-func explosion():
+func Explosion():
 	stop = true
 	$Timer.stop()
 	move.x = 0
@@ -46,4 +46,4 @@ func explosion():
 	queue_free()
 
 func _on_Timer_timeout():
-	explosion()
+	Explosion()

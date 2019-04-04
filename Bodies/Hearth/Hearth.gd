@@ -9,7 +9,7 @@ func _physics_process(delta):
 	else:
 		move.y = 0
 	
-	move_and_slide(move, Vector2(0, -1))
+	move = move_and_slide(move, Vector2(0, -1))
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player"):
