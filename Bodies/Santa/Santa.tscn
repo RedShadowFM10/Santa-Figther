@@ -22,46 +22,46 @@
 [ext_resource path="res://Bodies/Santa/Sprites/Dead/03.png" type="Texture" id=20]
 [ext_resource path="res://Bodies/Santa/Sprites/Dead/04.png" type="Texture" id=21]
 [ext_resource path="res://Bodies/Santa/Sprites/Dead/05.png" type="Texture" id=22]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/01.png" type="Texture" id=23]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/02.png" type="Texture" id=24]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/03.png" type="Texture" id=25]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/04.png" type="Texture" id=26]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/05.png" type="Texture" id=27]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/06.png" type="Texture" id=28]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/01.png" type="Texture" id=29]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/02.png" type="Texture" id=30]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/03.png" type="Texture" id=31]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/04.png" type="Texture" id=32]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/05.png" type="Texture" id=33]
-[ext_resource path="res://Bodies/Santa/Sprites/Jump/03.png" type="Texture" id=34]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/01.png" type="Texture" id=35]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/02.png" type="Texture" id=36]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/03.png" type="Texture" id=37]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/04.png" type="Texture" id=38]
-[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/05.png" type="Texture" id=39]
-[ext_resource path="res://Bodies/Santa/Sprites/Jump/02.png" type="Texture" id=40]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/01.png" type="Texture" id=41]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/02.png" type="Texture" id=42]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/03.png" type="Texture" id=43]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/04.png" type="Texture" id=44]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/05.png" type="Texture" id=45]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/06.png" type="Texture" id=46]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/07.png" type="Texture" id=47]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/08.png" type="Texture" id=48]
-[ext_resource path="res://Bodies/Santa/Sprites/Kick/09.png" type="Texture" id=49]
-[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/01.png" type="Texture" id=50]
-[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/02.png" type="Texture" id=51]
-[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/03.png" type="Texture" id=52]
-[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/04.png" type="Texture" id=53]
-[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/05.png" type="Texture" id=54]
-[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/06.png" type="Texture" id=55]
-[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/07.png" type="Texture" id=56]
-[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/08.png" type="Texture" id=57]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/01.png" type="Texture" id=58]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/02.png" type="Texture" id=59]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/03.png" type="Texture" id=60]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/04.png" type="Texture" id=61]
-[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/05.png" type="Texture" id=62]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/01.png" type="Texture" id=23]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/02.png" type="Texture" id=24]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/03.png" type="Texture" id=25]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/04.png" type="Texture" id=26]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/05.png" type="Texture" id=27]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/06.png" type="Texture" id=28]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/07.png" type="Texture" id=29]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/08.png" type="Texture" id=30]
+[ext_resource path="res://Bodies/Santa/Sprites/Kick/09.png" type="Texture" id=31]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/01.png" type="Texture" id=32]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/02.png" type="Texture" id=33]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/03.png" type="Texture" id=34]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/04.png" type="Texture" id=35]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 01/05.png" type="Texture" id=36]
+[ext_resource path="res://Bodies/Santa/Sprites/Jump/03.png" type="Texture" id=37]
+[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/01.png" type="Texture" id=38]
+[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/02.png" type="Texture" id=39]
+[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/03.png" type="Texture" id=40]
+[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/04.png" type="Texture" id=41]
+[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/05.png" type="Texture" id=42]
+[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/06.png" type="Texture" id=43]
+[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/07.png" type="Texture" id=44]
+[ext_resource path="res://Bodies/Santa/Sprites/Super Attack/08.png" type="Texture" id=45]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/01.png" type="Texture" id=46]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/02.png" type="Texture" id=47]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/03.png" type="Texture" id=48]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/04.png" type="Texture" id=49]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 03/05.png" type="Texture" id=50]
+[ext_resource path="res://Bodies/Santa/Sprites/Jump/02.png" type="Texture" id=51]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/01.png" type="Texture" id=52]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/02.png" type="Texture" id=53]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/03.png" type="Texture" id=54]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/04.png" type="Texture" id=55]
+[ext_resource path="res://Bodies/Santa/Sprites/Punch 02/05.png" type="Texture" id=56]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/01.png" type="Texture" id=57]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/02.png" type="Texture" id=58]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/03.png" type="Texture" id=59]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/04.png" type="Texture" id=60]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/05.png" type="Texture" id=61]
+[ext_resource path="res://Bodies/Santa/Sprites/Gift 02/06.png" type="Texture" id=62]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -80,44 +80,44 @@ animations = [ {
 "name": "Dead",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "Gift 01",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
-"loop": false,
-"name": "Punch 01",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 34 ) ],
-"loop": false,
-"name": "Jump 01",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
-"loop": false,
-"name": "Punch 02",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 40 ), ExtResource( 34 ) ],
-"loop": false,
-"name": "Jump 02",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": false,
 "name": "Kick",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "Punch 01",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 37 ) ],
+"loop": false,
+"name": "Jump 01",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
 "loop": false,
 "name": "Super Attack",
 "speed": 9.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
 "loop": false,
 "name": "Gift 02",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 51 ), ExtResource( 37 ) ],
+"loop": false,
+"name": "Jump 02",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ) ],
+"loop": false,
+"name": "Punch 02",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "Gift 01",
 "speed": 8.0
 } ]
 
@@ -131,7 +131,7 @@ extents = Vector2( 46.5576, 52.6765 )
 extents = Vector2( 20, 10.873 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 15.7821, 10.241 )
+extents = Vector2( 28.3528, 10.241 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 36.0874, 26.3954 )
@@ -161,15 +161,15 @@ current = true
 position = Vector2( -0.440124, 0 )
 scale = Vector2( 3.5, 3.5 )
 frames = SubResource( 1 )
-animation = "Punch 02"
-frame = 2
+animation = "Super Attack"
+frame = 6
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 visible = false
 scale = Vector2( 3.5, 3.5 )
 frames = SubResource( 1 )
-animation = "Punch 02"
-frame = 2
+animation = "Super Attack"
+frame = 4
 offset = Vector2( -64, 0 )
 flip_h = true
 
@@ -190,8 +190,8 @@ position = Vector2( -110.472, 4.84138 )
 shape = SubResource( 3 )
 
 [node name="Punch" type="Area2D" parent="." groups=[
-"Attack",
 "Punch",
+"Attack",
 ]]
 editor/display_folded = true
 collision_layer = 16
@@ -203,65 +203,65 @@ shape = SubResource( 4 )
 disabled = true
 
 [node name="Kick" type="Area2D" parent="." groups=[
-"Attack",
 "Kick",
+"Attack",
 ]]
 editor/display_folded = true
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kick"]
-position = Vector2( -74.976, 17.967 )
+position = Vector2( -88.1337, 17.967 )
 shape = SubResource( 5 )
 disabled = true
 
-[node name="Super Attack" type="Area2D" parent="." groups=[
-"Attack",
+[node name="Super_Attack" type="Area2D" parent="." groups=[
 "Super_Attack",
+"Attack",
 ]]
 editor/display_folded = true
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Super Attack"]
-position = Vector2( -92.7177, 29.3018 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Super_Attack"]
+position = Vector2( -92.718, 29.302 )
 shape = SubResource( 6 )
 disabled = true
 
-[node name="Gift 01" type="Position2D" parent="."]
+[node name="Gift_01" type="Position2D" parent="."]
 position = Vector2( -75.65, -17.832 )
 
-[node name="Gift 02" type="Position2D" parent="."]
+[node name="Gift_02" type="Position2D" parent="."]
 position = Vector2( -110.566, -61.132 )
 
-[node name="Lanzar 01" type="Area2D" parent="."]
+[node name="Lanzar_01" type="Area2D" parent="."]
 editor/display_folded = true
 visible = false
 
-[node name="Derecha" type="CollisionShape2D" parent="Lanzar 01"]
+[node name="Right" type="CollisionShape2D" parent="Lanzar_01"]
 position = Vector2( -55.6547, -17.1911 )
 shape = SubResource( 7 )
 
-[node name="Izquierda" type="CollisionShape2D" parent="Lanzar 01"]
+[node name="Left" type="CollisionShape2D" parent="Lanzar_01"]
 position = Vector2( -168.353, -17.4126 )
 shape = SubResource( 7 )
 disabled = true
 
-[node name="Lanzar 02" type="Area2D" parent="."]
+[node name="Lanzar_02" type="Area2D" parent="."]
 editor/display_folded = true
 visible = false
 
-[node name="Derecha" type="CollisionShape2D" parent="Lanzar 02"]
+[node name="Right" type="CollisionShape2D" parent="Lanzar_02"]
 position = Vector2( -35, -37 )
 shape = SubResource( 8 )
 
-[node name="Izquierda" type="CollisionShape2D" parent="Lanzar 02"]
+[node name="Left" type="CollisionShape2D" parent="Lanzar_02"]
 position = Vector2( -187, -37 )
 shape = SubResource( 8 )
 disabled = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
-[connection signal="body_entered" from="Lanzar 01" to="." method="_on_Lanzar_01_body_entered"]
-[connection signal="body_exited" from="Lanzar 01" to="." method="_on_Lanzar_01_body_exited"]
-[connection signal="body_entered" from="Lanzar 02" to="." method="_on_Lanzar_02_body_entered"]
-[connection signal="body_exited" from="Lanzar 02" to="." method="_on_Lanzar_02_body_exited"]
+[connection signal="body_entered" from="Lanzar_01" to="." method="_on_Lanzar_01_body_entered"]
+[connection signal="body_exited" from="Lanzar_01" to="." method="_on_Lanzar_01_body_exited"]
+[connection signal="body_entered" from="Lanzar_02" to="." method="_on_Lanzar_02_body_entered"]
+[connection signal="body_exited" from="Lanzar_02" to="." method="_on_Lanzar_02_body_exited"]

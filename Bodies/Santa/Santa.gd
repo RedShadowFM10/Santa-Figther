@@ -217,7 +217,7 @@ func Anim():
 			punch01_02 = false
 		punch = false
 	if gift01: # Instancia al regalo cuando acaba la animacion
-		get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(true, $"Gift 01".global_position, false)
+		get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(true, $Gift_01.global_position, false)
 	gift01 = false
 
 # Cuando acaba de hacer la patada en el aire
@@ -232,10 +232,10 @@ func Adjust_Right():
 	if !adjust:
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.offset.x = 0
-		$"Lanzar 01/Derecha".disabled = false
-		$"Lanzar 01/Izquierda".disabled = true
-		$"Lanzar 02/Derecha".disabled = false
-		$"Lanzar 02/Izquierda".disabled = true
+		$Lanzar_01/Right.disabled = false
+		$Lanzar_01/Left.disabled = true
+		$Lanzar_02/Right.disabled = false
+		$Lanzar_02/Left.disabled = true
 		adjust = true
 
 # Ajusta la posicion del Sprite y la Colision
@@ -243,10 +243,10 @@ func Adjust_Left():
 	if adjust:
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.offset.x = -64
-		$"Lanzar 01/Derecha".disabled = true
-		$"Lanzar 01/Izquierda".disabled = false
-		$"Lanzar 02/Derecha".disabled = true
-		$"Lanzar 02/Izquierda".disabled = false
+		$Lanzar_01/Right.disabled = true
+		$Lanzar_01/Left.disabled = false
+		$Lanzar_02/Right.disabled = true
+		$Lanzar_02/Left.disabled = false
 		adjust = false
 
 func Change_Modulate():
@@ -285,14 +285,14 @@ func Punch_Frames():
 
 func Kick_Frames():
 	if $AnimatedSprite.flip_h:
-		if $AnimatedSprite.frame == 6:
-			$Kick/CollisionShape2D.position = Vector2(-148.878, 17.967)
+		if $AnimatedSprite.frame == 4:
+			$Kick/CollisionShape2D.position = Vector2(-136.2, 17.967)
 			$Kick/CollisionShape2D.disabled = false
 		elif $AnimatedSprite.frame == 7:
 			$Kick/CollisionShape2D.disabled = true
 	else:
-		if $AnimatedSprite.frame == 6:
-			$Kick/CollisionShape2D.position = Vector2(-74.976, 17.967)
+		if $AnimatedSprite.frame == 4:
+			$Kick/CollisionShape2D.position = Vector2(-88.134, 17.967)
 			$Kick/CollisionShape2D.disabled = false
 		elif $AnimatedSprite.frame == 7:
 			$Kick/CollisionShape2D.disabled = true
@@ -300,40 +300,44 @@ func Kick_Frames():
 func Super_Attack_Frames():
 	if $AnimatedSprite.flip_h:
 		if $AnimatedSprite.frame == 3:
-			$"Super Attack/CollisionShape2D".position = Vector2(-131.171, 29.302)
-			$"Super Attack/CollisionShape2D".disabled = false
-		elif $AnimatedSprite.frame == 5:
-			$"Super Attack/CollisionShape2D".disabled = true
+			$Super_Attack/CollisionShape2D.position = Vector2(-131.171, 29.302)
+			$Super_Attack/CollisionShape2D.disabled = false
+		elif $AnimatedSprite.frame == 4:
+			$Super_Attack/CollisionShape2D.position = Vector2(-116.736, 29.302)
+		elif $AnimatedSprite.frame == 6:
+			$Super_Attack/CollisionShape2D.disabled = true
 	else:
 		if $AnimatedSprite.frame == 3:
-			$"Super Attack/CollisionShape2D".position = Vector2(-92.718, 29.302)
-			$"Super Attack/CollisionShape2D".disabled = false
-		elif $AnimatedSprite.frame == 5:
-			$"Super Attack/CollisionShape2D".disabled = true
+			$Super_Attack/CollisionShape2D.position = Vector2(-92.718, 29.302)
+			$Super_Attack/CollisionShape2D.disabled = false
+		elif $AnimatedSprite.frame == 4:
+			$Super_Attack/CollisionShape2D.position = Vector2(-105.982, 29.302)
+		elif $AnimatedSprite.frame == 6:
+			$Super_Attack/CollisionShape2D.disabled = true
 
 # Instanciar los gifts
 func Gift_Instance(tipo_gift):
 	if tipo_gift:
 		if $AnimatedSprite.frame == 5:
 			if $AnimatedSprite.flip_h:
-				$"Gift 01".position = Vector2(-148, -17)
+				$Gift_01.position = Vector2(-148, -17)
 			else:
-				$"Gift 01".position = Vector2(-75, -17)
+				$Gift_01.position = Vector2(-75, -17)
 	else:
 		if $AnimatedSprite.frame == 1 && gift02:
 			if $AnimatedSprite.flip_h:
-				$"Gift 02".position = Vector2(-113, -61)
-				get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(false, $"Gift 02".global_position, false)
+				$Gift_02.position = Vector2(-113, -61)
+				get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(false, $Gift_02.global_position, false)
 			else:
-				$"Gift 02".position = Vector2(-110, -61)
-				get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(false, $"Gift 02".global_position, true)
+				$Gift_02.position = Vector2(-110, -61)
+				get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(false, $Gift_02.global_position, true)
 			gift02 = false
 
 # Deteccion de ataques e items
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Hearth"):
+	if area.is_in_group("Hearth_Item"):
 		Add_Lives()
-	if area.is_in_group("Gift"):
+	if area.is_in_group("Gift_Item"):
 		Add_Gifts()
 	if area.is_in_group("Attack_Enemy"):
 		Change_Modulate()
@@ -347,11 +351,12 @@ func Dead():
 	dead = true
 	move.x = 0
 	$AnimatedSprite.play("Dead")
+	remove_from_group("Player")
+	yield(get_tree().create_timer(0.1), "timeout")
 	$Area2D/CollisionShape2D.disabled = true
 	$Punch/CollisionShape2D.disabled = true
 	$Kick/CollisionShape2D.disabled = true
-	$"Super Attack/CollisionShape2D".disabled = true
-	remove_from_group("Player")
+	$Super_Attack/CollisionShape2D.disabled = true
 
 # Evita que Santa lance gifts dentro de paredes
 func _on_Lanzar_01_body_entered(body):

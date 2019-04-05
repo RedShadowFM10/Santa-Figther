@@ -24,7 +24,7 @@ position = Vector2( 1.505, 17.355 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="." groups=[
-"Hearth",
+"Hearth_Item",
 ]]
 editor/display_folded = true
 collision_layer = 8
