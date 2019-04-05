@@ -21,9 +21,10 @@ animations = [ {
 extents = Vector2( 19.2697, 15.9534 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 63.3735, 64.2069 )
+extents = Vector2( 44.9693, 46.0952 )
 
 [node name="Gift" type="KinematicBody2D"]
+editor/display_folded = true
 position = Vector2( 0, -0.880264 )
 z_index = 2
 z_as_relative = false
@@ -50,7 +51,7 @@ polygon = PoolVector2Array( -19.3012, 3.31006, -15.9926, 3.38701, -15.8387, 17.3
 "Gift",
 ]]
 editor/display_folded = true
-collision_layer = 8
+collision_layer = 64
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -61,7 +62,7 @@ shape = SubResource( 2 )
 "Explosion",
 ]]
 editor/display_folded = true
-collision_layer = 8
+collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Explosion"]

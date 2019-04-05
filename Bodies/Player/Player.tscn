@@ -1,0 +1,268 @@
+[gd_scene load_steps=71 format=2]
+
+[ext_resource path="res://Bodies/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://GUI/HP.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GUI/HP Empty.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/Gift.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Bodies/Player/Sprites/Move/01.png" type="Texture" id=5]
+[ext_resource path="res://Bodies/Player/Sprites/Move/02.png" type="Texture" id=6]
+[ext_resource path="res://Bodies/Player/Sprites/Move/03.png" type="Texture" id=7]
+[ext_resource path="res://Bodies/Player/Sprites/Move/04.png" type="Texture" id=8]
+[ext_resource path="res://Bodies/Player/Sprites/Move/05.png" type="Texture" id=9]
+[ext_resource path="res://Bodies/Player/Sprites/Move/06.png" type="Texture" id=10]
+[ext_resource path="res://Bodies/Player/Sprites/Move/07.png" type="Texture" id=11]
+[ext_resource path="res://Bodies/Player/Sprites/Move/08.png" type="Texture" id=12]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/01.png" type="Texture" id=13]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/02.png" type="Texture" id=14]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/03.png" type="Texture" id=15]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/04.png" type="Texture" id=16]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/05.png" type="Texture" id=17]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/01.png" type="Texture" id=18]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/02.png" type="Texture" id=19]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/03.png" type="Texture" id=20]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/04.png" type="Texture" id=21]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/05.png" type="Texture" id=22]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/01.png" type="Texture" id=23]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/02.png" type="Texture" id=24]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/03.png" type="Texture" id=25]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/04.png" type="Texture" id=26]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/05.png" type="Texture" id=27]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/01.png" type="Texture" id=28]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/02.png" type="Texture" id=29]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/03.png" type="Texture" id=30]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/04.png" type="Texture" id=31]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/05.png" type="Texture" id=32]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/06.png" type="Texture" id=33]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/07.png" type="Texture" id=34]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/08.png" type="Texture" id=35]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/01.png" type="Texture" id=36]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/02.png" type="Texture" id=37]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/03.png" type="Texture" id=38]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/04.png" type="Texture" id=39]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/05.png" type="Texture" id=40]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/01.png" type="Texture" id=41]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/02.png" type="Texture" id=42]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/03.png" type="Texture" id=43]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/04.png" type="Texture" id=44]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/05.png" type="Texture" id=45]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/06.png" type="Texture" id=46]
+[ext_resource path="res://Bodies/Player/Sprites/Jump/02.png" type="Texture" id=47]
+[ext_resource path="res://Bodies/Player/Sprites/Jump/03.png" type="Texture" id=48]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/01.png" type="Texture" id=49]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/02.png" type="Texture" id=50]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/03.png" type="Texture" id=51]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/04.png" type="Texture" id=52]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/05.png" type="Texture" id=53]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/01.png" type="Texture" id=54]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/02.png" type="Texture" id=55]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/03.png" type="Texture" id=56]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/04.png" type="Texture" id=57]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/05.png" type="Texture" id=58]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/06.png" type="Texture" id=59]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/07.png" type="Texture" id=60]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/08.png" type="Texture" id=61]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/09.png" type="Texture" id=62]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Move",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "Punch 01",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "Punch 02",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "Super Attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "Gift 02",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "Gift 01",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 48 ) ],
+"loop": false,
+"name": "Jump 02",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 48 ) ],
+"loop": false,
+"name": "Jump 01",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "Kick",
+"speed": 13.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 44.3848, 50.8422 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 46.5576, 52.6765 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 20, 10.873 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 28.3528, 10.241 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 36.0874, 26.3954 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 0.108292, 14.0123 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 0.108, 14.012 )
+
+[node name="Santa" type="KinematicBody2D" groups=[
+"Player",
+]]
+editor/display_folded = true
+z_index = 4
+z_as_relative = false
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+hp_gui = ExtResource( 2 )
+hp_empty_gui = ExtResource( 3 )
+gift_gui = ExtResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.440124, 0 )
+scale = Vector2( 3.5, 3.5 )
+frames = SubResource( 1 )
+animation = "Super Attack"
+frame = 6
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 3.5, 3.5 )
+frames = SubResource( 1 )
+animation = "Super Attack"
+frame = 4
+offset = Vector2( -64, 0 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -110.499, 5.00314 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Player",
+]]
+editor/display_folded = true
+collision_layer = 2
+collision_mask = 88
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -110.472, 4.84138 )
+shape = SubResource( 3 )
+
+[node name="Punch" type="Area2D" parent="." groups=[
+"Attack",
+"Punch",
+]]
+editor/display_folded = true
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Punch"]
+position = Vector2( -65.469, 7.108 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="Kick" type="Area2D" parent="." groups=[
+"Attack",
+"Kick",
+]]
+editor/display_folded = true
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kick"]
+position = Vector2( -88.1337, 17.967 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="Super_Attack" type="Area2D" parent="." groups=[
+"Super_Attack",
+"Attack",
+]]
+editor/display_folded = true
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Super_Attack"]
+position = Vector2( -92.718, 29.302 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="Gift_01" type="Position2D" parent="."]
+position = Vector2( -75, -17 )
+
+[node name="Gift_02" type="Position2D" parent="."]
+position = Vector2( -110, -61 )
+
+[node name="Lanzar_01" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="Right" type="CollisionShape2D" parent="Lanzar_01"]
+position = Vector2( -55.6547, -17.1911 )
+shape = SubResource( 7 )
+
+[node name="Left" type="CollisionShape2D" parent="Lanzar_01"]
+position = Vector2( -168.353, -17.4126 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="Lanzar_02" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="Right" type="CollisionShape2D" parent="Lanzar_02"]
+position = Vector2( -35, -37 )
+shape = SubResource( 8 )
+
+[node name="Left" type="CollisionShape2D" parent="Lanzar_02"]
+position = Vector2( -187, -37 )
+shape = SubResource( 8 )
+disabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Lanzar_01" to="." method="_on_Lanzar_01_body_entered"]
+[connection signal="body_exited" from="Lanzar_01" to="." method="_on_Lanzar_01_body_exited"]
+[connection signal="body_entered" from="Lanzar_02" to="." method="_on_Lanzar_02_body_entered"]
+[connection signal="body_exited" from="Lanzar_02" to="." method="_on_Lanzar_02_body_exited"]

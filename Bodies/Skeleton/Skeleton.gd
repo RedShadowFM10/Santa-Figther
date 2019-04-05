@@ -14,14 +14,14 @@ var react = false
 var follow_player = false
 var attack = false
 
-var santa # Será igual a las propiedades del Santa
-var dead_santa = false # Si santa esta vivo
+var player # Será igual a las propiedades del Santa
+var dead_santa = false # Si player esta vivo
 var check = false # Para que verifique una vez
 
 var counter = 0 # Contador para los golpes recibidos
 
 func _ready():
-	santa = get_tree().get_nodes_in_group("Player")[0]
+	player = get_tree().get_nodes_in_group("Player")[0]
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		move.y = 15 # Para evitar que rebote
 		
 		if !dead_santa:
-			dead_santa = santa.dead
+			dead_santa = player.dead
 		elif dead_santa && !check:
 			follow_player = false
 			movement = false
@@ -91,10 +91,10 @@ func _physics_process(delta):
 				Attack_Frames()
 			
 			if follow_player && !dead_santa:
-				if santa.global_position.x > $Position2D.global_position.x:
+				if player.global_position.x > $Position2D.global_position.x:
 					Adjust_Right()
 					Move_Right()
-				elif santa.global_position.x < $Position2D.global_position.x:
+				elif player.global_position.x < $Position2D.global_position.x:
 					Adjust_Left()
 					Move_Left()
 			elif movement:
@@ -122,12 +122,12 @@ func Adjust_Right():
 		direction = true
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.offset.x = 0
-		$CollisionShape2D.position = Vector2(-18.091, 28.057)
+		$CollisionShape2D.position.x = -18.091
 		# Ajustar RayCasts
-		$RayCastFloor.position = Vector2(-0.05, 76.153)
-		$React.position = Vector2(112.57, -2.86)
+		$RayCastFloor.position.x = -0.05
+		$React.position.x = 112.57
 		$React.rotation_degrees = -90
-		$Attack.position = Vector2(4.841, 3.634)
+		$Attack.position.x = 4.841
 		$Attack.rotation_degrees = -90
 		adjust = true
 
@@ -136,12 +136,12 @@ func Adjust_Left():
 		direction = false
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.offset.x = -8
-		$CollisionShape2D.position = Vector2(-10.08, 28.057)
+		$CollisionShape2D.position.x = -10.08
 		# Ajustar RayCasts
-		$RayCastFloor.position = Vector2(-28.084, 76.153)
-		$React.position = Vector2(-141.941, -2.86)
+		$RayCastFloor.position.x = -28.084
+		$React.position.x = -141.941
 		$React.rotation_degrees = 90
-		$Attack.position = Vector2(-37.413, 3.634)
+		$Attack.position.x = -37.413
 		$Attack.rotation_degrees = 90
 		adjust = false
 
@@ -166,10 +166,10 @@ func Anim():
 	
 	if dead:
 		if $AnimatedSprite.flip_h:
-			$Area_Dead/CollisionShape2D.position = Vector2(3.284, 70.533)
+			$Area_Dead/CollisionShape2D.position.x = 3.284
 			$Area_Dead/CollisionShape2D.disabled = false
 		else:
-			$Area_Dead/CollisionShape2D.position = Vector2(-30.06, 70.533)
+			$Area_Dead/CollisionShape2D.position.x = -30.06
 			$Area_Dead/CollisionShape2D.disabled = false
 		$Revive.start()
 
