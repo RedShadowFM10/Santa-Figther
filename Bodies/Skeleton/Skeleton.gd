@@ -6,6 +6,8 @@ var direction = true # false izquierda / true derecha
 
 var adjust = true # Para que ajuste una vez el offset, flip_h, etc
 
+var sfx_hit_enemy
+
 # Estados
 var dead = false
 var idle = false
@@ -22,6 +24,7 @@ var counter = 0 # Contador para los golpes recibidos
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
+	sfx_hit_enemy = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Enemy")
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -226,6 +229,7 @@ func _on_Revive_timeout():
 # Deteccion de ataques
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Attack") && !attack:
+		sfx_hit_enemy.play()
 		if !follow_player:
 			follow_player = true
 			$React.enabled = false
@@ -256,6 +260,7 @@ func _on_Area_Dead_area_entered(area):
 
 # Funcion para los golpes recibidos
 func Attacks_Received(numero):
+	sfx_hit_enemy.play()
 	Change_Modulate()
 	counter += numero
 	if counter >= 5:
@@ -267,6 +272,7 @@ func Attacks_Received(numero):
 			Dead()
 
 func Dead():
+	sfx_hit_enemy.play()
 	dead = true
 	move.x = 0
 	$AnimatedSprite.frame = 0
@@ -276,6 +282,7 @@ func Dead():
 	Anim()
 
 func Dead2():
+	sfx_hit_enemy.play()
 	$Area_Dead.queue_free()
 	$Revive.stop()
 	yield(get_tree().create_timer(2), "timeout")

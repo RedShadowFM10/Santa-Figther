@@ -1,0 +1,15 @@
+Sprites
+
+Explosion: https://opengameart.org/content/explosion-3
+Hearth Pixel: https://opengameart.org/content/heart-1616
+Santa Claus Pixel: https://opengameart.org/content/pixel-art-santa-sprites
+Skeleton: https://jesse-m.itch.io/skeleton-pack
+Tile Map 01: https://opengameart.org/users/buch
+Frog: https://opengameart.org/content/chibi-monsters-set-01
+
+Sounds
+
+Explosion: https://freesound.org/people/timgormly/sounds/162792/
+Frog: https://opengameart.org/content/mutant-frog
+Punch, Kick: https://opengameart.org/content/3-melee-sounds
+Super Attack, Hit Enemy: https://opengameart.org/content/37-hitspunches

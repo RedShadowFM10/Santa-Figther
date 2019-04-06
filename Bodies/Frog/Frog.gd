@@ -8,10 +8,13 @@ var adjust = false # Para que ajuste una vez el flip_h, offset, etc
 
 var player # Será igual a las propiedades del player
 
+var sfx_frog
+
 export (PackedScene) var heart_item
 export (PackedScene) var gift_item
 
 func _ready():
+	sfx_frog = get_tree().get_nodes_in_group("SFX")[0].get_node("Frog")
 	player = get_tree().get_nodes_in_group("Player")[0]
 
 func _physics_process(delta):
@@ -48,6 +51,7 @@ func _on_Jump_timeout():
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Super_Attack") || area.is_in_group("Explosion") || area.is_in_group("Attack_Enemy"):
+		sfx_frog.play()
 		if player.lives == player.gifts || player.lives < player.gifts:
 			var new_heart = heart_item.instance()
 			get_tree().get_nodes_in_group("Level")[0].call_deferred("add_child", new_heart)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Super_Attack.ogg-010a09459c549d229e338b1b0354939d.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/Super_Attack.ogg"
+dest_files=[ "res://.import/Super_Attack.ogg-010a09459c549d229e338b1b0354939d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

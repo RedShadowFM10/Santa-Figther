@@ -4,6 +4,12 @@ var gravity = 600
 var move = Vector2()
 var speed = 350
 
+# SFX
+var sfx_punch
+var sfx_kick
+var sfx_super_attack
+var sfx_hit_player
+
 # Estados
 var dead = false
 var jump = false
@@ -43,6 +49,11 @@ var gifts = 3 # Liimite de regalos
 var list_gifts = [] # Contrendrá los regalos instanciados
 
 func _ready():
+	sfx_punch = get_tree().get_nodes_in_group("SFX")[0].get_node("Punch")
+	sfx_kick = get_tree().get_nodes_in_group("SFX")[0].get_node("Kick")
+	sfx_super_attack = get_tree().get_nodes_in_group("SFX")[0].get_node("Super_Attack")
+	sfx_hit_player = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Player")
+	
 	Create_lives()
 	Create_Gifts()
 
@@ -56,6 +67,7 @@ func _physics_process(delta):
 				Kick_Frames()
 			
 			if Input.is_action_pressed("N") && !anim: # Kick
+				sfx_kick.play()
 				$AnimatedSprite.frame = 0
 				$AnimatedSprite.play("Kick")
 				kick_jump = true
@@ -95,6 +107,7 @@ func _physics_process(delta):
 			
 			if !anim: # Si no se está ejecutando una animación
 				if Input.is_action_pressed("Space"): # Punch
+					sfx_punch.play()
 					move.x = 0
 					punch = true
 					anim = true
@@ -105,6 +118,7 @@ func _physics_process(delta):
 						$AnimatedSprite.play("Punch 02")
 					Anim()
 				elif Input.is_action_pressed("N"): # Kick
+					sfx_kick.play()
 					move.x = 0
 					kick = true
 					anim = true
@@ -297,6 +311,7 @@ func Kick_Frames():
 func Super_Attack_Frames():
 	if $AnimatedSprite.flip_h:
 		if $AnimatedSprite.frame == 3:
+			sfx_super_attack.play()
 			$Super_Attack/CollisionShape2D.position.x = -131.171
 			$Super_Attack/CollisionShape2D.disabled = false
 		elif $AnimatedSprite.frame == 4:
@@ -305,6 +320,7 @@ func Super_Attack_Frames():
 			$Super_Attack/CollisionShape2D.disabled = true
 	else:
 		if $AnimatedSprite.frame == 3:
+			sfx_super_attack.play()
 			$Super_Attack/CollisionShape2D.position.x = -92.718
 			$Super_Attack/CollisionShape2D.disabled = false
 		elif $AnimatedSprite.frame == 4:
@@ -337,9 +353,11 @@ func _on_Area2D_area_entered(area):
 	if area.is_in_group("Gift_Item"):
 		Add_Gifts()
 	if area.is_in_group("Attack_Enemy"):
+		sfx_hit_player.play()
 		Change_Modulate()
 		Delete_Lives()
 	if area.is_in_group("Explosion"):
+		sfx_hit_player.play()
 		Change_Modulate()
 		for i in lives:
 			Delete_Lives()
