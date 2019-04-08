@@ -338,8 +338,10 @@ func Gift_Instance(tipo_gift):
 # Deteccion de ataques e items
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Hearth_Item"):
+		$SFX_Take_Item.play()
 		Add_Lives()
 	if area.is_in_group("Gift_Item"):
+		$SFX_Take_Item.play()
 		Add_Gifts()
 	if area.is_in_group("Attack_Enemy"):
 		$SFX_Hit_Player.play()
