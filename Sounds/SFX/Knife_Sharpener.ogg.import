@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Knife_Sharpener.ogg-a43fbf5cc4e5be697e364e586cfcef73.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/Knife_Sharpener.ogg"
+dest_files=[ "res://.import/Knife_Sharpener.ogg-a43fbf5cc4e5be697e364e586cfcef73.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

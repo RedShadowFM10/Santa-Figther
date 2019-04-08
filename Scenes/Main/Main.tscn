@@ -1,18 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Bodies/Gift/Gift.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sounds/SFX/8 Bits Explosion.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Sounds/SFX/Punch.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/SFX/Kick.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Sounds/SFX/Super_Attack.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Sounds/SFX/Hit_Enemy.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Sounds/SFX/Hit_Player.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Tile Map/Tile Set.tres" type="TileSet" id=10]
-[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Bodies/Skeleton/Skeleton.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Bodies/Frog/Frog.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sounds/SFX/Hit_Enemy.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Tile Map/Tile Set.tres" type="TileSet" id=6]
+[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Bodies/Skeleton/Skeleton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Bodies/Frog/Frog.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node" groups=[
 "Main",
@@ -28,6 +24,7 @@ gift = ExtResource( 2 )
 [node name="SFX" type="Node" parent="." groups=[
 "SFX",
 ]]
+editor/display_folded = true
 
 [node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 3 )
@@ -37,50 +34,33 @@ volume_db = -35.0
 stream = ExtResource( 4 )
 volume_db = -25.0
 
-[node name="Punch" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 5 )
-volume_db = -25.0
-
-[node name="Kick" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 6 )
-volume_db = -20.0
-
-[node name="Super_Attack" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 7 )
-volume_db = -20.0
-
 [node name="Hit_Enemy" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 8 )
+stream = ExtResource( 5 )
 volume_db = -15.0
-
-[node name="Hit_Player" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 9 )
-volume_db = -15.0
-
-[node name="Skeleton_Attack" type="AudioStreamPlayer" parent="SFX"]
 
 [node name="Level_01" type="Node2D" parent="." groups=[
 "Level",
 ]]
 pause_mode = 1
+editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="Level_01" groups=[
 "Floor",
 ]]
 scale = Vector2( 2, 2 )
 z_as_relative = false
-tile_set = ExtResource( 10 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 16 )
 collision_mask = 46
 format = 1
 tile_data = PoolIntArray( 2621439, 1, 0, 2555932, 1, 0, 2686975, 1, 0, 2621468, 1, 0, 2752511, 1, 0, 2687004, 1, 0, 2818047, 1, 0, 2752540, 1, 0, 2818048, 1, 0, 2818049, 1, 0, 2818074, 1, 0, 2818075, 1, 0, 2883586, 1, 0, 2883587, 1, 0, 2883608, 1, 0, 2883609, 1, 0, 2949124, 1, 0, 2949125, 1, 0, 2949142, 1, 0, 2949143, 1, 0, 3014663, 1, 0, 3014664, 1, 0, 3014665, 1, 0, 3014666, 1, 0, 3014667, 1, 0, 3014668, 1, 0, 3014669, 1, 0, 3014670, 1, 0, 3014671, 1, 0, 3014672, 1, 0, 3014673, 1, 0, 3014674, 1, 0, 3014675, 1, 0, 3014676, 1, 0 )
 
-[node name="Santa" parent="Level_01" instance=ExtResource( 11 )]
+[node name="Santa" parent="Level_01" instance=ExtResource( 7 )]
 position = Vector2( 689.415, 1393.94 )
 
-[node name="Skeleton" parent="Level_01" instance=ExtResource( 12 )]
+[node name="Skeleton" parent="Level_01" instance=ExtResource( 8 )]
 position = Vector2( 1143.99, 1379.26 )
 
-[node name="Frog" parent="Level_01" instance=ExtResource( 13 )]
+[node name="Frog" parent="Level_01" instance=ExtResource( 9 )]
 position = Vector2( 1133.78, 1275.26 )
 

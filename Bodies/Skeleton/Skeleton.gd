@@ -177,6 +177,9 @@ func Anim():
 		$Revive.start()
 
 func Attack_Frames():
+	if $AnimatedSprite.frame == 4:
+		$SFX_Knife.play()
+	
 	if $AnimatedSprite.flip_h:
 		if $AnimatedSprite.frame == 7:
 			$Attack_Area/Left.disabled = false
