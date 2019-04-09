@@ -22,7 +22,6 @@ extents = Vector2( 18.734, 14.0595 )
 extents = Vector2( 18.6148, 13.7653 )
 
 [node name="Frog" type="KinematicBody2D"]
-editor/display_folded = true
 z_index = 2
 z_as_relative = false
 collision_layer = 32

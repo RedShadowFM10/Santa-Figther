@@ -27,6 +27,10 @@ func _physics_process(delta):
 			direction = !direction
 			Adjust()
 	
+	if is_on_wall():
+		direction = !direction
+		Adjust()
+	
 	move = move_and_slide(move, Vector2(0, -1))
 
 func Adjust():
@@ -52,7 +56,7 @@ func _on_Jump_timeout():
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Super_Attack") || area.is_in_group("Explosion") || area.is_in_group("Attack_Enemy"):
 		sfx_frog.play()
-		if player.lives == player.gifts || player.lives < player.gifts:
+		if player.lives <= player.gifts || player.lives == 1:
 			var new_heart = heart_item.instance()
 			get_tree().get_nodes_in_group("Level")[0].call_deferred("add_child", new_heart)
 			new_heart.global_position = global_position

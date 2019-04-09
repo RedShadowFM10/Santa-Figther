@@ -178,7 +178,7 @@ func Anim():
 
 func Attack_Frames():
 	if $AnimatedSprite.frame == 4:
-		$SFX_Knife.play()
+		$SFX_Attack.play()
 	
 	if $AnimatedSprite.flip_h:
 		if $AnimatedSprite.frame == 7:
@@ -237,9 +237,7 @@ func _on_Area2D_area_entered(area):
 			follow_player = true
 			$React.enabled = false
 	
-	if area.is_in_group("Gift"):
-		Dead()
-	elif area.is_in_group("Explosion"):
+	if area.is_in_group("Explosion"):
 		Dead()
 	
 	if area.is_in_group("Punch"):

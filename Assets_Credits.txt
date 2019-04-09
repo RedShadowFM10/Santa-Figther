@@ -6,6 +6,7 @@ Santa Claus Pixel: https://opengameart.org/content/pixel-art-santa-sprites
 Skeleton: https://jesse-m.itch.io/skeleton-pack
 Tile Map 01: https://opengameart.org/users/buch
 Frog: https://opengameart.org/content/chibi-monsters-set-01
+Smaller, Larger: https://kenney.nl/assets/game-icons
 
 SFX.
 
@@ -13,9 +14,9 @@ Explosion: https://freesound.org/people/timgormly/sounds/162792/
 Frog: https://opengameart.org/content/mutant-frog
 Punch, Kick: https://opengameart.org/content/3-melee-sounds
 Super_Attack, Hit_Enemy, Hit_Player: https://opengameart.org/content/37-hitspunches
-Knife_Sharpener: https://opengameart.org/content/knife-sharpening-slice-2
 Take_Item: https://opengameart.org/content/50-cc0-retro-synth-sfx
 
 Music
 
 Beat&em_Up_Level: https://opengameart.org/content/arcade-level-tracks-8-bitchiptune
+Battle_in_the_winter: https://opengameart.org/content/battle-in-the-winter

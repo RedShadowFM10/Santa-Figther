@@ -16,6 +16,7 @@ func _ready():
 		direction = get_tree().get_nodes_in_group("Main")[0].gift_direction
 		stop = true
 		yield(get_tree().create_timer(0.1), "timeout")
+		$SFX_Gift_Launch.play()
 		stop = false
 
 func _physics_process(delta):
@@ -37,6 +38,8 @@ func _physics_process(delta):
 # Deteccion de enemigos
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Enemy"):
+		Explosion()
+	if area.is_in_group("Explosion"):
 		Explosion()
 
 func Explosion():

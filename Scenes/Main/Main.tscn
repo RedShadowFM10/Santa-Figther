@@ -1,15 +1,25 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Bodies/Gift/Gift.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Sounds/SFX/Hit_Enemy.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/Music/Beat&em_Up_Level.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Tile Map/Tile Set.tres" type="TileSet" id=7]
-[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Bodies/Skeleton/Skeleton.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Bodies/Frog/Frog.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GUI/Screen/Full_Screen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/SFX/Hit_Enemy.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Music/Beat&em_Up_Level.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Tile Map/Tile Set.tres" type="TileSet" id=9]
+[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Bodies/Skeleton/Skeleton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Bodies/Frog/Frog.tscn" type="PackedScene" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 4 )
 
 [node name="Main" type="Node" groups=[
 "Main",
@@ -21,32 +31,61 @@ gift = ExtResource( 2 )
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
+editor/display_folded = true
+
+[node name="Full_Screen" parent="GUI" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Pause" type="Button" parent="GUI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.449
+margin_top = -101.292
+margin_right = 130.551
+margin_bottom = -15.2924
+custom_fonts/font = SubResource( 1 )
+text = "PAUSE"
+flat = true
+
+[node name="Exit_Game" type="Button" parent="GUI"]
+visible = false
+margin_left = 537.975
+margin_top = 358.059
+margin_right = 737.975
+margin_bottom = 435.059
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
+text = "MENU"
+flat = true
 
 [node name="SFX" type="Node" parent="." groups=[
 "SFX",
 ]]
+editor/display_folded = true
 
 [node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 3 )
-volume_db = -35.0
-
-[node name="Frog" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = -25.0
 
+[node name="Frog" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+volume_db = -5.0
+
 [node name="Hit_Enemy" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 5 )
-volume_db = -15.0
+stream = ExtResource( 7 )
+volume_db = -10.0
 
 [node name="Level_01" type="Node2D" parent="." groups=[
 "Level",
 ]]
 pause_mode = 1
-editor/display_folded = true
 
 [node name="Music" type="AudioStreamPlayer" parent="Level_01"]
-stream = ExtResource( 6 )
-volume_db = -10.0
+stream = ExtResource( 8 )
+volume_db = -20.0
 autoplay = true
 
 [node name="TileMap" type="TileMap" parent="Level_01" groups=[
@@ -54,18 +93,34 @@ autoplay = true
 ]]
 scale = Vector2( 2, 2 )
 z_as_relative = false
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 9 )
 cell_size = Vector2( 32, 16 )
 collision_mask = 46
 format = 1
-tile_data = PoolIntArray( 2621439, 1, 0, 2555932, 1, 0, 2686975, 1, 0, 2621468, 1, 0, 2752511, 1, 0, 2687004, 1, 0, 2818047, 1, 0, 2752540, 1, 0, 2818048, 1, 0, 2818049, 1, 0, 2818074, 1, 0, 2818075, 1, 0, 2883586, 1, 0, 2883587, 1, 0, 2883608, 1, 0, 2883609, 1, 0, 2949124, 1, 0, 2949125, 1, 0, 2949142, 1, 0, 2949143, 1, 0, 3014663, 1, 0, 3014664, 1, 0, 3014665, 1, 0, 3014666, 1, 0, 3014667, 1, 0, 3014668, 1, 0, 3014669, 1, 0, 3014670, 1, 0, 3014671, 1, 0, 3014672, 1, 0, 3014673, 1, 0, 3014674, 1, 0, 3014675, 1, 0, 3014676, 1, 0 )
+tile_data = PoolIntArray( 2686977, 0, 0, 2752513, 0, 0, 2818049, 0, 0, 2883585, 0, 0, 2883599, 0, 0, 2883600, 1, 0, 2883601, 1, 0, 2883602, 1, 0, 2883603, 1, 0, 2883604, 1, 0, 2883605, 1, 0, 2883606, 1, 0, 2883607, 1, 0, 2883608, 1, 0, 2883609, 1, 0, 2883610, 1, 0, 2883611, 0, 0, 2949121, 0, 0, 3014657, 0, 0, 3014658, 2, 0, 3014659, 2, 0, 3014660, 2, 0, 3014661, 2, 0, 3014662, 2, 0, 3014663, 2, 0, 3014664, 1, 0, 3014665, 1, 0, 3014666, 1, 0, 3014667, 1, 0, 3014668, 1, 0, 3014669, 2, 0, 3080221, 0, 0, 3080222, 1, 0, 3080223, 1, 0, 3080224, 1, 0, 3080225, 1, 0, 3080226, 1, 0, 3080227, 1, 0, 3080228, 1, 0, 3080229, 1, 0, 3080230, 1, 0, 3080231, 1, 0, 3080232, 1, 0, 3080233, 1, 0, 3080234, 2, 0 )
 
-[node name="Santa" parent="Level_01" instance=ExtResource( 8 )]
+[node name="Santa" parent="Level_01" instance=ExtResource( 10 )]
 position = Vector2( 689.415, 1393.94 )
 
-[node name="Skeleton" parent="Level_01" instance=ExtResource( 9 )]
-position = Vector2( 1143.99, 1379.26 )
+[node name="Skeleton" parent="Level_01" instance=ExtResource( 11 )]
+position = Vector2( 1681.33, 1326.27 )
 
-[node name="Frog" parent="Level_01" instance=ExtResource( 10 )]
-position = Vector2( 1133.78, 1275.26 )
+[node name="Skeleton2" parent="Level_01" instance=ExtResource( 11 )]
+position = Vector2( 1924.09, 1423.06 )
 
+[node name="Frog" parent="Level_01" instance=ExtResource( 12 )]
+position = Vector2( 708.364, 1446.16 )
+
+[node name="Frog2" parent="Level_01" instance=ExtResource( 12 )]
+editor/display_folded = true
+position = Vector2( 1495.65, 1382.93 )
+
+[node name="Frog3" parent="Level_01" instance=ExtResource( 12 )]
+editor/display_folded = true
+position = Vector2( 2678.4, 1472.19 )
+
+[node name="Frog4" parent="Level_01" instance=ExtResource( 12 )]
+editor/display_folded = true
+position = Vector2( 1876.01, 1476.34 )
+
+[connection signal="pressed" from="GUI/Exit_Game" to="." method="_on_Exit_Game_pressed"]
