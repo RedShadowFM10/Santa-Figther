@@ -22,7 +22,8 @@ func _on_Full_Screen_pressed():
 	OS.set_window_fullscreen(full_screen)
 
 func _on_Full_Screen_mouse_entered():
-	modulate = Color(0, 0, 0)
+#	modulate = Color(0, 0, 0)
+	modulate = Color("737373")
 
 func _on_Full_Screen_mouse_exited():
 	modulate = Color(1, 1, 1)

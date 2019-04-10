@@ -19,6 +19,8 @@ func _ready():
 
 func _physics_process(delta):
 	if !is_on_floor():
+		if !$RayCastFloor.is_colliding():
+			move.x = 0
 		move.y += gravity * delta
 	else:
 		move.y = 0

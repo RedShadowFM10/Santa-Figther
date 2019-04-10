@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sounds/Music/Beat&em_Up_Level.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Tile Map/Tile Set.tres" type="TileSet" id=2]
+[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Bodies/Skeleton/Skeleton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Bodies/Frog/Frog.tscn" type="PackedScene" id=5]
+
+[node name="01" type="Node2D" groups=[
+"Level",
+]]
+pause_mode = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -20.0
+autoplay = true
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"Floor",
+]]
+scale = Vector2( 2, 2 )
+z_as_relative = false
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 16 )
+collision_mask = 46
+format = 1
+tile_data = PoolIntArray( 2686977, 0, 0, 2752513, 0, 0, 2818049, 0, 0, 2883585, 0, 0, 2883599, 0, 0, 2883600, 1, 0, 2883601, 1, 0, 2883602, 1, 0, 2883603, 1, 0, 2883604, 1, 0, 2883605, 1, 0, 2883606, 1, 0, 2883607, 1, 0, 2883608, 1, 0, 2883609, 1, 0, 2883610, 1, 0, 2883611, 0, 0, 2949121, 0, 0, 3014657, 0, 0, 3014658, 2, 0, 3014659, 2, 0, 3014660, 2, 0, 3014661, 2, 0, 3014662, 2, 0, 3014663, 2, 0, 3014664, 1, 0, 3014665, 1, 0, 3014666, 1, 0, 3014667, 1, 0, 3014668, 1, 0, 3014669, 2, 0, 3080221, 0, 0, 3080222, 1, 0, 3080223, 1, 0, 3080224, 1, 0, 3080225, 1, 0, 3080226, 1, 0, 3080227, 1, 0, 3080228, 1, 0, 3080229, 1, 0, 3080230, 1, 0, 3080231, 1, 0, 3080232, 1, 0, 3080233, 1, 0, 3080234, 2, 0 )
+
+[node name="Santa" parent="." instance=ExtResource( 3 )]
+position = Vector2( 689.415, 1393.94 )
+
+[node name="Skeleton" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1681.33, 1326.27 )
+
+[node name="Skeleton2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1924.09, 1423.06 )
+
+[node name="Frog" parent="." instance=ExtResource( 5 )]
+position = Vector2( 708.364, 1446.16 )
+
+[node name="Frog2" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
+position = Vector2( 1495.65, 1382.93 )
+
+[node name="Frog3" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
+position = Vector2( 2678.4, 1472.19 )
+
+[node name="Frog4" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
+position = Vector2( 1876.01, 1476.34 )
+

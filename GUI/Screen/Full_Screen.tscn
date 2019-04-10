@@ -6,10 +6,10 @@
 
 [node name="Full_Screen" type="TextureButton"]
 anchor_right = 1.0
-margin_left = 1164.46
-margin_top = 596.64
-margin_right = -65.5439
-margin_bottom = 646.64
+margin_left = 1180.0
+margin_top = 620.0
+margin_right = -50.0
+margin_bottom = 670.0
 rect_scale = Vector2( 2, 2 )
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )

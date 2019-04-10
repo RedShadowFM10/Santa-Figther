@@ -20,6 +20,12 @@ var kick_jump = false
 var gift01 = false
 var gift02 = false
 
+# Si puede o no usar lo ataques
+var can_punch = false
+var can_super_attack = false
+var can_kick = false
+var can_gift = false
+
 # Verifica el tipo de puñetazo
 var punch01_02 = false # false Punch 01 / true Punch 02
 
@@ -55,7 +61,7 @@ func _physics_process(delta):
 			if kick_jump:
 				Kick_Frames()
 			
-			if Input.is_action_pressed("N") && !anim: # Kick
+			if Input.is_action_pressed("N") && !anim && can_kick: # Kick
 				$SFX_Kick.play()
 				$AnimatedSprite.frame = 0
 				$AnimatedSprite.play("Kick")
@@ -95,7 +101,7 @@ func _physics_process(delta):
 				Gift_Instance(false)
 			
 			if !anim: # Si no se está ejecutando una animación
-				if Input.is_action_pressed("Space"): # Punch
+				if Input.is_action_pressed("Space") && can_punch: # Punch
 					$SFX_Punch.play()
 					move.x = 0
 					punch = true
@@ -106,7 +112,7 @@ func _physics_process(delta):
 					else:
 						$AnimatedSprite.play("Punch 02")
 					Anim()
-				elif Input.is_action_pressed("N"): # Kick
+				elif Input.is_action_pressed("N") && can_kick: # Kick
 					$SFX_Kick.play()
 					move.x = 0
 					kick = true
@@ -114,14 +120,14 @@ func _physics_process(delta):
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Kick")
 					Anim()
-				elif Input.is_action_pressed("Down"): # Super Attack
+				elif Input.is_action_pressed("Down") && can_super_attack: # Super Attack
 					move.x = 0
 					anim = true
 					super_attack = true
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Super Attack")
 					Anim()
-				elif Input.is_action_pressed("B") && !throw01 && gifts >= 1: # Gift 01
+				elif Input.is_action_pressed("B") && !throw01 && gifts >= 1 && can_gift: # Gift 01
 					move.x = 0
 					gift01 = true
 					anim = true
@@ -129,7 +135,7 @@ func _physics_process(delta):
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Gift 01")
 					Anim()
-				elif Input.is_action_pressed("V") && !throw02 && gifts >= 1: # Gift 02
+				elif Input.is_action_pressed("V") && !throw02 && gifts >= 1 && can_gift: # Gift 02
 					move.x = 0
 					gift02 = true
 					anim = true
@@ -355,6 +361,7 @@ func _on_Area2D_area_entered(area):
 
 func Dead():
 	dead = true
+	get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
 	move.x = 0
 	$AnimatedSprite.play("Dead")
 	remove_from_group("Player")
