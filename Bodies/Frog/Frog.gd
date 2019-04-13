@@ -20,18 +20,18 @@ func _ready():
 func _physics_process(delta):
 	if !is_on_floor():
 		if !$RayCastFloor.is_colliding():
-			move.x = 0
+			direction = !direction
+			Adjust()
+			Move_Direction()
 		move.y += gravity * delta
 	else:
 		move.y = 0
 		move.x = 0
-		if !$RayCastFloor.is_colliding():
-			direction = !direction
-			Adjust()
 	
 	if is_on_wall():
 		direction = !direction
 		Adjust()
+		Move_Direction()
 	
 	move = move_and_slide(move, Vector2(0, -1))
 
@@ -47,13 +47,16 @@ func Adjust():
 
 func _on_Jump_timeout():
 	move.y = -150
+	Move_Direction()
+	$AnimatedSprite.frame = 0
+	$AnimatedSprite.play("Jump")
+
+func Move_Direction():
 	if direction:
 		move.x = 150
 	else:
 		move.x = -150
 	move = move_and_slide(move)
-	$AnimatedSprite.frame = 0
-	$AnimatedSprite.play("Jump")
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Super_Attack") || area.is_in_group("Explosion") || area.is_in_group("Attack_Enemy"):

@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sounds/Music/Beat&em_Up_Level.ogg" type="AudioStream" id=1]
-[ext_resource path="res://Tile Map/Tile Set.tres" type="TileSet" id=2]
+[ext_resource path="res://Tile_Map/01_Tile_Set.tres" type="TileSet" id=2]
 [ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Bodies/Skeleton/Skeleton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Bodies/Frog/Frog.tscn" type="PackedScene" id=5]
 
 [node name="01" type="Node2D" groups=[
 "Level",
@@ -22,32 +20,11 @@ autoplay = true
 scale = Vector2( 2, 2 )
 z_as_relative = false
 tile_set = ExtResource( 2 )
-cell_size = Vector2( 32, 16 )
+cell_size = Vector2( 6, 16 )
 collision_mask = 46
 format = 1
-tile_data = PoolIntArray( 2686977, 0, 0, 2752513, 0, 0, 2818049, 0, 0, 2883585, 0, 0, 2883599, 0, 0, 2883600, 1, 0, 2883601, 1, 0, 2883602, 1, 0, 2883603, 1, 0, 2883604, 1, 0, 2883605, 1, 0, 2883606, 1, 0, 2883607, 1, 0, 2883608, 1, 0, 2883609, 1, 0, 2883610, 1, 0, 2883611, 0, 0, 2949121, 0, 0, 3014657, 0, 0, 3014658, 2, 0, 3014659, 2, 0, 3014660, 2, 0, 3014661, 2, 0, 3014662, 2, 0, 3014663, 2, 0, 3014664, 1, 0, 3014665, 1, 0, 3014666, 1, 0, 3014667, 1, 0, 3014668, 1, 0, 3014669, 2, 0, 3080221, 0, 0, 3080222, 1, 0, 3080223, 1, 0, 3080224, 1, 0, 3080225, 1, 0, 3080226, 1, 0, 3080227, 1, 0, 3080228, 1, 0, 3080229, 1, 0, 3080230, 1, 0, 3080231, 1, 0, 3080232, 1, 0, 3080233, 1, 0, 3080234, 2, 0 )
+tile_data = PoolIntArray( 3014680, 0, 0, 3014685, 1, 0, 3014691, 1, 0, 3014697, 1, 0, 3014703, 1, 0, 3014709, 1, 0, 3014715, 1, 0, 3014721, 1, 0, 3014727, 1, 0, 3014733, 1, 0, 3014739, 2, 0, 3014748, 3, 0, 3014752, 4, 0, 3014756, 4, 0, 3014760, 4, 0, 3014764, 4, 0, 3014768, 4, 0, 3014772, 4, 0, 3014776, 4, 0, 3014780, 4, 0, 3014784, 4, 0, 3014788, 4, 0, 3014792, 4, 0, 3014796, 4, 0, 3014800, 4, 0, 3014804, 4, 0, 3014808, 4, 0, 3014812, 5, 0, 3211356, 6, 0, 3211360, 7, 0, 3211364, 7, 0, 3211368, 7, 0, 3211372, 7, 0, 3211376, 7, 0, 3211380, 7, 0, 3211384, 7, 0, 3211388, 7, 0, 3211392, 7, 0, 3211396, 7, 0, 3211400, 7, 0, 3211404, 7, 0, 3211408, 7, 0, 3211412, 7, 0, 3211416, 7, 0, 3211420, 8, 0, 3342428, 6, 0, 3342432, 7, 0, 3342436, 7, 0, 3342440, 7, 0, 3342444, 7, 0, 3342448, 7, 0, 3342452, 7, 0, 3342456, 7, 0, 3342460, 7, 0, 3342464, 7, 0, 3342468, 7, 0, 3342472, 7, 0, 3342476, 7, 0, 3342480, 7, 0, 3342484, 7, 0, 3342488, 7, 0, 3342492, 8, 0, 3473500, 6, 0, 3473504, 7, 0, 3473508, 7, 0, 3473512, 7, 0, 3473516, 7, 0, 3473520, 7, 0, 3473524, 7, 0, 3473528, 7, 0, 3473532, 7, 0, 3473536, 7, 0, 3473540, 7, 0, 3473544, 7, 0, 3473548, 7, 0, 3473552, 7, 0, 3473556, 7, 0, 3473560, 7, 0, 3473564, 8, 0 )
 
 [node name="Santa" parent="." instance=ExtResource( 3 )]
 position = Vector2( 689.415, 1393.94 )
-
-[node name="Skeleton" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1681.33, 1326.27 )
-
-[node name="Skeleton2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1924.09, 1423.06 )
-
-[node name="Frog" parent="." instance=ExtResource( 5 )]
-position = Vector2( 708.364, 1446.16 )
-
-[node name="Frog2" parent="." instance=ExtResource( 5 )]
-editor/display_folded = true
-position = Vector2( 1495.65, 1382.93 )
-
-[node name="Frog3" parent="." instance=ExtResource( 5 )]
-editor/display_folded = true
-position = Vector2( 2678.4, 1472.19 )
-
-[node name="Frog4" parent="." instance=ExtResource( 5 )]
-editor/display_folded = true
-position = Vector2( 1876.01, 1476.34 )
 

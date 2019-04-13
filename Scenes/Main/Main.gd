@@ -45,6 +45,7 @@ func _on_Retry_pressed():
 
 func Santa_Dead():
 	santa_dead = true
+	yield(get_tree().create_timer(2), "timeout")
 	$GUI/Full_Screen.visible = true
 	$GUI/Retry.visible = true
 	$GUI/Menu.visible = true

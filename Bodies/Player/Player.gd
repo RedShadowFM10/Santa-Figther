@@ -45,12 +45,20 @@ var list_lives = [] # Contendrá las vidas instanciadas
 # Sprite regalo GUI
 export (PackedScene) var gift_gui
 
+var gui_gift = false
 var gifts = 3 # Liimite de regalos
 var list_gifts = [] # Contrendrá los regalos instanciados
 
 func _ready():
 	Create_lives()
-	Create_Gifts()
+	gui_gift = Global.gui_gift
+	if gui_gift:
+		Create_Gifts()
+	# Saber que ataques puede usar
+	can_punch = Global.can_punch
+	can_super_attack = Global.can_super_attack
+	can_kick = Global.can_kick
+	can_gift = Global.can_gift
 
 func _physics_process(delta):
 	if !is_on_floor(): # Si no está en el suelo

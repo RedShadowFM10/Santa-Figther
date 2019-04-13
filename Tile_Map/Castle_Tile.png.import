@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Castle Tile.png-2318b0a89d51c8f21058caf6b346c952.stex"
+path="res://.import/Castle_Tile.png-7d17dc76ccc6b2ecdcaf284db5c1341b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tile Map/Castle Tile.png"
-dest_files=[ "res://.import/Castle Tile.png-2318b0a89d51c8f21058caf6b346c952.stex" ]
+source_file="res://Tile_Map/Castle_Tile.png"
+dest_files=[ "res://.import/Castle_Tile.png-7d17dc76ccc6b2ecdcaf284db5c1341b.stex" ]
 
 [params]
 
