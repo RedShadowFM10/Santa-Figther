@@ -35,6 +35,10 @@ var throw02 = false
 
 var offset = 50 # La distancia de dibujado entre cada Sprite del GUI
 
+# Clamp
+var clamp_min = 158
+var clamp_max = 999999999
+
 # Sprites vidas GUI
 export (PackedScene) var hp_gui
 export (PackedScene) var hp_empty_gui
@@ -61,6 +65,8 @@ func _ready():
 	can_gift = Global.can_gift
 
 func _physics_process(delta):
+	global_position.x = clamp(global_position.x, clamp_min, clamp_max)
+	
 	if !is_on_floor(): # Si no está en el suelo
 		move.y += gravity * delta
 		jump = false

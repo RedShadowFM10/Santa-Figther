@@ -1,30 +1,64 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Sounds/Music/Beat&em_Up_Level.ogg" type="AudioStream" id=1]
-[ext_resource path="res://Tile_Map/01_Tile_Set.tres" type="TileSet" id=2]
-[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/01.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Music/Beat&em_Up_Level.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Tile_Map/01_Tile_Set.tres" type="TileSet" id=4]
+[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Backgrounds/Background_01.png" type="Texture" id=6]
 
-[node name="01" type="Node2D" groups=[
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="01" type="Control" groups=[
 "Level",
 ]]
 pause_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource( 2 )
 volume_db = -20.0
 autoplay = true
+
+[node name="Instructions" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -280.0
+margin_bottom = -154.0
+custom_fonts/font = SubResource( 1 )
+text = "YOU NEED TO FIND 
+THE KEY AT EACH LEVEL TO ADVANCE"
+align = 1
+valign = 1
 
 [node name="TileMap" type="TileMap" parent="." groups=[
 "Floor",
 ]]
-scale = Vector2( 2, 2 )
+scale = Vector2( 2.5, 2.5 )
 z_as_relative = false
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 6, 16 )
 collision_mask = 46
 format = 1
-tile_data = PoolIntArray( 3014680, 0, 0, 3014685, 1, 0, 3014691, 1, 0, 3014697, 1, 0, 3014703, 1, 0, 3014709, 1, 0, 3014715, 1, 0, 3014721, 1, 0, 3014727, 1, 0, 3014733, 1, 0, 3014739, 2, 0, 3014748, 3, 0, 3014752, 4, 0, 3014756, 4, 0, 3014760, 4, 0, 3014764, 4, 0, 3014768, 4, 0, 3014772, 4, 0, 3014776, 4, 0, 3014780, 4, 0, 3014784, 4, 0, 3014788, 4, 0, 3014792, 4, 0, 3014796, 4, 0, 3014800, 4, 0, 3014804, 4, 0, 3014808, 4, 0, 3014812, 5, 0, 3211356, 6, 0, 3211360, 7, 0, 3211364, 7, 0, 3211368, 7, 0, 3211372, 7, 0, 3211376, 7, 0, 3211380, 7, 0, 3211384, 7, 0, 3211388, 7, 0, 3211392, 7, 0, 3211396, 7, 0, 3211400, 7, 0, 3211404, 7, 0, 3211408, 7, 0, 3211412, 7, 0, 3211416, 7, 0, 3211420, 8, 0, 3342428, 6, 0, 3342432, 7, 0, 3342436, 7, 0, 3342440, 7, 0, 3342444, 7, 0, 3342448, 7, 0, 3342452, 7, 0, 3342456, 7, 0, 3342460, 7, 0, 3342464, 7, 0, 3342468, 7, 0, 3342472, 7, 0, 3342476, 7, 0, 3342480, 7, 0, 3342484, 7, 0, 3342488, 7, 0, 3342492, 8, 0, 3473500, 6, 0, 3473504, 7, 0, 3473508, 7, 0, 3473512, 7, 0, 3473516, 7, 0, 3473520, 7, 0, 3473524, 7, 0, 3473528, 7, 0, 3473532, 7, 0, 3473536, 7, 0, 3473540, 7, 0, 3473544, 7, 0, 3473548, 7, 0, 3473552, 7, 0, 3473556, 7, 0, 3473560, 7, 0, 3473564, 8, 0 )
+tile_data = PoolIntArray( 458810, 1, 0, 458816, 1, 0, 458822, 1, 0, 720896, 3, 0, 720900, 4, 0, 720904, 4, 0, 720908, 4, 0, 720912, 4, 0, 720916, 4, 0, 720920, 4, 0, 720924, 4, 0, 720928, 4, 0, 720932, 4, 0, 720936, 4, 0, 720940, 4, 0, 720944, 4, 0, 720948, 4, 0, 720952, 4, 0, 720956, 4, 0, 720960, 4, 0, 720964, 4, 0, 720968, 4, 0, 720972, 4, 0, 720976, 4, 0, 720980, 4, 0, 720984, 4, 0, 720988, 4, 0, 720992, 4, 0, 720996, 5, 0, 983040, 6, 0, 983044, 7, 0, 983048, 7, 0, 983052, 7, 0, 983056, 7, 0, 983060, 7, 0, 983064, 7, 0, 983068, 7, 0, 983072, 7, 0, 983076, 7, 0, 983080, 7, 0, 983084, 7, 0, 983088, 7, 0, 983092, 7, 0, 983096, 7, 0, 983100, 7, 0, 983104, 7, 0, 983108, 7, 0, 983112, 7, 0, 983116, 7, 0, 983120, 7, 0, 983124, 7, 0, 983128, 7, 0, 983132, 7, 0, 983136, 7, 0, 983140, 8, 0, 1048576, 6, 0, 1048580, 7, 0, 1048584, 7, 0, 1048588, 7, 0, 1048592, 7, 0, 1048596, 7, 0, 1048600, 7, 0, 1048604, 7, 0, 1048608, 7, 0, 1048612, 7, 0, 1048616, 7, 0, 1048620, 7, 0, 1048624, 7, 0, 1048628, 7, 0, 1048632, 7, 0, 1048636, 7, 0, 1048640, 7, 0, 1048644, 7, 0, 1048648, 7, 0, 1048652, 7, 0, 1048656, 7, 0, 1048660, 7, 0, 1048664, 7, 0, 1048668, 7, 0, 1048672, 7, 0, 1048676, 8, 0, 1114112, 6, 0, 1114116, 7, 0, 1114120, 7, 0, 1114124, 7, 0, 1114128, 7, 0, 1114132, 7, 0, 1114136, 7, 0, 1114140, 7, 0, 1114144, 7, 0, 1114148, 7, 0, 1114152, 7, 0, 1114156, 7, 0, 1114160, 7, 0, 1114164, 7, 0, 1114168, 7, 0, 1114172, 7, 0, 1114176, 7, 0, 1114180, 7, 0, 1114184, 7, 0, 1114188, 7, 0, 1114192, 7, 0, 1114196, 7, 0, 1114200, 7, 0, 1114204, 7, 0, 1114208, 7, 0, 1114212, 8, 0, 1179648, 6, 0, 1179652, 7, 0, 1179656, 7, 0, 1179660, 7, 0, 1179664, 7, 0, 1179668, 7, 0, 1179672, 7, 0, 1179676, 7, 0, 1179680, 7, 0, 1179684, 7, 0, 1179688, 7, 0, 1179692, 7, 0, 1179696, 7, 0, 1179700, 7, 0, 1179704, 7, 0, 1179708, 7, 0, 1179712, 7, 0, 1179716, 7, 0, 1179720, 7, 0, 1179724, 7, 0, 1179728, 7, 0, 1179732, 7, 0, 1179736, 7, 0, 1179740, 7, 0, 1179744, 7, 0, 1179748, 8, 0 )
 
-[node name="Santa" parent="." instance=ExtResource( 3 )]
-position = Vector2( 689.415, 1393.94 )
+[node name="Santa" parent="." instance=ExtResource( 5 )]
+position = Vector2( 188.9, 380.944 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 643.405, 120.644 )
+z_index = -1
+z_as_relative = false
+texture = ExtResource( 6 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -4,7 +4,7 @@ Explosion: https://opengameart.org/content/explosion-3
 Hearth Pixel: https://opengameart.org/content/heart-1616
 Santa Claus Pixel: https://opengameart.org/content/pixel-art-santa-sprites
 Skeleton: https://jesse-m.itch.io/skeleton-pack
-Tile Map 01: https://opengameart.org/users/buch
+Tile Map 01, Background_01: https://opengameart.org/users/buch
 Frog: https://opengameart.org/content/chibi-monsters-set-01
 Smaller, Larger: https://kenney.nl/assets/game-icons
 
