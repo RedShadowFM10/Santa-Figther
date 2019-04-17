@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Bodies/Gift/Gift.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GUI/Screen/Full_Screen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/Full_Screen/Full_Screen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=6]
@@ -30,7 +30,6 @@ gift = ExtResource( 2 )
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
-editor/display_folded = true
 
 [node name="Full_Screen" parent="GUI" instance=ExtResource( 3 )]
 visible = false

@@ -22,7 +22,7 @@ func _input(_event):
 		$GUI/Pause.visible = !$GUI/Pause.visible
 	elif Input.is_action_just_pressed("Enter"):
 		$GUI/Full_Screen.visible = false
-		get_tree().reload_current_scene()
+		Fade_In_Out.reload_scene()
 
 func Gift_Instaciar(kind_gift, position, direction):
 	var new_gift = gift.instance()
@@ -41,7 +41,7 @@ func _on_Menu_pressed():
 	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
 
 func _on_Retry_pressed():
-	get_tree().reload_current_scene()
+	Fade_In_Out.reload_scene()
 
 func Santa_Dead():
 	santa_dead = true
