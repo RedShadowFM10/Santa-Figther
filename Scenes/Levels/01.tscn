@@ -1,17 +1,54 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scenes/Levels/01.gd" type="Script" id=1]
-[ext_resource path="res://GUI/Backgrounds/Background_01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GUI/Backgrounds/Background_01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tile_Map/01_Tile_Set.tres" type="TileSet" id=2]
 [ext_resource path="res://Sounds/Music/Beat&em_Up_Level.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Tile_Map/01_Tile_Set.tres" type="TileSet" id=5]
-[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://GUI/Backgrounds/Sprites/Background_01.png" type="Texture" id=7]
-[ext_resource path="res://Bodies/Plataforms/Plataform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bodies/Platforms/Platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Mini_Monster_01.tscn" type="PackedScene" id=7]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var count = 0
+
+#func _ready():
+#	$Santa.get_node(\"AnimatedSprite\").playing = true
+#	$Santa.dead = true
+#
+#func _on_Timer_timeout():
+#	count += 1
+#	if count == 1:
+#		$Timer.wait_time = 10
+#		$Timer.start()
+#		$Instructions.set_text(\"PRESS W, A, S, D\\nAND\\nTHE ARROWS TO MOVE\")
+#		$Santa.dead = false
+#	if count == 2:
+#		$Instructions.queue_free()
+#		count = 0
+"
+
+[sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Movement"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1725.39, 461.012 ), Vector2( 2150, 461.012 ) ]
+}
 
 [node name="01" type="Control" groups=[
 "Level",
@@ -19,9 +56,20 @@ font_data = ExtResource( 4 )
 pause_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = SubResource( 1 )
 
-[node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
+[node name="CanvasLayer" parent="." instance=ExtResource( 1 )]
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"Floor",
+]]
+scale = Vector2( 2.5, 2.5 )
+z_as_relative = false
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 6, 16 )
+collision_mask = 46
+format = 1
+tile_data = PoolIntArray( 720896, 3, 0, 720900, 4, 0, 720904, 4, 0, 720908, 4, 0, 720912, 4, 0, 720916, 4, 0, 720920, 4, 0, 720924, 4, 0, 720928, 4, 0, 720932, 4, 0, 720936, 4, 0, 720940, 4, 0, 720944, 4, 0, 720948, 4, 0, 720952, 4, 0, 720956, 4, 0, 720960, 4, 0, 720964, 4, 0, 720968, 4, 0, 720972, 4, 0, 720976, 4, 0, 720980, 4, 0, 720984, 4, 0, 720988, 4, 0, 720992, 4, 0, 720996, 5, 0, 721049, 3, 0, 721053, 4, 0, 721057, 4, 0, 721061, 4, 0, 721065, 4, 0, 721069, 4, 0, 721073, 4, 0, 721077, 4, 0, 721081, 4, 0, 721085, 4, 0, 721089, 4, 0, 721093, 4, 0, 721097, 4, 0, 721101, 4, 0, 721105, 4, 0, 721109, 4, 0, 721113, 4, 0, 721117, 4, 0, 721121, 5, 0, 983040, 6, 0, 983044, 7, 0, 983048, 7, 0, 983052, 7, 0, 983056, 7, 0, 983060, 7, 0, 983064, 7, 0, 983068, 7, 0, 983072, 7, 0, 983076, 7, 0, 983080, 7, 0, 983084, 7, 0, 983088, 7, 0, 983092, 7, 0, 983096, 7, 0, 983100, 7, 0, 983104, 7, 0, 983108, 7, 0, 983112, 7, 0, 983116, 7, 0, 983120, 7, 0, 983124, 7, 0, 983128, 7, 0, 983132, 7, 0, 983136, 7, 0, 983140, 8, 0, 983193, 6, 0, 983197, 7, 0, 983201, 7, 0, 983205, 7, 0, 983209, 7, 0, 983213, 7, 0, 983217, 7, 0, 983221, 7, 0, 983225, 7, 0, 983229, 7, 0, 983233, 7, 0, 983237, 7, 0, 983241, 7, 0, 983245, 7, 0, 983249, 7, 0, 983253, 7, 0, 983257, 7, 0, 983261, 7, 0, 983265, 8, 0, 1048576, 6, 0, 1048580, 7, 0, 1048584, 7, 0, 1048588, 7, 0, 1048592, 7, 0, 1048596, 7, 0, 1048600, 7, 0, 1048604, 7, 0, 1048608, 7, 0, 1048612, 7, 0, 1048616, 7, 0, 1048620, 7, 0, 1048624, 7, 0, 1048628, 7, 0, 1048632, 7, 0, 1048636, 7, 0, 1048640, 7, 0, 1048644, 7, 0, 1048648, 7, 0, 1048652, 7, 0, 1048656, 7, 0, 1048660, 7, 0, 1048664, 7, 0, 1048668, 7, 0, 1048672, 7, 0, 1048676, 8, 0, 1048729, 6, 0, 1048733, 7, 0, 1048737, 7, 0, 1048741, 7, 0, 1048745, 7, 0, 1048749, 7, 0, 1048753, 7, 0, 1048757, 7, 0, 1048761, 7, 0, 1048765, 7, 0, 1048769, 7, 0, 1048773, 7, 0, 1048777, 7, 0, 1048781, 7, 0, 1048785, 7, 0, 1048789, 7, 0, 1048793, 7, 0, 1048797, 7, 0, 1048801, 8, 0, 1114112, 6, 0, 1114116, 7, 0, 1114120, 7, 0, 1114124, 7, 0, 1114128, 7, 0, 1114132, 7, 0, 1114136, 7, 0, 1114140, 7, 0, 1114144, 7, 0, 1114148, 7, 0, 1114152, 7, 0, 1114156, 7, 0, 1114160, 7, 0, 1114164, 7, 0, 1114168, 7, 0, 1114172, 7, 0, 1114176, 7, 0, 1114180, 7, 0, 1114184, 7, 0, 1114188, 7, 0, 1114192, 7, 0, 1114196, 7, 0, 1114200, 7, 0, 1114204, 7, 0, 1114208, 7, 0, 1114212, 8, 0, 1114265, 6, 0, 1114269, 7, 0, 1114273, 7, 0, 1114277, 7, 0, 1114281, 7, 0, 1114285, 7, 0, 1114289, 7, 0, 1114293, 7, 0, 1114297, 7, 0, 1114301, 7, 0, 1114305, 7, 0, 1114309, 7, 0, 1114313, 7, 0, 1114317, 7, 0, 1114321, 7, 0, 1114325, 7, 0, 1114329, 7, 0, 1114333, 7, 0, 1114337, 8, 0, 1179648, 6, 0, 1179652, 7, 0, 1179656, 7, 0, 1179660, 7, 0, 1179664, 7, 0, 1179668, 7, 0, 1179672, 7, 0, 1179676, 7, 0, 1179680, 7, 0, 1179684, 7, 0, 1179688, 7, 0, 1179692, 7, 0, 1179696, 7, 0, 1179700, 7, 0, 1179704, 7, 0, 1179708, 7, 0, 1179712, 7, 0, 1179716, 7, 0, 1179720, 7, 0, 1179724, 7, 0, 1179728, 7, 0, 1179732, 7, 0, 1179736, 7, 0, 1179740, 7, 0, 1179744, 7, 0, 1179748, 8, 0, 1179801, 6, 0, 1179805, 7, 0, 1179809, 7, 0, 1179813, 7, 0, 1179817, 7, 0, 1179821, 7, 0, 1179825, 7, 0, 1179829, 7, 0, 1179833, 7, 0, 1179837, 7, 0, 1179841, 7, 0, 1179845, 7, 0, 1179849, 7, 0, 1179853, 7, 0, 1179857, 7, 0, 1179861, 7, 0, 1179865, 7, 0, 1179869, 7, 0, 1179873, 8, 0 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -34,57 +82,30 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -280.0
 margin_bottom = -154.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "YOU NEED TO FIND 
 THE KEY AT EACH LEVEL TO ADVANCE"
 align = 1
 valign = 1
 
-[node name="TileMap" type="TileMap" parent="." groups=[
-"Floor",
-]]
-scale = Vector2( 2.5, 2.5 )
-z_as_relative = false
-tile_set = ExtResource( 5 )
-cell_size = Vector2( 6, 16 )
-collision_mask = 46
-format = 1
-tile_data = PoolIntArray( 720896, 3, 0, 720900, 4, 0, 720904, 4, 0, 720908, 4, 0, 720912, 4, 0, 720916, 4, 0, 720920, 4, 0, 720924, 4, 0, 720928, 4, 0, 720932, 4, 0, 720936, 4, 0, 720940, 4, 0, 720944, 4, 0, 720948, 4, 0, 720952, 4, 0, 720956, 4, 0, 720960, 4, 0, 720964, 4, 0, 720968, 4, 0, 720972, 4, 0, 720976, 4, 0, 720980, 4, 0, 720984, 4, 0, 720988, 4, 0, 720992, 4, 0, 720996, 5, 0, 983040, 6, 0, 983044, 7, 0, 983048, 7, 0, 983052, 7, 0, 983056, 7, 0, 983060, 7, 0, 983064, 7, 0, 983068, 7, 0, 983072, 7, 0, 983076, 7, 0, 983080, 7, 0, 983084, 7, 0, 983088, 7, 0, 983092, 7, 0, 983096, 7, 0, 983100, 7, 0, 983104, 7, 0, 983108, 7, 0, 983112, 7, 0, 983116, 7, 0, 983120, 7, 0, 983124, 7, 0, 983128, 7, 0, 983132, 7, 0, 983136, 7, 0, 983140, 8, 0, 1048576, 6, 0, 1048580, 7, 0, 1048584, 7, 0, 1048588, 7, 0, 1048592, 7, 0, 1048596, 7, 0, 1048600, 7, 0, 1048604, 7, 0, 1048608, 7, 0, 1048612, 7, 0, 1048616, 7, 0, 1048620, 7, 0, 1048624, 7, 0, 1048628, 7, 0, 1048632, 7, 0, 1048636, 7, 0, 1048640, 7, 0, 1048644, 7, 0, 1048648, 7, 0, 1048652, 7, 0, 1048656, 7, 0, 1048660, 7, 0, 1048664, 7, 0, 1048668, 7, 0, 1048672, 7, 0, 1048676, 8, 0, 1114112, 6, 0, 1114116, 7, 0, 1114120, 7, 0, 1114124, 7, 0, 1114128, 7, 0, 1114132, 7, 0, 1114136, 7, 0, 1114140, 7, 0, 1114144, 7, 0, 1114148, 7, 0, 1114152, 7, 0, 1114156, 7, 0, 1114160, 7, 0, 1114164, 7, 0, 1114168, 7, 0, 1114172, 7, 0, 1114176, 7, 0, 1114180, 7, 0, 1114184, 7, 0, 1114188, 7, 0, 1114192, 7, 0, 1114196, 7, 0, 1114200, 7, 0, 1114204, 7, 0, 1114208, 7, 0, 1114212, 8, 0, 1179648, 6, 0, 1179652, 7, 0, 1179656, 7, 0, 1179660, 7, 0, 1179664, 7, 0, 1179668, 7, 0, 1179672, 7, 0, 1179676, 7, 0, 1179680, 7, 0, 1179684, 7, 0, 1179688, 7, 0, 1179692, 7, 0, 1179696, 7, 0, 1179700, 7, 0, 1179704, 7, 0, 1179708, 7, 0, 1179712, 7, 0, 1179716, 7, 0, 1179720, 7, 0, 1179724, 7, 0, 1179728, 7, 0, 1179732, 7, 0, 1179736, 7, 0, 1179740, 7, 0, 1179744, 7, 0, 1179748, 8, 0 )
-
-[node name="Santa" parent="." instance=ExtResource( 6 )]
-position = Vector2( 188.9, 380.944 )
+[node name="Santa" parent="." instance=ExtResource( 5 )]
+position = Vector2( 424.108, 274.971 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-autostart = true
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 643.405, 120.644 )
-z_index = -1
-z_as_relative = false
-texture = ExtResource( 7 )
+[node name="Platform" parent="." instance=ExtResource( 6 )]
+editor/display_folded = false
+position = Vector2( 2150, 461.012 )
 
-[node name="Plataform" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 356.715, 370.347 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+autoplay = "Movement"
+anims/Movement = SubResource( 3 )
 
-[node name="Plataform2" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 638.451, 370.347 )
-
-[node name="Up" parent="Plataform2" index="1"]
-position = Vector2( -2.8446, -95.1658 )
-
-[node name="Plataform3" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
-position = Vector2( 920.187, 368.075 )
-
-[node name="Up" parent="Plataform3" index="1"]
-position = Vector2( -5.1167, -329.189 )
+[node name="Mini_Monster_01" parent="." instance=ExtResource( 7 )]
+position = Vector2( 919.282, 360.503 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
-[editable path="Plataform2"]
-
-[editable path="Plataform3"]
+[editable path="Platform"]

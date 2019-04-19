@@ -69,7 +69,9 @@ func _physics_process(delta):
 	
 	if !is_on_floor(): # Si no está en el suelo
 		move.y += gravity * delta
-		jump = false
+		if !jump: # Para evitar que caiga demaisado rapido
+			move.y = 1
+			jump = true
 		if !dead: # Si está vivo
 			# Ajustar las colisiones
 			if kick_jump:
@@ -92,8 +94,8 @@ func _physics_process(delta):
 				move.x = -speed
 				Adjust_Left() # Llama a la funcion y ajusta
 	else:
-		move.y = 15 # Para evitar que rebote
-		jump = true
+		move.y = 1000 # Para evitar que rebote
+		jump = false
 		if !dead: # Si está vivo
 			if has_jumped:
 				has_jumped = false
@@ -170,7 +172,8 @@ func _physics_process(delta):
 					move.x = 0
 					$AnimatedSprite.play("Idle")
 				# Salto
-				if Input.is_action_pressed("Up") && jump:
+				if Input.is_action_pressed("Up"):
+					jump = true
 					move.y = -300
 					$AnimatedSprite.play("Jump 02")
 					has_jumped = true

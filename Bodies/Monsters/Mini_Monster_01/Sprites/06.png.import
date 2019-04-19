@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Plataform.png-9dbb47fc97eb88fc4ec9ce8dd622a6fd.stex"
+path="res://.import/06.png-81b411dea9dfd8d69311bc61fcddd1e9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bodies/Plataforms/Sprites/Plataform.png"
-dest_files=[ "res://.import/Plataform.png-9dbb47fc97eb88fc4ec9ce8dd622a6fd.stex" ]
+source_file="res://Bodies/Monsters/Mini_Monster_01/Sprites/06.png"
+dest_files=[ "res://.import/06.png-81b411dea9dfd8d69311bc61fcddd1e9.stex" ]
 
 [params]
 
