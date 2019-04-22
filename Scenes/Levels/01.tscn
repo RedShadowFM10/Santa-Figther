@@ -74,7 +74,6 @@ tile_data = PoolIntArray( 720896, 3, 0, 720900, 4, 0, 720904, 4, 0, 720908, 4, 0
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -20.0
-autoplay = true
 
 [node name="Instructions" type="Label" parent="."]
 anchor_top = 0.5
@@ -89,22 +88,21 @@ align = 1
 valign = 1
 
 [node name="Santa" parent="." instance=ExtResource( 5 )]
-position = Vector2( 424.108, 274.971 )
+position = Vector2( 902.933, 245.793 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
 [node name="Platform" parent="." instance=ExtResource( 6 )]
-editor/display_folded = false
-position = Vector2( 2150, 461.012 )
+position = Vector2( 1725.39, 461.012 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
 autoplay = "Movement"
 anims/Movement = SubResource( 3 )
 
 [node name="Mini_Monster_01" parent="." instance=ExtResource( 7 )]
-position = Vector2( 919.282, 360.503 )
+position = Vector2( 1012.64, 400.457 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

@@ -370,6 +370,9 @@ func _on_Area2D_area_entered(area):
 		$SFX_Hit_Player.play()
 		Change_Modulate()
 		Delete_Lives()
+		yield(get_tree().create_timer(0.1), "timeout")
+		$Area2D/CollisionShape2D.disabled = true
+		$Area2D/Disable_Coll.start()
 	if area.is_in_group("Explosion"):
 		$SFX_Hit_Player.play()
 		Change_Modulate()
@@ -404,3 +407,8 @@ func _on_Lanzar_02_body_entered(body):
 func _on_Lanzar_02_body_exited(body):
 	if body.is_in_group("Floor"):
 		throw02 = false
+
+
+func _on_Disable_Coll_timeout():
+	if !dead:
+		$Area2D/CollisionShape2D.disabled = false
