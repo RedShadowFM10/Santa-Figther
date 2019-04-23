@@ -125,6 +125,7 @@ Right={
 2d_physics/layer_5="Attacks"
 2d_physics/layer_6="NPC"
 2d_physics/layer_7="Explosion"
+2d_physics/layer_8="Platform"
 
 [rendering]
 

@@ -17,7 +17,6 @@ var follow_player = false
 var attack = false
 
 var player # Será igual a las propiedades del Santa
-var dead_santa = false # Si player esta vivo
 var check = false # Para que verifique una vez
 
 var counter = 0 # Contador para los golpes recibidos
@@ -32,9 +31,7 @@ func _physics_process(delta):
 	else:
 		move.y = 15 # Para evitar que rebote
 		
-		if !dead_santa:
-			dead_santa = player.dead
-		elif dead_santa && !check:
+		if player.dead && !check:
 			follow_player = false
 			movement = false
 			$Move.start()
@@ -93,7 +90,7 @@ func _physics_process(delta):
 			if attack:
 				Attack_Frames()
 			
-			if follow_player && !dead_santa:
+			if follow_player && !player.dead:
 				if player.global_position.x > $Position2D.global_position.x:
 					Adjust_Right()
 					Move_Right()
@@ -159,7 +156,7 @@ func Anim():
 	if attack:
 		attack = false
 		follow_player = true
-		if dead_santa:
+		if player.dead:
 			idle = false
 			$Attack_Area/Right.disabled = true
 			$Attack_Area/Left.disabled = true

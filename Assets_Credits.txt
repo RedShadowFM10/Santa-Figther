@@ -16,6 +16,7 @@ Frog: https://opengameart.org/content/mutant-frog
 Punch, Kick: https://opengameart.org/content/3-melee-sounds
 Super_Attack, Hit_Enemy, Hit_Player: https://opengameart.org/content/37-hitspunches
 Take_Item: https://opengameart.org/content/50-cc0-retro-synth-sfx
+Monster_Damage: https://opengameart.org/content/slime-monster
 
 Music
 

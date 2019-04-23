@@ -177,7 +177,8 @@ func _physics_process(delta):
 					move.y = -300
 					$AnimatedSprite.play("Jump 02")
 					has_jumped = true
-	
+		else:
+			move.x = 0
 	move = move_and_slide(move, Vector2(0, -1))
 
 # Crea las tres vidas al iniciar el juego
@@ -382,7 +383,8 @@ func _on_Area2D_area_entered(area):
 func Dead():
 	dead = true
 	get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
-	move.x = 0
+	if is_on_floor():
+		move.x = 0
 	$AnimatedSprite.play("Dead")
 	remove_from_group("Player")
 	yield(get_tree().create_timer(0.1), "timeout")

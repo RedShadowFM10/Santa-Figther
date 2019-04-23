@@ -7,7 +7,8 @@ extents = Vector2( 119.673, 19.7833 )
 
 [node name="Platform" type="KinematicBody2D"]
 editor/display_folded = true
-collision_mask = 46
+collision_layer = 128
+collision_mask = 47
 motion/sync_to_physics = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -16,4 +17,6 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

@@ -30,6 +30,7 @@ gift = ExtResource( 2 )
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
+editor/display_folded = true
 
 [node name="Full_Screen" parent="GUI" instance=ExtResource( 3 )]
 visible = false
