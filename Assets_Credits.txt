@@ -7,7 +7,7 @@ Skeleton: https://jesse-m.itch.io/skeleton-pack
 Tile Map 01, Background_01, Plataform: https://opengameart.org/users/buch
 Frog: https://opengameart.org/content/chibi-monsters-set-01
 Smaller, Larger: https://kenney.nl/assets/game-icons
-Mini_Monster_01: https://0x72.itch.io/dungeontileset-ii
+Mini_Monster_01 - 02: https://0x72.itch.io/dungeontileset-ii
 
 SFX.
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://GUI/Backgrounds/Background_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile_Map/01_Tile_Set.tres" type="TileSet" id=2]
@@ -8,12 +8,13 @@
 [ext_resource path="res://Bodies/Platforms/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Mini_Monster_01.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Bodies/Items/Hearth/Hearth_Item.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Mini_Monster_02.tscn" type="PackedScene" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
-var count = 0
-
+#var count = 0
+#
 #func _ready():
 #	$Santa.get_node(\"AnimatedSprite\").playing = true
 #	$Santa.dead = true
@@ -70,7 +71,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "Nueva animación"
-length = 5.0
+length = 6.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -79,11 +80,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2.5 ),
+"times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 5407, 66 ), Vector2( 6059, 66 ) ]
+"values": [ Vector2( 5300, 66 ), Vector2( 6059, 66 ) ]
 }
+
+[sub_resource type="Animation" id=6]
+resource_name = "Nueva animación"
 
 [node name="01" type="Control" groups=[
 "Level",
@@ -94,7 +98,7 @@ anchor_bottom = 1.0
 script = SubResource( 1 )
 
 [node name="Line2D" type="Line2D" parent="."]
-position = Vector2( 1280, 730 )
+position = Vector2( 6882.22, 730 )
 z_index = 10
 z_as_relative = false
 points = PoolVector2Array( 3000, 0, 0, 0 )
@@ -119,7 +123,6 @@ volume_db = -20.0
 autoplay = true
 
 [node name="Instructions" type="Label" parent="."]
-visible = false
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -136,7 +139,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Santa" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1145.87, 327.347 )
+position = Vector2( 161.405, 382.368 )
 
 [node name="Platforms" type="Node" parent="."]
 editor/display_folded = true
@@ -156,11 +159,17 @@ autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 4 )
 
 [node name="Platform3" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 5407, 66 )
+position = Vector2( 5300, 66 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform3" index="2"]
 autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 5 )
+
+[node name="Platform4" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 7115.35, 60 )
+
+[node name="AnimationPlayer" parent="Platforms/Platform4" index="2"]
+"anims/Nueva animación" = SubResource( 6 )
 
 [node name="Monster" type="Node" parent="."]
 editor/display_folded = true
@@ -175,21 +184,23 @@ position = Vector2( 3727.95, 4.17491 )
 position = Vector2( 4992.85, 1.19479 )
 
 [node name="Items" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Hearth_Item" parent="Items" instance=ExtResource( 8 )]
 editor/display_folded = true
-position = Vector2( 6218.38, 15.4186 )
+position = Vector2( 6524.37, 19.9406 )
 
 [node name="Timer" parent="Items/Hearth_Item" index="3"]
 autostart = false
 
 [node name="Hearth_Item2" parent="Items" instance=ExtResource( 8 )]
 editor/display_folded = true
-position = Vector2( 6889.95, 20.3296 )
+position = Vector2( 6864.33, 21.8369 )
 
 [node name="Timer" parent="Items/Hearth_Item2" index="3"]
 autostart = false
+
+[node name="Mini_Monster_02" parent="." instance=ExtResource( 9 )]
+position = Vector2( 6417.56, 13.3102 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
@@ -198,6 +209,8 @@ autostart = false
 [editable path="Platforms/Platform2"]
 
 [editable path="Platforms/Platform3"]
+
+[editable path="Platforms/Platform4"]
 
 [editable path="Items/Hearth_Item"]
 

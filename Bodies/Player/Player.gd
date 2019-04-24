@@ -4,6 +4,8 @@ var gravity = 600
 var move = Vector2()
 var speed = 350
 
+var detect_enemies = false
+
 # Estados
 var dead = false
 var jump = false
@@ -39,6 +41,9 @@ var offset = 50 # La distancia de dibujado entre cada Sprite del GUI
 var clamp_min = 158
 var clamp_max = 999999999
 
+# Si sale de la pantalla
+var off_screen = false
+
 # Sprites vidas GUI
 export (PackedScene) var hp_gui
 export (PackedScene) var hp_empty_gui
@@ -68,7 +73,8 @@ func _physics_process(delta):
 	global_position.x = clamp(global_position.x, clamp_min, clamp_max)
 	
 	if !is_on_floor(): # Si no está en el suelo
-		move.y += gravity * delta
+		if !off_screen:
+			move.y += gravity * delta
 		if !jump: # Para evitar que caiga demaisado rapido
 			move.y = 1
 			jump = true
@@ -94,7 +100,8 @@ func _physics_process(delta):
 				move.x = -speed
 				Adjust_Left() # Llama a la funcion y ajusta
 	else:
-		move.y = 1000 # Para evitar que rebote
+		if !off_screen:
+			move.y = 1000 # Para evitar que rebote
 		jump = false
 		if !dead: # Si está vivo
 			if has_jumped:
@@ -254,6 +261,8 @@ func Anim_Jump():
 # Ajusta la posicion del Sprite y la Colision
 func Adjust_Right():
 	if !adjust:
+		$Area2D/CollisionShape2D.position.x = -124
+		$Area_Items/CollisionShape2D.position.x = -124
 		$AnimatedSprite.flip_h = false
 		$AnimatedSprite.offset.x = 0
 		$Lanzar_01/Right.disabled = false
@@ -265,6 +274,8 @@ func Adjust_Right():
 # Ajusta la posicion del Sprite y la Colision
 func Adjust_Left():
 	if adjust:
+		$Area2D/CollisionShape2D.position.x = -100
+		$Area_Items/CollisionShape2D.position.x = -100
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.offset.x = -64
 		$Lanzar_01/Right.disabled = true
@@ -359,15 +370,9 @@ func Gift_Instance(tipo_gift):
 				get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(false, $Gift_02.global_position, true)
 			gift02 = false
 
-# Deteccion de ataques e items
+# Deteccion de ataques
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Hearth_Item"):
-		$SFX_Take_Item.play()
-		Add_Lives()
-	if area.is_in_group("Gift_Item"):
-		$SFX_Take_Item.play()
-		Add_Gifts()
-	if area.is_in_group("Attack_Enemy"):
+	if area.is_in_group("Attack_Enemy") && !detect_enemies:
 		$SFX_Hit_Player.play()
 		Change_Modulate()
 		Delete_Lives()
@@ -379,6 +384,15 @@ func _on_Area2D_area_entered(area):
 		Change_Modulate()
 		for i in lives:
 			Delete_Lives()
+
+# Deteccion de items
+func _on_Area_Items_area_entered(area):
+	if area.is_in_group("Hearth_Item"):
+		$SFX_Take_Item.play()
+		Add_Lives()
+	if area.is_in_group("Gift_Item"):
+		$SFX_Take_Item.play()
+		Add_Gifts()
 
 func Dead():
 	dead = true
@@ -410,7 +424,15 @@ func _on_Lanzar_02_body_exited(body):
 	if body.is_in_group("Floor"):
 		throw02 = false
 
-
 func _on_Disable_Coll_timeout():
 	if !dead:
 		$Area2D/CollisionShape2D.disabled = false
+
+# Si sale de la pantalla
+func _on_VisibilityNotifier2D_screen_exited():
+	off_screen = true
+	dead = true
+	move.x = 0
+	move.y = 0
+	get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
+
