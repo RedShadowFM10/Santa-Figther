@@ -20,6 +20,9 @@ func _ready():
 		stop = false
 
 func _physics_process(delta):
+	if global_position.y > 780:
+		queue_free()
+	
 	if !is_on_floor() && !stop:
 		move.y += gravity * delta
 		if(!gift01_02 && direction):

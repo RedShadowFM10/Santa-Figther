@@ -72,6 +72,7 @@ extents = Vector2( 7.95328, 20.4965 )
 [node name="Mini_Monster_01" type="KinematicBody2D" groups=[
 "Enemy",
 ]]
+editor/display_folded = true
 z_index = 6
 z_as_relative = false
 collision_layer = 4

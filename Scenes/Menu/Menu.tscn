@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/Music/Battle_in_the_winter.ogg" type="AudioStream" id=2]
@@ -20,14 +20,23 @@ size = 64
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 40
+size = 64
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 55
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
 size = 80
 font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -54,12 +63,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -80.0
-margin_top = -30.0
+margin_top = -60.0
 margin_right = 80.0
-margin_bottom = 40.0
+margin_bottom = 10.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "PLAY"
+flat = true
+
+[node name="Credits_Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -138.0
+margin_top = 30.0
+margin_right = 138.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
+text = "CREDITS"
 flat = true
 
 [node name="Exit_Game" type="Button" parent="."]
@@ -67,11 +90,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -168.0
-margin_top = 70.0
-margin_right = 168.0
-margin_bottom = 140.0
-custom_fonts/font = SubResource( 3 )
+margin_left = -170.0
+margin_top = 120.0
+margin_right = 166.0
+margin_bottom = 190.0
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "EXIT GAME"
 flat = true
@@ -82,8 +105,24 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = 310.0
 margin_bottom = 350.0
-custom_fonts/font = SubResource( 4 )
-text = "RedShadowFM10    Alpha v0.1.0"
+custom_fonts/font = SubResource( 5 )
+text = "Alpha v0.1.0"
+align = 1
+valign = 1
+
+[node name="Credits" type="Label" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -146.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 6 )
+text = "CREATED BY
+JULIAN LONDOÑO - RedShadowFM10
+
+THANKS TO
+DANIEL LONDOÑO"
 align = 1
 valign = 1
 
@@ -98,6 +137,7 @@ texture_normal = ExtResource( 4 )
 [node name="Full_Screen" parent="." instance=ExtResource( 5 )]
 
 [node name="Levels" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -107,7 +147,7 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 122.0
 margin_bottom = 106.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "01"
 flat = true
@@ -118,13 +158,14 @@ margin_left = 170.692
 margin_top = 18.892
 margin_right = 272.692
 margin_bottom = 104.892
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "02"
 flat = true
 script = ExtResource( 6 )
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Credits_Button" to="." method="_on_Credits_Button_pressed"]
 [connection signal="pressed" from="Exit_Game" to="." method="_on_Exit_Game_pressed"]
 [connection signal="mouse_entered" from="Back" to="." method="_on_Back_mouse_entered"]
 [connection signal="mouse_exited" from="Back" to="." method="_on_Back_mouse_exited"]

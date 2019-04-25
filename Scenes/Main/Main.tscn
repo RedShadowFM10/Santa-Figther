@@ -27,6 +27,10 @@ pause_mode = 2
 script = ExtResource( 1 )
 gift = ExtResource( 2 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
@@ -91,5 +95,6 @@ volume_db = -5.0
 stream = ExtResource( 7 )
 volume_db = -10.0
 
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="GUI/Menu" to="." method="_on_Menu_pressed"]
 [connection signal="pressed" from="GUI/Retry" to="." method="_on_Retry_pressed"]

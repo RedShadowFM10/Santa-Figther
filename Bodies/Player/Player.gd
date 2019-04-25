@@ -55,13 +55,14 @@ var list_lives = [] # Contendrá las vidas instanciadas
 export (PackedScene) var gift_gui
 
 var gui_gift = false
-var gifts = 3 # Liimite de regalos
+var gifts = 0 # Liimite de regalos
 var list_gifts = [] # Contrendrá los regalos instanciados
 
 func _ready():
 	Create_lives()
 	gui_gift = Global.gui_gift
 	if gui_gift:
+		gifts = Global.gifts
 		Create_Gifts()
 	# Saber que ataques puede usar
 	can_punch = Global.can_punch
@@ -406,6 +407,7 @@ func Dead():
 	$Punch/CollisionShape2D.disabled = true
 	$Kick/CollisionShape2D.disabled = true
 	$Super_Attack/CollisionShape2D.disabled = true
+	$Area_Items/CollisionShape2D.disabled = true
 
 # Evita que Santa lance gifts dentro de paredes
 func _on_Lanzar_01_body_entered(body):
@@ -436,3 +438,11 @@ func _on_VisibilityNotifier2D_screen_exited():
 	move.y = 0
 	get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
 
+
+func _on_Area_Items_body_entered(body):
+	if gifts > 0 && body.is_in_group("Platform"):
+		can_gift = false
+
+func _on_Area_Items_body_exited(body):
+	if gifts > 0 && body.is_in_group("Platform"):
+		can_gift = true

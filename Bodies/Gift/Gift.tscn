@@ -25,6 +25,7 @@ extents = Vector2( 19.2697, 15.9534 )
 extents = Vector2( 44.9693, 46.0952 )
 
 [node name="Gift" type="KinematicBody2D"]
+editor/display_folded = true
 position = Vector2( 0, -0.880264 )
 z_index = 2
 z_as_relative = false

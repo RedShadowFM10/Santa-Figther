@@ -71,7 +71,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "Nueva animación"
-length = 6.0
+length = 7.0
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -80,10 +80,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 3.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 5300, 66 ), Vector2( 6059, 66 ) ]
+"values": [ Vector2( 5150, 66 ), Vector2( 6059, 66 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -139,7 +139,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Santa" parent="." instance=ExtResource( 5 )]
-position = Vector2( 161.405, 382.368 )
+position = Vector2( 4493.69, -36.9992 )
 
 [node name="Platforms" type="Node" parent="."]
 editor/display_folded = true
@@ -159,31 +159,32 @@ autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 4 )
 
 [node name="Platform3" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 5300, 66 )
+position = Vector2( 5150, 66 )
+collision/safe_margin = 0.001
 
 [node name="AnimationPlayer" parent="Platforms/Platform3" index="2"]
 autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 5 )
 
 [node name="Platform4" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 7115.35, 60 )
+position = Vector2( 7115.35, 42.2958 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform4" index="2"]
 "anims/Nueva animación" = SubResource( 6 )
 
-[node name="Monster" type="Node" parent="."]
-editor/display_folded = true
+[node name="Monsters" type="Node" parent="."]
 
-[node name="Mini_Monster_01" parent="Monster" instance=ExtResource( 7 )]
-position = Vector2( 2656.98, 394.439 )
+[node name="Mini_Monster_01" parent="Monsters" instance=ExtResource( 7 )]
+position = Vector2( 2820.7, 405.664 )
 
-[node name="Mini_Monster_02" parent="Monster" instance=ExtResource( 7 )]
-position = Vector2( 3727.95, 4.17491 )
+[node name="Mini_Monster_02" parent="Monsters" instance=ExtResource( 7 )]
+position = Vector2( 3729.43, 5.22276 )
 
-[node name="Mini_Monster_03" parent="Monster" instance=ExtResource( 7 )]
-position = Vector2( 4992.85, 1.19479 )
+[node name="Mini_Monster_03" parent="Monsters" instance=ExtResource( 7 )]
+position = Vector2( 4970.28, 3.74651 )
 
 [node name="Items" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Hearth_Item" parent="Items" instance=ExtResource( 8 )]
 editor/display_folded = true
