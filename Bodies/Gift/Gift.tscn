@@ -25,7 +25,6 @@ extents = Vector2( 19.2697, 15.9534 )
 extents = Vector2( 44.9693, 46.0952 )
 
 [node name="Gift" type="KinematicBody2D"]
-editor/display_folded = true
 position = Vector2( 0, -0.880264 )
 z_index = 2
 z_as_relative = false
@@ -74,10 +73,13 @@ position = Vector2( -0.836243, 0 )
 shape = SubResource( 3 )
 disabled = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." groups=[
+"Timer",
+]]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

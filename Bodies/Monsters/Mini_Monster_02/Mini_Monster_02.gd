@@ -85,5 +85,7 @@ func Dead():
 	yield(get_tree().create_timer(0.1), "timeout")
 	$Area2D/CollisionShape2D.disabled = true
 	$React/CollisionShape2D.disabled = true
-	yield(get_tree().create_timer(3), "timeout")
+	$Timer_Queue.start()
+
+func _on_Timer_Queue_timeout():
 	queue_free()

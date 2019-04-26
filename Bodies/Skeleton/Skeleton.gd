@@ -15,6 +15,7 @@ var movement = false
 var react = false
 var follow_player = false
 var attack = false
+var revive = false
 
 var player # Será igual a las propiedades del Santa
 var check = false # Para que verifique una vez
@@ -35,7 +36,6 @@ func _physics_process(delta):
 			follow_player = false
 			movement = false
 			$Move.start()
-			Anim()
 			check = true
 		
 		if !dead:
@@ -72,7 +72,6 @@ func _physics_process(delta):
 					$React.enabled = false
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Attack")
-					Anim()
 			elif $React.is_colliding(): # React
 				var coll = $React.get_collider()
 				if coll.is_in_group("Player"):
@@ -83,7 +82,6 @@ func _physics_process(delta):
 					Stop_Timers()
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("React")
-					Anim()
 					$React.enabled = false
 			
 			# Ataque
@@ -151,27 +149,33 @@ func Change_Modulate():
 		yield(get_tree().create_timer(0.2), "timeout")
 		$AnimatedSprite.modulate = Color(1, 1, 1)
 
-func Anim():
-	yield($AnimatedSprite, "animation_finished")
-	if attack:
-		attack = false
-		follow_player = true
-		if player.dead:
+func _on_AnimatedSprite_animation_finished():
+	if idle:
+		if dead:
+			if $AnimatedSprite.flip_h:
+				$Area_Dead/CollisionShape2D.position.x = 3.284
+				$Area_Dead/CollisionShape2D.disabled = false
+			else:
+				$Area_Dead/CollisionShape2D.position.x = -30.06
+				$Area_Dead/CollisionShape2D.disabled = false
+			$Revive.start()
+		elif revive:
+			$Area2D/CollisionShape2D.disabled = false
+			dead = false
+			follow_player = false
 			idle = false
-			$Attack_Area/Right.disabled = true
-			$Attack_Area/Left.disabled = true
-	elif react:
-		follow_player = true
-		react = false
-	
-	if dead:
-		if $AnimatedSprite.flip_h:
-			$Area_Dead/CollisionShape2D.position.x = 3.284
-			$Area_Dead/CollisionShape2D.disabled = false
-		else:
-			$Area_Dead/CollisionShape2D.position.x = -30.06
-			$Area_Dead/CollisionShape2D.disabled = false
-		$Revive.start()
+			$React.enabled = true
+			$Move.start()
+		elif attack:
+			attack = false
+			follow_player = true
+			if player.dead:
+				idle = false
+				$Attack_Area/Right.disabled = true
+				$Attack_Area/Left.disabled = true
+		elif react:
+			follow_player = true
+			react = false
 
 func Attack_Frames():
 	if $AnimatedSprite.frame == 4:
@@ -218,13 +222,7 @@ func _on_Revive_timeout():
 	counter = 0
 	$AnimatedSprite.frame = 0
 	$AnimatedSprite.play("Revive")
-	yield($AnimatedSprite, "animation_finished")
-	$Area2D/CollisionShape2D.disabled = false
-	dead = false
-	follow_player = false
-	idle = false
-	$React.enabled = true
-	$Move.start()
+	revive = true
 
 # Deteccion de ataques
 func _on_Area2D_area_entered(area):
@@ -277,11 +275,12 @@ func Dead():
 	$AnimatedSprite.play("Dead")
 	yield(get_tree().create_timer(0.1), "timeout")
 	$Area2D/CollisionShape2D.disabled = true
-	Anim()
 
 func Dead2():
 	sfx_hit_enemy.play()
 	$Area_Dead.queue_free()
 	$Revive.stop()
-	yield(get_tree().create_timer(2), "timeout")
+	$Timer_Queue.start()
+
+func _on_Timer_Queue_timeout():
 	queue_free()

@@ -54,8 +54,9 @@ func Explosion():
 	$Timer.stop()
 	move.x = 0
 	move.y = 0
-	yield($AnimatedSprite, "animation_finished")
-	queue_free()
 
 func _on_Timer_timeout():
 	Explosion()
+
+func _on_AnimatedSprite_animation_finished():
+	queue_free()

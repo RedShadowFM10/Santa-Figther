@@ -12,6 +12,7 @@ var jump = false
 var has_jumped = false # Verifica si saltó o solo cae de un precipicio
 
 var anim = false # Para verificar que se ejecute una vez la animación
+var anim_jump = false
 var adjust = true # Para que ajuste una vez el offset, flip_h, etc
 
 # Ataques
@@ -55,14 +56,13 @@ var list_lives = [] # Contendrá las vidas instanciadas
 export (PackedScene) var gift_gui
 
 var gui_gift = false
-var gifts = 0 # Liimite de regalos
+var gifts = 3 # Liimite de regalos
 var list_gifts = [] # Contrendrá los regalos instanciados
 
 func _ready():
 	Create_lives()
 	gui_gift = Global.gui_gift
 	if gui_gift:
-		gifts = Global.gifts
 		Create_Gifts()
 	# Saber que ataques puede usar
 	can_punch = Global.can_punch
@@ -90,7 +90,8 @@ func _physics_process(delta):
 				$AnimatedSprite.play("Kick")
 				kick_jump = true
 				anim = true
-				Anim_Jump()
+				anim_jump = true
+#				Anim_Jump()
 			# Movimiento
 			elif !has_jumped && !anim:
 				$AnimatedSprite.play("Jump 01")
@@ -135,7 +136,6 @@ func _physics_process(delta):
 						$AnimatedSprite.play("Punch 01")
 					else:
 						$AnimatedSprite.play("Punch 02")
-					Anim()
 				elif Input.is_action_pressed("N") && can_kick: # Kick
 					$SFX_Kick.play()
 					move.x = 0
@@ -143,14 +143,12 @@ func _physics_process(delta):
 					anim = true
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Kick")
-					Anim()
 				elif Input.is_action_pressed("Down") && can_super_attack: # Super Attack
 					move.x = 0
 					anim = true
 					super_attack = true
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Super Attack")
-					Anim()
 				elif Input.is_action_pressed("B") && !throw01 && gifts >= 1 && can_gift: # Gift 01
 					move.x = 0
 					gift01 = true
@@ -158,7 +156,6 @@ func _physics_process(delta):
 					Delete_Gifts()
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Gift 01")
-					Anim()
 				elif Input.is_action_pressed("V") && !throw02 && gifts >= 1 && can_gift: # Gift 02
 					move.x = 0
 					gift02 = true
@@ -166,7 +163,6 @@ func _physics_process(delta):
 					Delete_Gifts()
 					$AnimatedSprite.frame = 0
 					$AnimatedSprite.play("Gift 02")
-					Anim()
 				# Movimiento
 				elif Input.is_action_pressed("Right"):
 					move.x = speed
@@ -199,6 +195,7 @@ func Create_lives():
 
 func Add_Lives():
 	if lives < 3: # Limite
+		$SFX_Take_Item.play()
 		var new_hp = hp_gui.instance()
 		get_tree().get_nodes_in_group("GUI")[0].add_child(new_hp)
 		new_hp.global_position.x += offset * lives
@@ -238,26 +235,24 @@ func Delete_Gifts():
 		gifts -= 1
 		list_gifts[gifts].queue_free()
 
-func Anim():
-	yield($AnimatedSprite, "animation_finished")
-	anim = false
-	# Reinicia variables de ataques
-	super_attack = false
-	kick = false
-	kick_jump = false
-	if punch:
-		punch01_02 = !punch01_02 # Cambiamos entre golpe 1 y 2
-		punch = false
-	if gift01: # Instancia al regalo cuando acaba la animacion
-		get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(true, $Gift_01.global_position, false)
-	gift01 = false
-
-# Cuando acaba de hacer la patada en el aire
-func Anim_Jump():
-	yield($AnimatedSprite, "animation_finished")
-	anim = false
-	if !dead:
-		$AnimatedSprite.play("Jump 01")
+# Señal al finalizar animacion
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.get_animation() != "Idle":
+		anim = false
+		# Reinicia variables de ataques
+		super_attack = false
+		kick = false
+		kick_jump = false
+		if punch:
+			punch01_02 = !punch01_02 # Cambiamos entre golpe 1 y 2
+			punch = false
+		elif anim_jump:
+			anim = false
+			if !dead:
+				$AnimatedSprite.play("Jump 01")
+		elif gift01: # Instancia al regalo cuando acaba la animacion
+			get_tree().get_nodes_in_group("Main")[0].Gift_Instaciar(true, $Gift_01.global_position, false)
+		gift01 = false
 
 # Ajusta la posicion del Sprite y la Colision
 func Adjust_Right():
@@ -386,15 +381,6 @@ func _on_Area2D_area_entered(area):
 		for i in lives:
 			Delete_Lives()
 
-# Deteccion de items
-func _on_Area_Items_area_entered(area):
-	if area.is_in_group("Hearth_Item"):
-		$SFX_Take_Item.play()
-		Add_Lives()
-	if area.is_in_group("Gift_Item"):
-		$SFX_Take_Item.play()
-		Add_Gifts()
-
 func Dead():
 	dead = true
 	get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
@@ -438,11 +424,10 @@ func _on_VisibilityNotifier2D_screen_exited():
 	move.y = 0
 	get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
 
-
 func _on_Area_Items_body_entered(body):
 	if gifts > 0 && body.is_in_group("Platform"):
 		can_gift = false
 
 func _on_Area_Items_body_exited(body):
-	if gifts > 0 && body.is_in_group("Platform"):
+	if gui_gift && body.is_in_group("Platform"):
 		can_gift = true

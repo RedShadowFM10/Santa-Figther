@@ -7,6 +7,8 @@ var gift_direction # False izquierda / True derecha
 
 var santa_dead = false
 
+var timers
+
 func _ready():
 	get_tree().paused = false
 	var level_type = load("res://Scenes/Levels/"+Global.level+".tscn")
@@ -20,7 +22,13 @@ func _input(_event):
 		$GUI/Retry.visible = !$GUI/Retry.visible
 		$GUI/Menu.visible = !$GUI/Menu.visible
 		$GUI/Pause.visible = !$GUI/Pause.visible
-	elif Input.is_action_just_pressed("Enter"):
+	elif Input.is_action_just_pressed("Enter") && get_tree().paused:
+		$GUI/Full_Screen.visible = false
+		Fade_In_Out.reload_scene()
+	elif Input.is_action_just_pressed("Enter") && $GUI/Menu.visible:
+		timers = get_tree().get_nodes_in_group("Timer")
+		for timer in timers:
+			timer.stop()
 		$GUI/Full_Screen.visible = false
 		Fade_In_Out.reload_scene()
 

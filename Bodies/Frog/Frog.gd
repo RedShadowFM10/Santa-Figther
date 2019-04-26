@@ -59,7 +59,7 @@ func Move_Direction():
 	move = move_and_slide(move)
 
 func _on_Area2D_area_entered(area):
-	if area.is_in_group("Super_Attack") || area.is_in_group("Explosion") || area.is_in_group("Attack_Enemy"):
+	if area.is_in_group("Attack") || area.is_in_group("Explosion") || area.is_in_group("Attack_Enemy"):
 		sfx_frog.play()
 		if player.lives <= player.gifts || player.lives == 1:
 			var new_heart = heart_item.instance()

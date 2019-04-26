@@ -32,7 +32,9 @@ position = Vector2( 1.33092, 2.40221 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." groups=[
+"Timer",
+]]
 wait_time = 20.0
 one_shot = true
 autostart = true

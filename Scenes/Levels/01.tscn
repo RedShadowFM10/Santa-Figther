@@ -7,8 +7,8 @@
 [ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Bodies/Platforms/Platform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Mini_Monster_01.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Bodies/Items/Hearth/Hearth_Item.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Mini_Monster_02.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Mini_Monster_02.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Bodies/Items/Hearth/Hearth_Item.tscn" type="PackedScene" id=9]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
@@ -66,7 +66,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3572, 463 ), Vector2( 3572, 22 ) ]
+"values": [ Vector2( 3572, 480 ), Vector2( 3572, 5 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -134,15 +134,16 @@ THE KEY AT EACH LEVEL TO ADVANCE"
 align = 1
 valign = 1
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." groups=[
+"Timer",
+]]
 wait_time = 5.0
 one_shot = true
 
 [node name="Santa" parent="." instance=ExtResource( 5 )]
-position = Vector2( 4493.69, -36.9992 )
+position = Vector2( 6812.21, -20.34 )
 
 [node name="Platforms" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Platform" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 1691, 464 )
@@ -152,7 +153,8 @@ autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 3 )
 
 [node name="Platform2" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 3572, 463 )
+editor/display_folded = false
+position = Vector2( 3572, 480 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform2" index="2"]
 autoplay = "Nueva animación"
@@ -167,41 +169,43 @@ autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 5 )
 
 [node name="Platform4" parent="Platforms" instance=ExtResource( 6 )]
-position = Vector2( 7115.35, 42.2958 )
+position = Vector2( 7037.48, 60.7671 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform4" index="2"]
 "anims/Nueva animación" = SubResource( 6 )
 
-[node name="Monsters" type="Node" parent="."]
+[node name="Monsters_01" type="Node" parent="."]
 
-[node name="Mini_Monster_01" parent="Monsters" instance=ExtResource( 7 )]
+[node name="Mini_Monster_01" parent="Monsters_01" instance=ExtResource( 7 )]
 position = Vector2( 2820.7, 405.664 )
 
-[node name="Mini_Monster_02" parent="Monsters" instance=ExtResource( 7 )]
+[node name="Mini_Monster_02" parent="Monsters_01" instance=ExtResource( 7 )]
 position = Vector2( 3729.43, 5.22276 )
 
-[node name="Mini_Monster_03" parent="Monsters" instance=ExtResource( 7 )]
+[node name="Mini_Monster_03" parent="Monsters_01" instance=ExtResource( 7 )]
 position = Vector2( 4970.28, 3.74651 )
 
-[node name="Items" type="Node" parent="."]
+[node name="Monster_02" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Hearth_Item" parent="Items" instance=ExtResource( 8 )]
+[node name="Mini_Monster_02" parent="Monster_02" instance=ExtResource( 8 )]
+position = Vector2( 6417.56, 13.3102 )
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Hearth_Item" parent="Items" instance=ExtResource( 9 )]
 editor/display_folded = true
-position = Vector2( 6524.37, 19.9406 )
+position = Vector2( 6529.75, 23.1627 )
 
 [node name="Timer" parent="Items/Hearth_Item" index="3"]
 autostart = false
 
-[node name="Hearth_Item2" parent="Items" instance=ExtResource( 8 )]
+[node name="Hearth_Item2" parent="Items" instance=ExtResource( 9 )]
 editor/display_folded = true
-position = Vector2( 6864.33, 21.8369 )
+position = Vector2( 6870.43, 20.9472 )
 
 [node name="Timer" parent="Items/Hearth_Item2" index="3"]
 autostart = false
-
-[node name="Mini_Monster_02" parent="." instance=ExtResource( 9 )]
-position = Vector2( 6417.56, 13.3102 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
