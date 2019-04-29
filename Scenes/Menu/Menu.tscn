@@ -36,7 +36,6 @@ size = 80
 font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -122,7 +121,8 @@ text = "CREATED BY
 JULIAN LONDOÑO - RedShadowFM10
 
 THANKS TO
-DANIEL LONDOÑO"
+DANIEL
+SOFIE"
 align = 1
 valign = 1
 
@@ -163,7 +163,6 @@ custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "02"
 flat = true
 script = ExtResource( 6 )
-
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Credits_Button" to="." method="_on_Credits_Button_pressed"]
 [connection signal="pressed" from="Exit_Game" to="." method="_on_Exit_Game_pressed"]

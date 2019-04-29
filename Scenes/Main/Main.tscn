@@ -96,7 +96,6 @@ volume_db = -5.0
 [node name="Hit_Enemy" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 7 )
 volume_db = -10.0
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="GUI/Menu" to="." method="_on_Menu_pressed"]
 [connection signal="pressed" from="GUI/Retry" to="." method="_on_Retry_pressed"]

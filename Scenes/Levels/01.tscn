@@ -206,7 +206,6 @@ position = Vector2( 6870.43, 20.9472 )
 
 [node name="Timer" parent="Items/Hearth_Item2" index="3"]
 autostart = false
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Platforms/Platform"]
