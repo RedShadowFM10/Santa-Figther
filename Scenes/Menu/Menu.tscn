@@ -137,7 +137,6 @@ texture_normal = ExtResource( 4 )
 [node name="Full_Screen" parent="." instance=ExtResource( 5 )]
 
 [node name="Levels" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0

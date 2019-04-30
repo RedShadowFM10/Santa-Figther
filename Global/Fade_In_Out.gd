@@ -11,3 +11,8 @@ func reload_scene():
 	yield($AnimationPlayer, "animation_finished")
 	get_tree().reload_current_scene()
 	$AnimationPlayer.play("Fade_Out")
+
+func effect():
+	$AnimationPlayer.play("Fade_In")
+	yield($AnimationPlayer, "animation_finished")
+	$AnimationPlayer.play("Fade_Out")

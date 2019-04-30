@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Scenes/Intro/Intro.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=2]
@@ -16,57 +16,74 @@
 [ext_resource path="res://Bodies/Player/Sprites/Idle 01/03.png" type="Texture" id=14]
 [ext_resource path="res://Bodies/Player/Sprites/Idle 01/04.png" type="Texture" id=15]
 [ext_resource path="res://Bodies/Player/Sprites/Idle 01/05.png" type="Texture" id=16]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/01.png" type="Texture" id=17]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/02.png" type="Texture" id=18]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/03.png" type="Texture" id=19]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/04.png" type="Texture" id=20]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/05.png" type="Texture" id=21]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/01.png" type="Texture" id=22]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/02.png" type="Texture" id=23]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/03.png" type="Texture" id=24]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/04.png" type="Texture" id=25]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/05.png" type="Texture" id=26]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/06.png" type="Texture" id=27]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/07.png" type="Texture" id=28]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/08.png" type="Texture" id=29]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/09.png" type="Texture" id=30]
-[ext_resource path="res://Bodies/Player/Sprites/Jump/03.png" type="Texture" id=31]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/01.png" type="Texture" id=32]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/02.png" type="Texture" id=33]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/03.png" type="Texture" id=34]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/04.png" type="Texture" id=35]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/05.png" type="Texture" id=36]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/01.png" type="Texture" id=37]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/02.png" type="Texture" id=38]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/03.png" type="Texture" id=39]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/04.png" type="Texture" id=40]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/05.png" type="Texture" id=41]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/01.png" type="Texture" id=42]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/02.png" type="Texture" id=43]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/03.png" type="Texture" id=44]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/04.png" type="Texture" id=45]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/05.png" type="Texture" id=46]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/01.png" type="Texture" id=47]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/02.png" type="Texture" id=48]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/03.png" type="Texture" id=49]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/04.png" type="Texture" id=50]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/05.png" type="Texture" id=51]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/06.png" type="Texture" id=52]
-[ext_resource path="res://Bodies/Player/Sprites/Jump/02.png" type="Texture" id=53]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/01.png" type="Texture" id=54]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/02.png" type="Texture" id=55]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/03.png" type="Texture" id=56]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/04.png" type="Texture" id=57]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/05.png" type="Texture" id=58]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/06.png" type="Texture" id=59]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/07.png" type="Texture" id=60]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/08.png" type="Texture" id=61]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/01.png" type="Texture" id=17]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/02.png" type="Texture" id=18]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/03.png" type="Texture" id=19]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/04.png" type="Texture" id=20]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/05.png" type="Texture" id=21]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/06.png" type="Texture" id=22]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/07.png" type="Texture" id=23]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/08.png" type="Texture" id=24]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/09.png" type="Texture" id=25]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/01.png" type="Texture" id=26]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/02.png" type="Texture" id=27]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/03.png" type="Texture" id=28]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/04.png" type="Texture" id=29]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/05.png" type="Texture" id=30]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/01.png" type="Texture" id=31]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/02.png" type="Texture" id=32]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/03.png" type="Texture" id=33]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/04.png" type="Texture" id=34]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/05.png" type="Texture" id=35]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/01.png" type="Texture" id=36]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/02.png" type="Texture" id=37]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/03.png" type="Texture" id=38]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/04.png" type="Texture" id=39]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/05.png" type="Texture" id=40]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/06.png" type="Texture" id=41]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/01.png" type="Texture" id=42]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/02.png" type="Texture" id=43]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/03.png" type="Texture" id=44]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/04.png" type="Texture" id=45]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/05.png" type="Texture" id=46]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/06.png" type="Texture" id=47]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/07.png" type="Texture" id=48]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/08.png" type="Texture" id=49]
+[ext_resource path="res://Bodies/Player/Sprites/Jump/03.png" type="Texture" id=50]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/01.png" type="Texture" id=51]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/02.png" type="Texture" id=52]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/03.png" type="Texture" id=53]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/04.png" type="Texture" id=54]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/05.png" type="Texture" id=55]
+[ext_resource path="res://Bodies/Player/Sprites/Jump/02.png" type="Texture" id=56]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/01.png" type="Texture" id=57]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/02.png" type="Texture" id=58]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/03.png" type="Texture" id=59]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/04.png" type="Texture" id=60]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/05.png" type="Texture" id=61]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/01.png" type="Texture" id=62]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/02.png" type="Texture" id=63]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/03.png" type="Texture" id=64]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/04.png" type="Texture" id=65]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/05.png" type="Texture" id=66]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/06.png" type="Texture" id=67]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/01.png" type="Texture" id=68]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/02.png" type="Texture" id=69]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/03.png" type="Texture" id=70]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/04.png" type="Texture" id=71]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/05.png" type="Texture" id=72]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/06.png" type="Texture" id=73]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/07.png" type="Texture" id=74]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/08.png" type="Texture" id=75]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/09.png" type="Texture" id=76]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/10.png" type="Texture" id=77]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/11.png" type="Texture" id=78]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Press"
 length = 1.5
 loop = true
@@ -83,7 +100,7 @@ tracks/0/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
@@ -95,60 +112,71 @@ animations = [ {
 "name": "Idle",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "Dead",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
 "loop": false,
 "name": "Kick",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 31 ) ],
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": false,
-"name": "Jump 01",
-"speed": 1.0
+"name": "Dead",
+"speed": 7.0
 }, {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "Punch 01",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
-"loop": false,
-"name": "Punch 02",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
-"loop": false,
-"name": "Gift 02",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
 "loop": false,
 "name": "Gift 01",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 53 ), ExtResource( 31 ) ],
+"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"loop": false,
+"name": "Super Attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 50 ) ],
+"loop": false,
+"name": "Jump 01",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ) ],
+"loop": false,
+"name": "Gift 02",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 50 ) ],
 "loop": false,
 "name": "Jump 02",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ) ],
+"frames": [ ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ) ],
 "loop": false,
-"name": "Super Attack",
-"speed": 9.0
+"name": "Punch 02",
+"speed": 16.0
 } ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 2 )
 
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 6.0
+} ]
+
 [sub_resource type="Animation" id=6]
-resource_name = "Scene"
-length = 3.0
-loop = true
+length = 40.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player:visible")
 tracks/0/interp = 1
@@ -156,10 +184,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 30.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Player/AnimatedSprite:playing")
@@ -192,10 +220,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.7, 3.4, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ false, true, false, true ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Player/Text:text")
@@ -204,10 +232,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 1.7 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 4.7, 8.4, 11.5, 24.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ "ARE YOU HERE, BOY?", "IT SEEMS THAT IT IS NOT HERE" ]
+"values": [ "ARE YOU HERE, BOY?", "IT SEEMS THAT IT IS NOT HERE", "WHAT WAS THAT?", "WHAT THE HELL ARE YOU?", "WHAT?" ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Player/Text/Panel:margin_left")
@@ -216,10 +244,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1.7 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 4.7, 8.4, 11.5, 24.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 294.136, 211.0 ]
+"values": [ 294.136, 211.0, 314.0, 250.0, 395.0 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Player/Text/Panel:margin_right")
@@ -228,10 +256,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 1.7 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 4.7, 8.4, 11.5, 24.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 614.136, 696.0 ]
+"values": [ 614.136, 696.0, 592.0, 655.0, 516.0 ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("Player/AnimatedSprite:visible")
@@ -240,10 +268,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.7, 3.4, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ true, false, true, false ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("Player/AnimatedSprite2:playing")
@@ -252,16 +280,206 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0.7 ),
+"times": PoolRealArray( 1.7, 11.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Dark_Lord:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 6.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Dark_Lord/AnimatedSprite:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 9.3, 10.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Dark_Lord/AnimatedSprite:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 9.3, 28.7, 30.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Dark_Lord/Text:text")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 6.4, 14.5, 18.302, 21.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "YOU ARE VERY
+ INNOCENT SANTA", "I AM THE DARK LORD", "MY POWERS GO BEYOND
+YOUR IMAGINATION...", "FOR NOW ONLY SURVIVE,
+I WILL GIVE YOU EVERYTHING
+YOU NEED TO TRY TO DEFEAT ME...
+" ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Dark_Lord/Text/Panel:margin_left")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 6.4, 14.5, 18.302, 21.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 336.0, 302.0, 277.0, 192.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Dark_Lord/Text/Panel:margin_top")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 6.4, 14.5, 18.302, 21.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 105.0, 114.0, 100.0, 59.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Dark_Lord/Text/Panel:margin_right")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 6.4, 14.5, 18.302, 21.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 616.0, 634.0, 655.0, 742.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Dark_Lord/Text/Panel:margin_bottom")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 6.4, 14.5, 18.302, 21.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 174.0, 161.0, 177.0, 186.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Player/Text:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 18.3, 24.5, 27 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Dark_Lord/Text:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 11.5, 14.5, 24.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Dark_Lord/AnimatedSprite:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 27.6, 28.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 360.618, 397.01 ), Vector2( 360.618, 397.01 ), Vector2( 591.835, 374.732 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Dark_Lord/AnimatedSprite2:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 28.7, 30.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Dark_Lord/AnimatedSprite2:frame")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 28.7 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ 0 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Dark_Lord/Text2:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 31.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [node name="Intro" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 
-[node name="Text" type="Label" parent="."]
+[node name="Text_01" type="Label" parent="."]
+pause_mode = 1
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -72.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+text = "IF YOU WANT
+TO OMIT THE INTRODUCTION
+PRESS ESC"
+align = 1
+valign = 1
+
+[node name="Text_02" type="Label" parent="."]
+pause_mode = 1
 visible = false
 anchor_top = 0.5
 anchor_right = 1.0
@@ -283,6 +501,7 @@ align = 1
 valign = 1
 
 [node name="Press" type="Label" parent="."]
+pause_mode = 1
 editor/display_folded = true
 visible = false
 anchor_top = 1.0
@@ -297,80 +516,138 @@ valign = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Press"]
 autoplay = "Press"
-anims/Press = SubResource( 3 )
+anims/Press = SubResource( 2 )
 
 [node name="House" type="Sprite" parent="."]
+pause_mode = 1
 position = Vector2( 644.09, 360.504 )
 scale = Vector2( 1.7, 2.2 )
+z_index = -5
 texture = ExtResource( 3 )
 
 [node name="Player" type="Node2D" parent="."]
+pause_mode = 1
+visible = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
-position = Vector2( 1217.33, 493.098 )
+visible = false
+position = Vector2( 1130.6, 493.27 )
 scale = Vector2( 7, 7 )
-frames = SubResource( 4 )
+z_index = -1
+frames = SubResource( 3 )
 animation = "Idle"
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Player"]
-visible = false
-position = Vector2( 1217.33, 493.098 )
+position = Vector2( 1130.6, 493.27 )
 scale = Vector2( 7, 7 )
-frames = SubResource( 4 )
+z_index = -1
+frames = SubResource( 3 )
 animation = "Idle"
 playing = true
 offset = Vector2( -64, 0 )
 flip_h = true
 
 [node name="Text" type="Label" parent="Player"]
-editor/display_folded = true
+visible = false
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 527.23
+margin_left = 463.632
 margin_top = 332.95
-margin_right = 1435.23
+margin_right = 1371.63
 margin_bottom = 399.95
-custom_fonts/font = SubResource( 5 )
-text = "ARE YOU HERE, BOY?"
+custom_fonts/font = SubResource( 4 )
+text = "WHAT?"
 align = 1
 valign = 1
 
 [node name="Panel" type="ColorRect" parent="Player/Text"]
 show_behind_parent = true
-margin_left = 294.136
-margin_top = 7.05005
-margin_right = 614.136
-margin_bottom = 51.05
+margin_left = 395.0
+margin_top = 7.0
+margin_right = 516.0
+margin_bottom = 51.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Devil" type="Node2D" parent="."]
+[node name="Dark_Lord" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Dark_Lord"]
+position = Vector2( 591.835, 374.732 )
+scale = Vector2( 4, 4 )
+z_index = -1
+frames = SubResource( 5 )
+animation = "Idle"
+playing = true
+flip_h = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Dark_Lord"]
+visible = false
+position = Vector2( 740, 280 )
+scale = Vector2( 4, 4 )
+z_index = -1
+frames = SubResource( 5 )
+animation = "Attack"
+frame = 10
+playing = true
+flip_h = true
+
+[node name="Text" type="Label" parent="Dark_Lord"]
 editor/display_folded = true
 visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -47.582
+margin_top = 56.1992
+margin_right = 887.418
+margin_bottom = 343.199
+custom_fonts/font = SubResource( 4 )
+text = "FOR NOW ONLY SURVIVE,
+I WILL GIVE YOU EVERYTHING
+YOU NEED TO TRY TO DEFEAT ME...
+"
+align = 1
+valign = 1
 
-[node name="Text" type="Label" parent="Devil"]
+[node name="Panel" type="ColorRect" parent="Dark_Lord/Text"]
+show_behind_parent = true
+margin_left = 192.0
+margin_top = 59.0
+margin_right = 742.0
+margin_bottom = 186.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Text2" type="Label" parent="Dark_Lord"]
 editor/display_folded = true
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -59.2439
-margin_top = 235.284
-margin_right = 875.756
-margin_bottom = 522.284
-custom_fonts/font = SubResource( 5 )
-text = "YOU ARE VERY
- INNOCENT SANTA"
+margin_left = 184.169
+margin_top = 38.0226
+margin_right = 1119.17
+margin_bottom = 325.023
+custom_fonts/font = SubResource( 4 )
+text = "
+SANTA... ENJOY!
+"
 align = 1
 valign = 1
 
-[node name="Panel" type="ColorRect" parent="Devil/Text"]
+[node name="Panel" type="ColorRect" parent="Dark_Lord/Text2"]
 show_behind_parent = true
-margin_left = 336.0
-margin_top = 105.0
-margin_right = 616.0
-margin_bottom = 174.0
+margin_left = 337.0
+margin_top = 112.0
+margin_right = 600.0
+margin_bottom = 168.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 1
 anims/Scene = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
