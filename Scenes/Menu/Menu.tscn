@@ -105,7 +105,7 @@ anchor_bottom = 0.5
 margin_top = 310.0
 margin_bottom = 350.0
 custom_fonts/font = SubResource( 5 )
-text = "Alpha v0.1.0"
+text = "Alpha v0.1"
 align = 1
 valign = 1
 
@@ -137,6 +137,7 @@ texture_normal = ExtResource( 4 )
 [node name="Full_Screen" parent="." instance=ExtResource( 5 )]
 
 [node name="Levels" type="Control" parent="."]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
