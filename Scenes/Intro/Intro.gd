@@ -4,11 +4,12 @@ var count = 0
 
 func _input(event):
 	if Input.is_action_just_pressed("Esc"):
-		get_tree().paused = !get_tree().paused
-#		$Timer.stop()
-#		$Timer_Text.stop()
-#		count = 2
-#		Fade_In_Out.change_scene("res://Scenes/Main/Main.tscn")
+		$Timer.stop()
+		$Timer_Text.stop()
+		$Music/Timer_Music.stop()
+		count = 2
+		Global.intro = true
+		Fade_In_Out.change_scene("res://Scenes/Main/Main.tscn")
 	elif Input.is_action_just_pressed("Enter"):
 		count += 1
 		if count == 1:
@@ -29,6 +30,7 @@ func _on_Timer_timeout():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	Fade_In_Out.change_scene("res://Scenes/Main/Main.tscn")
+	Global.intro = true
 
 func _on_Timer_Music_timeout():
 	$Music.stop()

@@ -30,12 +30,14 @@ gift = ExtResource( 2 )
 [node name="Timer" type="Timer" parent="." groups=[
 "Timer",
 ]]
+pause_mode = 1
 wait_time = 2.0
 one_shot = true
 
 [node name="GUI" type="CanvasLayer" parent="." groups=[
 "GUI",
 ]]
+pause_mode = 2
 editor/display_folded = true
 
 [node name="Full_Screen" parent="GUI" instance=ExtResource( 3 )]
@@ -83,6 +85,7 @@ flat = true
 [node name="SFX" type="Node" parent="." groups=[
 "SFX",
 ]]
+pause_mode = 1
 editor/display_folded = true
 
 [node name="Explosion" type="AudioStreamPlayer" parent="SFX"]

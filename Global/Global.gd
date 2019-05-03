@@ -1,5 +1,7 @@
 extends Node
 
+var intro = true
+
 var level = "01"
 
 var gui_gift = false

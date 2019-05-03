@@ -1,39 +1,326 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://GUI/Backgrounds/Background_01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile_Map/01_Tile_Set.tres" type="TileSet" id=2]
 [ext_resource path="res://Sounds/Music/Beat&em_Up_Level.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Bodies/Platforms/Platform.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Mini_Monster_01.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Mini_Monster_02.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Bodies/Items/Hearth/Hearth_Item.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/01.png" type="Texture" id=4]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/02.png" type="Texture" id=5]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/03.png" type="Texture" id=6]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/04.png" type="Texture" id=7]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/05.png" type="Texture" id=8]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/06.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Bodies/Player/Sprites/Move/01.png" type="Texture" id=11]
+[ext_resource path="res://Bodies/Player/Sprites/Move/02.png" type="Texture" id=12]
+[ext_resource path="res://Bodies/Player/Sprites/Move/03.png" type="Texture" id=13]
+[ext_resource path="res://Bodies/Player/Sprites/Move/04.png" type="Texture" id=14]
+[ext_resource path="res://Bodies/Player/Sprites/Move/05.png" type="Texture" id=15]
+[ext_resource path="res://Bodies/Player/Sprites/Move/06.png" type="Texture" id=16]
+[ext_resource path="res://Bodies/Player/Sprites/Move/07.png" type="Texture" id=17]
+[ext_resource path="res://Bodies/Player/Sprites/Move/08.png" type="Texture" id=18]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/01.png" type="Texture" id=19]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/02.png" type="Texture" id=20]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/03.png" type="Texture" id=21]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/04.png" type="Texture" id=22]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/05.png" type="Texture" id=23]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/01.png" type="Texture" id=24]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/02.png" type="Texture" id=25]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/03.png" type="Texture" id=26]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/04.png" type="Texture" id=27]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/05.png" type="Texture" id=28]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/01.png" type="Texture" id=29]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/02.png" type="Texture" id=30]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/03.png" type="Texture" id=31]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/04.png" type="Texture" id=32]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/05.png" type="Texture" id=33]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/06.png" type="Texture" id=34]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/07.png" type="Texture" id=35]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/08.png" type="Texture" id=36]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/09.png" type="Texture" id=37]
+[ext_resource path="res://Bodies/Player/Sprites/Jump/02.png" type="Texture" id=38]
+[ext_resource path="res://Bodies/Player/Sprites/Jump/03.png" type="Texture" id=39]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/01.png" type="Texture" id=40]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/02.png" type="Texture" id=41]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/03.png" type="Texture" id=42]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/04.png" type="Texture" id=43]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/05.png" type="Texture" id=44]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/01.png" type="Texture" id=45]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/02.png" type="Texture" id=46]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/03.png" type="Texture" id=47]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/04.png" type="Texture" id=48]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/05.png" type="Texture" id=49]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/01.png" type="Texture" id=50]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/02.png" type="Texture" id=51]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/03.png" type="Texture" id=52]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/04.png" type="Texture" id=53]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/05.png" type="Texture" id=54]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/01.png" type="Texture" id=55]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/02.png" type="Texture" id=56]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/03.png" type="Texture" id=57]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/04.png" type="Texture" id=58]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/05.png" type="Texture" id=59]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/06.png" type="Texture" id=60]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/07.png" type="Texture" id=61]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/08.png" type="Texture" id=62]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/01.png" type="Texture" id=63]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/02.png" type="Texture" id=64]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/03.png" type="Texture" id=65]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/04.png" type="Texture" id=66]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/05.png" type="Texture" id=67]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/06.png" type="Texture" id=68]
+[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=69]
+[ext_resource path="res://Bodies/Platforms/Platform.tscn" type="PackedScene" id=70]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Mini_Monster_01.tscn" type="PackedScene" id=71]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Mini_Monster_02.tscn" type="PackedScene" id=72]
+[ext_resource path="res://Bodies/Items/Hearth/Hearth_Item.tscn" type="PackedScene" id=73]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
-#var count = 0
-#
-#func _ready():
-#	$Santa.get_node(\"AnimatedSprite\").playing = true
-#	$Santa.dead = true
-#
-#func _on_Timer_timeout():
-#	count += 1
-#	if count == 1:
-#		$Timer.wait_time = 10
-#		$Timer.start()
-#		$Instructions.set_text(\"PRESS W, A, S, D\\nAND\\nTHE ARROWS TO MOVE\")
-#		$Santa.dead = false
-#	if count == 2:
-#		$Instructions.queue_free()
-#		count = 0
+func _ready():
+	if Global.intro:
+		$Santa.visible = false
+		$Santa.dead = true
+		$Intro/AnimationPlayer.play(\"Intro\")
+		Global.intro = false
+	else:
+		$Intro.queue_free()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	Fade_In_Out.effect()
+	$Intro/Timer_Intro.start()
+
+func _on_Timer_Intro_timeout():
+	$Santa.visible = true
+	$Santa.dead = false
+	$Intro.queue_free()
 "
 
-[sub_resource type="DynamicFont" id=2]
-size = 40
-font_data = ExtResource( 4 )
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 7.0
+} ]
+
+[sub_resource type="DynamicFont" id=10]
+size = 26
+font_data = ExtResource( 10 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Move",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ) ],
+"loop": false,
+"name": "Kick",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ) ],
+"loop": false,
+"name": "Jump 02",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
+"loop": false,
+"name": "Punch 01",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 39 ) ],
+"loop": false,
+"name": "Jump 01",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"loop": false,
+"name": "Punch 02",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
+"loop": false,
+"name": "Gift 02",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
+"loop": false,
+"name": "Super Attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ) ],
+"loop": false,
+"name": "Gift 01",
+"speed": 8.0
+} ]
+
+[sub_resource type="DynamicFont" id=11]
+size = 26
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Intro"
+length = 18.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dark_Lord:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dark_Lord/AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.6, 3.6, 17, 18.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Santa/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "WHERE I AM?", "YOU!" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Santa/Label/ColorRect:margin_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, -45.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Santa/Label/ColorRect:margin_left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ -4.0, 46.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Dark_Lord/Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4.6, 17 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Dark_Lord/Label/ColorRect:margin_left")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 4.6, 7.4, 11.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 195.0, 115.0, 146.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Dark_Lord/Label/ColorRect:margin_top")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4.6, 7.4, 11.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 59.0, 29.0, 29.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Dark_Lord/Label/ColorRect:margin_right")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 4.6, 7.4, 11.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 434.0, 508.0, 482.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Dark_Lord/Label/ColorRect:margin_bottom")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 4.6, 7.4, 11.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 92.0, 95.0, 95.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Dark_Lord/Label:text")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 4.6, 7.4, 11.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "THIS IS MY WORLD", "YOU HAVE TO FIND THE KEY IN
+EVERY LEVEL TO ADVANCE
+", "PRESS W, A, D 
+OR THE ARROWS TO MOVE
+" ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Santa/Label:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 7.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Nueva animación"
@@ -122,45 +409,108 @@ stream = ExtResource( 3 )
 volume_db = -20.0
 autoplay = true
 
-[node name="Instructions" type="Label" parent="."]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_top = -280.0
-margin_bottom = -154.0
-custom_fonts/font = SubResource( 2 )
-text = "YOU NEED TO FIND 
-THE KEY AT EACH LEVEL TO ADVANCE"
+[node name="Intro" type="Node" parent="."]
+
+[node name="Dark_Lord" type="Node2D" parent="Intro"]
+pause_mode = 1
+position = Vector2( 826.81, 219.953 )
+z_index = -6
+z_as_relative = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Intro/Dark_Lord"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -200.021, 76.9476 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 7 )
+animation = "Idle"
+frame = 1
+playing = true
+
+[node name="Label" type="Label" parent="Intro/Dark_Lord"]
+visible = false
+margin_left = -553.631
+margin_top = -121.399
+margin_right = 81.3687
+margin_bottom = 33.6012
+custom_fonts/font = SubResource( 10 )
+text = "PRESS W, A, D 
+OR THE ARROWS TO MOVE
+"
 align = 1
 valign = 1
 
-[node name="Timer" type="Timer" parent="." groups=[
+[node name="ColorRect" type="ColorRect" parent="Intro/Dark_Lord/Label"]
+show_behind_parent = true
+margin_left = 146.0
+margin_top = 29.0
+margin_right = 482.0
+margin_bottom = 95.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="Santa" type="Node2D" parent="Intro"]
+editor/display_folded = true
+position = Vector2( 0, 3.05176e-005 )
+scale = Vector2( 1, 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Intro/Santa"]
+position = Vector2( 226.73, 383.304 )
+scale = Vector2( 3.5, 3.5 )
+frames = SubResource( 8 )
+animation = "Idle"
+frame = 1
+playing = true
+
+[node name="Label" type="Label" parent="Intro/Santa"]
+visible = false
+margin_left = 30.6815
+margin_top = 304.237
+margin_right = 187.682
+margin_bottom = 331.237
+custom_fonts/font = SubResource( 11 )
+text = "YOU!"
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="Intro/Santa/Label"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 46.0
+margin_top = -3.0
+margin_right = -45.0
+margin_bottom = -1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
+anims/Intro = SubResource( 9 )
+
+[node name="Timer_Intro" type="Timer" parent="Intro" groups=[
 "Timer",
 ]]
-wait_time = 5.0
 one_shot = true
 
-[node name="Santa" parent="." instance=ExtResource( 5 )]
-position = Vector2( 6812.21, -20.34 )
+[node name="Santa" parent="." instance=ExtResource( 69 )]
+position = Vector2( 227.17, 383.304 )
 
 [node name="Platforms" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="Platform" parent="Platforms" instance=ExtResource( 6 )]
+[node name="Platform" parent="Platforms" instance=ExtResource( 70 )]
 position = Vector2( 1691, 464 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform" index="2"]
 autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 3 )
 
-[node name="Platform2" parent="Platforms" instance=ExtResource( 6 )]
-editor/display_folded = false
+[node name="Platform2" parent="Platforms" instance=ExtResource( 70 )]
 position = Vector2( 3572, 480 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform2" index="2"]
 autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 4 )
 
-[node name="Platform3" parent="Platforms" instance=ExtResource( 6 )]
+[node name="Platform3" parent="Platforms" instance=ExtResource( 70 )]
 position = Vector2( 5150, 66 )
 collision/safe_margin = 0.001
 
@@ -168,45 +518,48 @@ collision/safe_margin = 0.001
 autoplay = "Nueva animación"
 "anims/Nueva animación" = SubResource( 5 )
 
-[node name="Platform4" parent="Platforms" instance=ExtResource( 6 )]
+[node name="Platform4" parent="Platforms" instance=ExtResource( 70 )]
 position = Vector2( 7037.48, 60.7671 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform4" index="2"]
 "anims/Nueva animación" = SubResource( 6 )
 
 [node name="Monsters_01" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="Mini_Monster_01" parent="Monsters_01" instance=ExtResource( 7 )]
+[node name="Mini_Monster_01" parent="Monsters_01" instance=ExtResource( 71 )]
 position = Vector2( 2820.7, 405.664 )
 
-[node name="Mini_Monster_02" parent="Monsters_01" instance=ExtResource( 7 )]
+[node name="Mini_Monster_02" parent="Monsters_01" instance=ExtResource( 71 )]
 position = Vector2( 3729.43, 5.22276 )
 
-[node name="Mini_Monster_03" parent="Monsters_01" instance=ExtResource( 7 )]
+[node name="Mini_Monster_03" parent="Monsters_01" instance=ExtResource( 71 )]
 position = Vector2( 4970.28, 3.74651 )
 
 [node name="Monster_02" type="Node" parent="."]
 editor/display_folded = true
 
-[node name="Mini_Monster_02" parent="Monster_02" instance=ExtResource( 8 )]
+[node name="Mini_Monster_02" parent="Monster_02" instance=ExtResource( 72 )]
 position = Vector2( 6417.56, 13.3102 )
 
 [node name="Items" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="Hearth_Item" parent="Items" instance=ExtResource( 9 )]
+[node name="Hearth_Item" parent="Items" instance=ExtResource( 73 )]
 editor/display_folded = true
 position = Vector2( 6529.75, 23.1627 )
 
 [node name="Timer" parent="Items/Hearth_Item" index="3"]
 autostart = false
 
-[node name="Hearth_Item2" parent="Items" instance=ExtResource( 9 )]
+[node name="Hearth_Item2" parent="Items" instance=ExtResource( 73 )]
 editor/display_folded = true
 position = Vector2( 6870.43, 20.9472 )
 
 [node name="Timer" parent="Items/Hearth_Item2" index="3"]
 autostart = false
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="Intro/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Intro/Timer_Intro" to="." method="_on_Timer_Intro_timeout"]
 
 [editable path="Platforms/Platform"]
 
