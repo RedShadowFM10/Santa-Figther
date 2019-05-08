@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	get_tree().paused = false
+	Global.intro = true
 
 # Boton de play
 func _on_Play_pressed():

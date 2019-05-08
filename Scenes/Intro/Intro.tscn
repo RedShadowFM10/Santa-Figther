@@ -541,7 +541,6 @@ scale = Vector2( 4, 4 )
 z_index = -1
 frames = SubResource( 5 )
 animation = "Idle"
-frame = 5
 playing = true
 flip_h = true
 

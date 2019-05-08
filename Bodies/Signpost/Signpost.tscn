@@ -3,10 +3,10 @@
 [ext_resource path="res://Bodies/Signpost/Sprite/Signpost.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 177.02, 51.4529 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 205, 51 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=2]
 size = 23
 font_data = ExtResource( 2 )
 
@@ -16,7 +16,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2.5, 2.5 )
@@ -28,7 +28,7 @@ margin_left = -35.312
 margin_top = -38.0299
 margin_right = 34.688
 margin_bottom = 12.9701
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PRESS
 ENTER"

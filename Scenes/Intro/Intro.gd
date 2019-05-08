@@ -8,7 +8,6 @@ func _input(event):
 		$Timer_Text.stop()
 		$Music/Timer_Music.stop()
 		count = 2
-		Global.intro = true
 		Fade_In_Out.change_scene("res://Scenes/Main/Main.tscn")
 	elif Input.is_action_just_pressed("Enter"):
 		count += 1
