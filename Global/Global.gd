@@ -1,6 +1,6 @@
 extends Node
 
-var intro = true
+var intro = false
 
 var level = "01"
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Mini_Monster_02.gd" type="Script" id=1]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Sprites/02.png" type="Texture" id=2]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Sprites/01.png" type="Texture" id=3]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_02-03/Mini_Monster_02.gd" type="Script" id=1]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_02-03/Sprites/02.png" type="Texture" id=2]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_02-03/Sprites/01.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dead_Left"
@@ -77,8 +77,8 @@ shape = SubResource( 4 )
 position = Vector2( 106.262, 0 )
 
 [node name="Area2D" type="Area2D" parent="." groups=[
-"Enemy",
 "Attack_Enemy",
+"Enemy",
 ]]
 editor/display_folded = true
 visible = false
@@ -102,7 +102,6 @@ shape = SubResource( 6 )
 ]]
 wait_time = 3.0
 one_shot = true
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="React" to="." method="_on_React_body_entered"]
 [connection signal="body_exited" from="React" to="." method="_on_React_body_exited"]

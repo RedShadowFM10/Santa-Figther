@@ -52,7 +52,7 @@ animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Run",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": false,
@@ -107,8 +107,8 @@ position = Vector2( 2.30787, 3.089 )
 shape = SubResource( 5 )
 
 [node name="Area_Attack" type="Area2D" parent="." groups=[
-"Enemy",
 "Attack_Enemy",
+"Enemy",
 ]]
 editor/display_folded = true
 collision_layer = 64
@@ -149,7 +149,6 @@ autostart = true
 ]]
 wait_time = 3.0
 one_shot = true
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Idle" to="." method="_on_Idle_timeout"]
 [connection signal="timeout" from="Move" to="." method="_on_Move_timeout"]
