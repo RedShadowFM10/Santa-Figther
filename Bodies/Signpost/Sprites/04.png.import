@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Signpost.png-947f53e1613cb6a5c8f16e798cb1646c.stex"
+path="res://.import/04.png-c867bd1a7e99059b4a2b0f23fb194fcf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bodies/Signpost/Sprite/Signpost.png"
-dest_files=[ "res://.import/Signpost.png-947f53e1613cb6a5c8f16e798cb1646c.stex" ]
+source_file="res://Bodies/Signpost/Sprites/04.png"
+dest_files=[ "res://.import/04.png-c867bd1a7e99059b4a2b0f23fb194fcf.stex" ]
 
 [params]
 
