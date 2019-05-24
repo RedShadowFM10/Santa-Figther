@@ -16,3 +16,8 @@ func effect():
 	$AnimationPlayer.play("Fade_In")
 	yield($AnimationPlayer, "animation_finished")
 	$AnimationPlayer.play("Fade_Out")
+
+func effect_change_level():
+	$AnimationPlayer.play("Fade_In_02")
+	yield($AnimationPlayer, "animation_finished")
+	$AnimationPlayer.play("Fade_Out")

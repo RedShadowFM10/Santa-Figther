@@ -2,6 +2,8 @@ extends Area2D
 
 var count = 0
 
+var label = false
+
 var hit_anim = false
 
 func _physics_process(delta):

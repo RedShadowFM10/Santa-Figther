@@ -8,12 +8,22 @@ var gift_direction # False izquierda / True derecha
 var santa_dead = false
 
 var timers
+var level
 
 func _ready():
 	get_tree().paused = false
+	level = Global.level
 	var level_type = load("res://Scenes/Levels/"+Global.level+".tscn")
 	var new_level = level_type.instance()
+	
+	var music_type
+	var new_music
+	if Global.level == "01" || "1.1":
+		music_type = load("res://Sounds/Music/Beat&em_Up_Level/Music_Level.tscn")
+		new_music = music_type.instance()
+	
 	call_deferred("add_child", new_level)
+	$Music.call_deferred("add_child", new_music)
 
 func _input(_event):
 	if Input.is_action_just_pressed("Esc") && !santa_dead:
@@ -59,3 +69,10 @@ func _on_Timer_timeout():
 	$GUI/Full_Screen.visible = true
 	$GUI/Retry.visible = true
 	$GUI/Menu.visible = true
+
+func Deleted_Add_Child():
+	get_node(level).queue_free()
+	level = Global.level
+	var level_type = load("res://Scenes/Levels/"+Global.level+".tscn")
+	var new_level = level_type.instance()
+	call_deferred("add_child", new_level)

@@ -7,10 +7,10 @@
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
 position = Vector2( -24.12, -353.852 )
 motion_mirroring = Vector2( 1280, 720 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 650.76, 23.8394 )
 texture = ExtResource( 1 )
-

@@ -5,6 +5,7 @@ var move = Vector2()
 var speed = 350
 
 var detect_enemies = false
+var visibily_notifier = false # Para evitar que de la señal si se cambia nivel, ejemplo 01 a 1.1
 
 # Estados
 var dead = false
@@ -194,8 +195,8 @@ func Create_lives():
 		list_lives.append(new_hp)
 
 func Add_Lives():
+	$SFX_Take_Item.play()
 	if lives < 3: # Limite
-		$SFX_Take_Item.play()
 		var new_hp = hp_gui.instance()
 		get_tree().get_nodes_in_group("GUI")[0].add_child(new_hp)
 		new_hp.global_position.x += offset * lives
@@ -223,6 +224,7 @@ func Create_Gifts():
 		list_gifts.append(new_gift)
 
 func Add_Gifts():
+	$SFX_Take_Item.play()
 	if gifts < 3: # Limite
 		var new_gift = gift_gui.instance()
 		get_tree().get_nodes_in_group("GUI")[0].add_child(new_gift)
@@ -418,11 +420,12 @@ func _on_Disable_Coll_timeout():
 
 # Si sale de la pantalla
 func _on_VisibilityNotifier2D_screen_exited():
-	off_screen = true
-	dead = true
-	move.x = 0
-	move.y = 0
-	get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
+	if !visibily_notifier:
+		off_screen = true
+		dead = true
+		move.x = 0
+		move.y = 0
+		get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
 
 func _on_Area_Items_body_entered(body):
 	if gifts > 0 && body.is_in_group("Platform"):
