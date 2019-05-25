@@ -29,6 +29,7 @@ var can_punch = false
 var can_super_attack = false
 var can_kick = false
 var can_gift = false
+var can_jump = false
 
 # Verifica el tipo de puñetazo
 var punch01_02 = false # false Punch 01 / true Punch 02
@@ -177,7 +178,7 @@ func _physics_process(delta):
 					move.x = 0
 					$AnimatedSprite.play("Idle")
 				# Salto
-				if Input.is_action_pressed("Up"):
+				if Input.is_action_pressed("Up") && !can_jump:
 					jump = true
 					move.y = -300
 					$AnimatedSprite.play("Jump 02")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=94 format=2]
 
-[ext_resource path="res://Trials (Delete)/Line2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Levels/01.gd" type="Script" id=1]
 [ext_resource path="res://GUI/Backgrounds/Background_01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tile_Map/01_Tile_Set.tres" type="TileSet" id=3]
 [ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/01.png" type="Texture" id=4]
@@ -10,64 +10,64 @@
 [ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/05.png" type="Texture" id=8]
 [ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/06.png" type="Texture" id=9]
 [ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/01.png" type="Texture" id=11]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/02.png" type="Texture" id=12]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/03.png" type="Texture" id=13]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/04.png" type="Texture" id=14]
-[ext_resource path="res://Bodies/Player/Sprites/Dead/05.png" type="Texture" id=15]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/01.png" type="Texture" id=16]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/02.png" type="Texture" id=17]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/03.png" type="Texture" id=18]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/04.png" type="Texture" id=19]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/05.png" type="Texture" id=20]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/06.png" type="Texture" id=21]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/07.png" type="Texture" id=22]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/08.png" type="Texture" id=23]
-[ext_resource path="res://Bodies/Player/Sprites/Kick/09.png" type="Texture" id=24]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/01.png" type="Texture" id=25]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/02.png" type="Texture" id=26]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/03.png" type="Texture" id=27]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/04.png" type="Texture" id=28]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 01/05.png" type="Texture" id=29]
-[ext_resource path="res://Bodies/Player/Sprites/Jump/03.png" type="Texture" id=30]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/01.png" type="Texture" id=31]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/02.png" type="Texture" id=32]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/03.png" type="Texture" id=33]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/04.png" type="Texture" id=34]
-[ext_resource path="res://Bodies/Player/Sprites/Punch 02/05.png" type="Texture" id=35]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/01.png" type="Texture" id=36]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/02.png" type="Texture" id=37]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/03.png" type="Texture" id=38]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/04.png" type="Texture" id=39]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 03/05.png" type="Texture" id=40]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/01.png" type="Texture" id=41]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/02.png" type="Texture" id=42]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/03.png" type="Texture" id=43]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/04.png" type="Texture" id=44]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/05.png" type="Texture" id=45]
-[ext_resource path="res://Bodies/Player/Sprites/Gift 02/06.png" type="Texture" id=46]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/01.png" type="Texture" id=47]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/02.png" type="Texture" id=48]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/03.png" type="Texture" id=49]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/04.png" type="Texture" id=50]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/05.png" type="Texture" id=51]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/06.png" type="Texture" id=52]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/07.png" type="Texture" id=53]
-[ext_resource path="res://Bodies/Player/Sprites/Super Attack/08.png" type="Texture" id=54]
-[ext_resource path="res://Bodies/Player/Sprites/Jump/02.png" type="Texture" id=55]
-[ext_resource path="res://Bodies/Player/Sprites/Move/01.png" type="Texture" id=56]
-[ext_resource path="res://Bodies/Player/Sprites/Move/02.png" type="Texture" id=57]
-[ext_resource path="res://Bodies/Player/Sprites/Move/03.png" type="Texture" id=58]
-[ext_resource path="res://Bodies/Player/Sprites/Move/04.png" type="Texture" id=59]
-[ext_resource path="res://Bodies/Player/Sprites/Move/05.png" type="Texture" id=60]
-[ext_resource path="res://Bodies/Player/Sprites/Move/06.png" type="Texture" id=61]
-[ext_resource path="res://Bodies/Player/Sprites/Move/07.png" type="Texture" id=62]
-[ext_resource path="res://Bodies/Player/Sprites/Move/08.png" type="Texture" id=63]
-[ext_resource path="res://Bodies/Player/Sprites/Idle 01/01.png" type="Texture" id=64]
-[ext_resource path="res://Bodies/Player/Sprites/Idle 01/02.png" type="Texture" id=65]
-[ext_resource path="res://Bodies/Player/Sprites/Idle 01/03.png" type="Texture" id=66]
-[ext_resource path="res://Bodies/Player/Sprites/Idle 01/04.png" type="Texture" id=67]
-[ext_resource path="res://Bodies/Player/Sprites/Idle 01/05.png" type="Texture" id=68]
+[ext_resource path="res://Bodies/Player/Sprites/Move/01.png" type="Texture" id=11]
+[ext_resource path="res://Bodies/Player/Sprites/Move/02.png" type="Texture" id=12]
+[ext_resource path="res://Bodies/Player/Sprites/Move/03.png" type="Texture" id=13]
+[ext_resource path="res://Bodies/Player/Sprites/Move/04.png" type="Texture" id=14]
+[ext_resource path="res://Bodies/Player/Sprites/Move/05.png" type="Texture" id=15]
+[ext_resource path="res://Bodies/Player/Sprites/Move/06.png" type="Texture" id=16]
+[ext_resource path="res://Bodies/Player/Sprites/Move/07.png" type="Texture" id=17]
+[ext_resource path="res://Bodies/Player/Sprites/Move/08.png" type="Texture" id=18]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/01.png" type="Texture" id=19]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/02.png" type="Texture" id=20]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/03.png" type="Texture" id=21]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/04.png" type="Texture" id=22]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/05.png" type="Texture" id=23]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/06.png" type="Texture" id=24]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/07.png" type="Texture" id=25]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/08.png" type="Texture" id=26]
+[ext_resource path="res://Bodies/Player/Sprites/Kick/09.png" type="Texture" id=27]
+[ext_resource path="res://Bodies/Player/Sprites/Jump/03.png" type="Texture" id=28]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/01.png" type="Texture" id=29]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/02.png" type="Texture" id=30]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/03.png" type="Texture" id=31]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/04.png" type="Texture" id=32]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/05.png" type="Texture" id=33]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 02/06.png" type="Texture" id=34]
+[ext_resource path="res://Bodies/Player/Sprites/Jump/02.png" type="Texture" id=35]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/01.png" type="Texture" id=36]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/02.png" type="Texture" id=37]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/03.png" type="Texture" id=38]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/04.png" type="Texture" id=39]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 01/05.png" type="Texture" id=40]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/01.png" type="Texture" id=41]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/02.png" type="Texture" id=42]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/03.png" type="Texture" id=43]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/04.png" type="Texture" id=44]
+[ext_resource path="res://Bodies/Player/Sprites/Gift 03/05.png" type="Texture" id=45]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/01.png" type="Texture" id=46]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/02.png" type="Texture" id=47]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/03.png" type="Texture" id=48]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/04.png" type="Texture" id=49]
+[ext_resource path="res://Bodies/Player/Sprites/Punch 02/05.png" type="Texture" id=50]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/01.png" type="Texture" id=51]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/02.png" type="Texture" id=52]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/03.png" type="Texture" id=53]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/04.png" type="Texture" id=54]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/05.png" type="Texture" id=55]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/06.png" type="Texture" id=56]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/07.png" type="Texture" id=57]
+[ext_resource path="res://Bodies/Player/Sprites/Super Attack/08.png" type="Texture" id=58]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/01.png" type="Texture" id=59]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/02.png" type="Texture" id=60]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/03.png" type="Texture" id=61]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/04.png" type="Texture" id=62]
+[ext_resource path="res://Bodies/Player/Sprites/Idle 01/05.png" type="Texture" id=63]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/01.png" type="Texture" id=64]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/02.png" type="Texture" id=65]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/03.png" type="Texture" id=66]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/04.png" type="Texture" id=67]
+[ext_resource path="res://Bodies/Player/Sprites/Dead/05.png" type="Texture" id=68]
 [ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=69]
 [ext_resource path="res://Bodies/Platforms/Platform.tscn" type="PackedScene" id=70]
 [ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Mini_Monster_01.tscn" type="PackedScene" id=71]
@@ -80,64 +80,7 @@
 [ext_resource path="res://Bodies/Signpost/Sprites/05.png" type="Texture" id=78]
 [ext_resource path="res://Bodies/Signpost/Sprites/06.png" type="Texture" id=79]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends Control
-
-var sign_post_01 = false
-
-func _input(event):
-	if Input.is_action_just_pressed(\"Enter\"):
-		if sign_post_01:
-			$Signposts/Signpost/Instructions.visible = true
-			$Signposts/Signpost/Label.visible = false
-
-func _ready():
-	if Global.intro:
-		$Santa.visible = false
-		$Santa.dead = true
-		$Intro/AnimationPlayer.play(\"Intro\")
-		Global.intro = false
-	else:
-		$Intro.queue_free()
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	Fade_In_Out.effect()
-	$Intro/Timer_Intro.start()
-
-func _on_Timer_Intro_timeout():
-	$Santa.visible = true
-	$Santa.dead = false
-	$Intro.queue_free()
-
-func _on_Signpost_area_entered(area):
-	if area.is_in_group(\"Player\"):
-		sign_post_01 = true
-		$Signposts/Signpost/Label.visible = true
-
-func _on_Signpost_area_exited(area):
-	if area.is_in_group(\"Player\"):
-		sign_post_01 = false
-		$Signposts/Signpost/Label.visible = false
-		$Signposts/Signpost/Instructions.visible = false
-
-func _on_Area_Platform_body_entered(body):
-	if body.is_in_group(\"Player\"):
-		$Santa.dead = true
-		$Santa/AnimatedSprite.play(\"Idle\")
-		$Platforms/Platform4/AnimationPlayer.play(\"Nueva animación\")
-		$Platforms/Platform4/Timer_Platform4.start()
-
-func _on_Timer_Platform4_timeout():
-	Global.level = \"1.1\"
-	$Santa.visibily_notifier = true
-	Fade_In_Out.effect_change_level()
-	$Platforms/Platform4/Timer_Fade_Effect.start()
-
-func _on_Timer_Fade_Effect_timeout():
-	get_tree().get_nodes_in_group(\"Main\")[0].Deleted_Add_Child()
-"
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
@@ -145,73 +88,73 @@ animations = [ {
 "speed": 7.0
 } ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 26
 font_data = ExtResource( 10 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "Dead",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "Kick",
-"speed": 13.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
-"loop": false,
-"name": "Punch 01",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": false,
-"name": "Jump 01",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "Punch 02",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
-"loop": false,
-"name": "Gift 02",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
-"loop": false,
-"name": "Gift 01",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
-"loop": false,
-"name": "Super Attack",
-"speed": 9.0
-}, {
-"frames": [ ExtResource( 55 ), ExtResource( 30 ) ],
-"loop": false,
-"name": "Jump 02",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "Move",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "Kick",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": false,
+"name": "Jump 01",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": false,
+"name": "Gift 01",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "Jump 02",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
+"loop": false,
+"name": "Punch 01",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
+"loop": false,
+"name": "Gift 02",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": false,
+"name": "Punch 02",
+"speed": 16.0
+}, {
+"frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
+"loop": false,
+"name": "Super Attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 63 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 7.0
 } ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 26
 font_data = ExtResource( 10 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "Intro"
 length = 18.8
 tracks/0/type = "value"
@@ -363,7 +306,7 @@ tracks/11/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -379,7 +322,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1691, 464 ), Vector2( 2153, 464 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -395,7 +338,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3572, 480 ), Vector2( 3572, 5 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -411,7 +354,7 @@ tracks/0/keys = {
 "values": [ Vector2( 5150, 66 ), Vector2( 6013, 66 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -423,10 +366,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 6979.92, 64.775 ), Vector2( 8745.09, 64.775 ) ]
+"values": [ Vector2( 7149, 20.2246 ), Vector2( 9000, 20.225 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 14.0215, 69.7278 )
 
 [sub_resource type="RectangleShape2D" id=11]
@@ -459,9 +402,7 @@ font_data = ExtResource( 10 )
 pause_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = SubResource( 1 )
-
-[node name="Line2D" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 1 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
 
@@ -491,9 +432,8 @@ z_as_relative = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -200.021, 76.9476 )
 scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Idle"
-frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="Intro/Dark_Lord"]
@@ -503,7 +443,7 @@ margin_left = -553.631
 margin_top = -121.399
 margin_right = 81.3687
 margin_bottom = 33.6012
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "THIS IS MY WORLD"
 align = 1
 valign = 1
@@ -524,9 +464,9 @@ position = Vector2( 0, 3.05176e-005 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Intro/Santa"]
 position = Vector2( 226.73, 383.304 )
 scale = Vector2( 3.5, 3.5 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "Idle"
-frame = 2
+frame = 4
 playing = true
 
 [node name="Label" type="Label" parent="Intro/Santa"]
@@ -534,7 +474,7 @@ margin_left = 31.0
 margin_top = 304.0
 margin_right = 188.0
 margin_bottom = 331.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "WHERE AM I?"
 align = 1
 valign = 1
@@ -550,7 +490,7 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
-anims/Intro = SubResource( 6 )
+anims/Intro = SubResource( 5 )
 
 [node name="Timer_Intro" type="Timer" parent="Intro" groups=[
 "Timer",
@@ -558,7 +498,7 @@ anims/Intro = SubResource( 6 )
 one_shot = true
 
 [node name="Santa" parent="." instance=ExtResource( 69 )]
-position = Vector2( 6288.8, -22.3152 )
+position = Vector2( 225.699, 380.374 )
 
 [node name="Platforms" type="Node" parent="."]
 editor/display_folded = true
@@ -569,7 +509,7 @@ position = Vector2( 1691, 464 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform" index="2"]
 autoplay = "Nueva animación"
-"anims/Nueva animación" = SubResource( 7 )
+"anims/Nueva animación" = SubResource( 6 )
 
 [node name="Platform2" parent="Platforms" instance=ExtResource( 70 )]
 editor/display_folded = true
@@ -577,7 +517,7 @@ position = Vector2( 3572, 480 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform2" index="2"]
 autoplay = "Nueva animación"
-"anims/Nueva animación" = SubResource( 8 )
+"anims/Nueva animación" = SubResource( 7 )
 
 [node name="Platform3" parent="Platforms" instance=ExtResource( 70 )]
 editor/display_folded = true
@@ -586,14 +526,14 @@ collision/safe_margin = 0.001
 
 [node name="AnimationPlayer" parent="Platforms/Platform3" index="2"]
 autoplay = "Nueva animación"
-"anims/Nueva animación" = SubResource( 9 )
+"anims/Nueva animación" = SubResource( 8 )
 
 [node name="Platform4" parent="Platforms" instance=ExtResource( 70 )]
 editor/display_folded = true
-position = Vector2( 6979.92, 64.775 )
+position = Vector2( 7149, 20.2246 )
 
 [node name="AnimationPlayer" parent="Platforms/Platform4" index="2"]
-"anims/Nueva animación" = SubResource( 10 )
+"anims/Nueva animación" = SubResource( 9 )
 
 [node name="Area_Platform" type="Area2D" parent="Platforms/Platform4"]
 editor/display_folded = true
@@ -602,7 +542,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Platform4/Area_Platform"]
 position = Vector2( 0.0224609, -52.1755 )
-shape = SubResource( 15 )
+shape = SubResource( 10 )
 
 [node name="Timer_Platform4" type="Timer" parent="Platforms/Platform4" groups=[
 "Timer",

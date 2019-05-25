@@ -2,9 +2,9 @@ extends Node
 
 var intro = false
 
-var level = "01"
+var level = "1.1"
 
-var gui_gift = false
+var gui_gift = true
 
 var can_punch = true
 var can_super_attack = true
