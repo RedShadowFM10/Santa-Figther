@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Mini_Monster_01.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/SFX/Monster_Damage.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/03.png" type="Texture" id=3]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/02.png" type="Texture" id=4]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/05.png" type="Texture" id=5]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/06.png" type="Texture" id=6]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/07.png" type="Texture" id=7]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/08.png" type="Texture" id=8]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/04.png" type="Texture" id=9]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/04.png" type="Texture" id=3]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/05.png" type="Texture" id=4]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/06.png" type="Texture" id=5]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/07.png" type="Texture" id=6]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/08.png" type="Texture" id=7]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/03.png" type="Texture" id=8]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/02.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dead_Left"
@@ -44,20 +44,20 @@ tracks/0/keys = {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 2.0
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "Dead",
+"speed": 1.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Run",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": false,
-"name": "Dead",
-"speed": 1.0
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 2.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -97,7 +97,9 @@ visible = false
 position = Vector2( 2.38394, 3.40562 )
 shape = SubResource( 4 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Enemy",
+]]
 editor/display_folded = true
 collision_layer = 0
 collision_mask = 82
@@ -107,11 +109,10 @@ position = Vector2( 2.30787, 3.089 )
 shape = SubResource( 5 )
 
 [node name="Area_Attack" type="Area2D" parent="." groups=[
-"Enemy",
 "Attack_Enemy",
 ]]
 editor/display_folded = true
-collision_layer = 64
+collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Attack"]

@@ -4,7 +4,6 @@
 [ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Sprites/02.png" type="Texture" id=2]
 [ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Sprites/01.png" type="Texture" id=3]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "Dead_Left"
 length = 0.3
@@ -78,8 +77,8 @@ shape = SubResource( 4 )
 position = Vector2( 106.262, 0 )
 
 [node name="Area2D" type="Area2D" parent="." groups=[
-"Attack_Enemy",
 "Enemy",
+"Attack_Enemy",
 ]]
 editor/display_folded = true
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Bodies/Mini_Skeleton/Mini_Skeleton.gd" type="Script" id=1]
 [ext_resource path="res://Bodies/Mini_Skeleton/Sprites/01.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Bodies/Mini_Skeleton/Sprites/03.png" type="Texture" id=4]
 [ext_resource path="res://Bodies/Mini_Skeleton/Sprites/04.png" type="Texture" id=5]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -14,11 +14,14 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 13.2388, 24.2151 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 13.8976, 24.5528 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6.36266, 18.173 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "Dead_Left"
@@ -55,25 +58,26 @@ tracks/0/keys = {
 [node name="Mini_Skeleton" type="KinematicBody2D"]
 z_index = 6
 z_as_relative = false
+collision_layer = 4
+collision_mask = 0
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 3, 3 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Move"
 frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 1.61681, -0.157776 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 103.617, 0.0668526 )
 
 [node name="Area2D" type="Area2D" parent="." groups=[
 "Enemy",
-"Attack_Enemy",
 ]]
 editor/display_folded = true
 collision_layer = 0
@@ -83,6 +87,17 @@ collision_mask = 82
 position = Vector2( 1.56845, -0.157778 )
 shape = SubResource( 3 )
 
+[node name="Area_Attack" type="Area2D" parent="." groups=[
+"Attack_Enemy",
+]]
+editor/display_folded = true
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Attack"]
+position = Vector2( 1.03132, 5.73781 )
+shape = SubResource( 6 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Dead_Left = SubResource( 4 )
 anims/Dead_Right = SubResource( 5 )
@@ -90,12 +105,23 @@ anims/Dead_Right = SubResource( 5 )
 [node name="RayCastReact" type="RayCast2D" parent="."]
 position = Vector2( 0, -13 )
 enabled = true
-cast_to = Vector2( 250, 0 )
+cast_to = Vector2( 300, 0 )
 collision_mask = 3
 
-[node name="RayCastFloor" type="RayCast2D" parent="."]
-position = Vector2( 18, 21.846 )
+[node name="RayCastJump" type="RayCast2D" parent="."]
+position = Vector2( 0, -19.941 )
 enabled = true
+cast_to = Vector2( 70, 0 )
+
+[node name="RayCastJump2" type="RayCast2D" parent="."]
+position = Vector2( 0, -11.62 )
+enabled = true
+cast_to = Vector2( 70, 0 )
+
+[node name="RayCastFloor" type="RayCast2D" parent="."]
+position = Vector2( 23, 21.846 )
+enabled = true
+cast_to = Vector2( 0, 80 )
 
 [node name="Timer_Queue" type="Timer" parent="." groups=[
 "Timer",

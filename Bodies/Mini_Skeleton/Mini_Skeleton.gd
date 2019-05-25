@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var move = Vector2()
 var gravity = 600
-var speed = 200
+var speed = 275
 
 var direction = true
 var adjust = false
@@ -23,6 +23,13 @@ func _ready():
 	idle = true
 
 func _physics_process(delta):
+	if !dead:
+		if $RayCastReact.is_colliding():
+			var coll = $RayCastReact.get_collider()
+			if coll.is_in_group("Player"):
+				follow_player = true
+				$RayCastReact.enabled = false
+	
 	if !is_on_floor():
 		move.y += gravity * delta
 		$AnimatedSprite.stop()
@@ -44,11 +51,8 @@ func _physics_process(delta):
 					follow_player = false
 					$RayCastReact.enabled = true
 				direction = !direction
-			if $RayCastReact.is_colliding():
-				var coll = $RayCastReact.get_collider()
-				if coll.is_in_group("Player"):
-					follow_player = true
-					$RayCastReact.enabled = false
+			if $RayCastJump2.is_colliding() && !$RayCastJump.is_colliding():
+				move.y = -300
 			
 			if follow_player:
 				if player.global_position.x - $Position2D.global_position.x < 15 && player.global_position.x - $Position2D.global_position.x > 0:
@@ -78,20 +82,24 @@ func _physics_process(delta):
 
 func Adjust_Rigth():
 	if adjust:
-		$RayCastFloor.position.x = 18
+		$RayCastFloor.position.x = 23
 		$AnimatedSprite.flip_h = false
-		$RayCastReact.cast_to.x = 250
+		$RayCastReact.cast_to.x = 300
 		$CollisionShape2D.position.x = 1.617
 		$Area2D/CollisionShape2D.position.x = 1.568
+		$RayCastJump.cast_to.x = 70
+		$RayCastJump2.cast_to.x = 70
 		adjust = false
 
 func Adjust_Left():
 	if !adjust:
-		$RayCastFloor.position.x = -18
+		$RayCastFloor.position.x = -22
 		$AnimatedSprite.flip_h = true
-		$RayCastReact.cast_to.x = -250
+		$RayCastReact.cast_to.x = -300
 		$CollisionShape2D.position.x = -1.442
 		$Area2D/CollisionShape2D.position.x = -1.49
+		$RayCastJump.cast_to.x = -70
+		$RayCastJump2.cast_to.x = -70
 		adjust = true
 
 func Change_Modulate():
@@ -116,6 +124,7 @@ func Dead():
 		$AnimationPlayer.play("Dead_Right")
 	yield(get_tree().create_timer(0.1), "timeout")
 	$Area2D/CollisionShape2D.disabled = true
+	$Area_Attack/CollisionShape2D.disabled = true
 	$Timer_Queue.start()
 
 func _on_Timer_Queue_timeout():
