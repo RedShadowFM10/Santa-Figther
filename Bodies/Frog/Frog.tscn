@@ -60,6 +60,5 @@ collision_mask = 80
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 1.39179, 6.37902 )
 shape = SubResource( 3 )
-
 [connection signal="timeout" from="Jump" to="." method="_on_Jump_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

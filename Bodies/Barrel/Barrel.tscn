@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Bodies/Barrel/Barrel.gd" type="Script" id=1]
+[ext_resource path="res://Bodies/Items/Hearth/Hearth_Item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Bodies/Items/Gift/Gift_Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Bodies/Barrel/Sprites/01.png" type="Texture" id=4]
+[ext_resource path="res://Bodies/Barrel/Sprites/02.png" type="Texture" id=5]
+[ext_resource path="res://Bodies/Barrel/Sprites/03.png" type="Texture" id=6]
+[ext_resource path="res://Bodies/Barrel/Sprites/04.png" type="Texture" id=7]
+[ext_resource path="res://Bodies/Barrel/Sprites/05.png" type="Texture" id=8]
+[ext_resource path="res://Bodies/Barrel/Sprites/06.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "Hit",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "Destroy",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37.7707, 50.4059 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 39.8323, 52.0155 )
+
+[node name="Barrel" type="StaticBody2D"]
+z_index = 2
+z_as_relative = false
+collision_mask = 0
+script = ExtResource( 1 )
+heart_item = ExtResource( 2 )
+gift_item = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 5, 5 )
+frames = SubResource( 1 )
+animation = "Hit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -22.6518, 29.7884 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -22.7723, 29.7803 )
+shape = SubResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -21.7421, 30.9407 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

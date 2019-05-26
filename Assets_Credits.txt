@@ -9,7 +9,8 @@ Frog, Mini_Skeleton: https://opengameart.org/content/chibi-monsters-set-01
 Smaller, Larger: https://kenney.nl/assets/game-icons
 Mini_Monster_01 - 02: https://0x72.itch.io/dungeontileset-ii
 House: https://www.deviantart.com/drysmian/art/Swamp-Hut-inside-663169701
-Signpost: https://elthen.itch.io/pixel-art-destructible-objects
+Signpost, Barrel: https://elthen.itch.io/pixel-art-destructible-objects
+Key: https://opengameart.org/content/golden-and-silver-key-game-item
 
 SFX.
 
