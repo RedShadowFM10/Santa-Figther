@@ -26,4 +26,5 @@ func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player") && !can_area:
 		player.get_node("SFX_Take_Item").play()
 		can_area = true
+		get_tree().get_nodes_in_group("Main")[0].Show_Hide_Key()
 		queue_free()

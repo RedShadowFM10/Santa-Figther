@@ -3,14 +3,15 @@
 [ext_resource path="res://GUI/Backgrounds/Sprites/Background_01.png" type="Texture" id=1]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = -2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -50.981, 390.3 )
-motion_mirroring = Vector2( 1920, 1080 )
+position = Vector2( -102.713, 123.019 )
+motion_mirroring = Vector2( 2560, 1440 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 938.159, -70.0859 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 1040.45, 227.073 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )

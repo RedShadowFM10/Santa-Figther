@@ -76,3 +76,6 @@ func Deleted_Add_Child():
 	var level_type = load("res://Scenes/Levels/"+Global.level+".tscn")
 	var new_level = level_type.instance()
 	call_deferred("add_child", new_level)
+
+func Show_Hide_Key():
+	$GUI/Key.visible = !$GUI/Key.visible

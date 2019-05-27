@@ -6,6 +6,13 @@ var label = false
 
 var hit_anim = false
 
+var sfx_object_destroy
+var sfx_hit_item
+
+func _ready():
+	sfx_object_destroy = get_tree().get_nodes_in_group("SFX")[0].get_node("Object_Destroy")
+	sfx_hit_item = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Item")
+
 func _physics_process(delta):
 	if hit_anim:
 		if $AnimatedSprite.frame == 1:
@@ -21,9 +28,11 @@ func _on_Hit_area_entered(area):
 		$AnimatedSprite.frame = 0
 		if count <= 5:
 			$AnimatedSprite.play("Hit")
+			sfx_hit_item.play()
 			hit_anim = true
 		elif count == 6:
 			$AnimatedSprite.play("Destroy")
+			sfx_object_destroy.play()
 			count = 7
 			yield(get_tree().create_timer(0.1), "timeout")
 			$CollisionShape2D.disabled = true

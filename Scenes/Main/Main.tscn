@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Bodies/Gift/Gift.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GUI/Full_Screen/Full_Screen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Sounds/SFX/Hit_Enemy.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Bodies/Items/Key/Sprite/goldenkey.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/SFX/Hit_Enemy.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/SFX/Object_Destroy.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/SFX/Hit_Player.ogg" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -82,6 +85,12 @@ custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "RETRY"
 flat = true
 
+[node name="Key" type="Sprite" parent="GUI"]
+visible = false
+position = Vector2( 197.335, 35 )
+scale = Vector2( 0.13, 0.13 )
+texture = ExtResource( 5 )
+
 [node name="SFX" type="Node" parent="." groups=[
 "SFX",
 ]]
@@ -89,16 +98,24 @@ pause_mode = 1
 editor/display_folded = true
 
 [node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = -25.0
 
 [node name="Frog" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = -5.0
 
 [node name="Hit_Enemy" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = -10.0
+
+[node name="Object_Destroy" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+volume_db = -5.0
+
+[node name="Hit_Item" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 10 )
+volume_db = -8.0
 
 [node name="Music" type="Node" parent="."]
 pause_mode = 1

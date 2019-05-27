@@ -81,7 +81,7 @@ func _physics_process(delta):
 		if !jump: # Para evitar que caiga demaisado rapido
 			move.y = 1
 			jump = true
-		if !dead: # Si está vivo
+		if !dead && lives > 0: # Si está vivo
 			# Ajustar las colisiones
 			if kick_jump:
 				Kick_Frames()
@@ -107,7 +107,7 @@ func _physics_process(delta):
 		if !off_screen:
 			move.y = 1000 # Para evitar que rebote
 		jump = false
-		if !dead: # Si está vivo
+		if !dead && lives > 0: # Si está vivo
 			if has_jumped:
 				has_jumped = false
 			
@@ -424,6 +424,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	if !visibily_notifier:
 		off_screen = true
 		dead = true
+		lives = 0
 		move.x = 0
 		move.y = 0
 		get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
