@@ -46,7 +46,7 @@ func _on_Area_Platform_body_entered(body):
 		$Platforms/Platform4/Timer_Platform4.start()
 
 func _on_Timer_Platform4_timeout():
-	Global.level = "1.1"
+	Global.level = "1,1"
 	$Santa.visibily_notifier = true
 	Fade_In_Out.effect_change_level()
 	$Platforms/Platform4/Timer_Fade_Effect.start()

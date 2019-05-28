@@ -6,6 +6,7 @@ var speed = 350
 
 var detect_enemies = false
 var visibily_notifier = false # Para evitar que de la señal si se cambia nivel, ejemplo 01 a 1.1
+var key = false # Si el jugador tiene la llave
 
 # Estados
 var dead = false

@@ -25,6 +25,9 @@ func _physics_process(delta):
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Player") && !can_area:
 		player.get_node("SFX_Take_Item").play()
+		player.key = true
 		can_area = true
-		get_tree().get_nodes_in_group("Main")[0].Show_Hide_Key()
+		get_tree().get_nodes_in_group("Main")[0].Show_Key()
+		get_tree().get_nodes_in_group("Door")[0].get_node("Open").visible = true
+		get_tree().get_nodes_in_group("Door")[0].get_node("Closed").visible = false
 		queue_free()

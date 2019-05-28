@@ -18,7 +18,7 @@ func _ready():
 	
 	var music_type
 	var new_music
-	if Global.level == "01" || "1.1":
+	if Global.level == "01" || "1,1":
 		music_type = load("res://Sounds/Music/Beat&em_Up_Level/Music_Level.tscn")
 		new_music = music_type.instance()
 	
@@ -65,6 +65,12 @@ func Santa_Dead():
 	santa_dead = true
 	$Timer.start()
 
+func Next_Level():
+	$GUI/Next_Level.visible = true
+	$GUI/Full_Screen.visible = true
+	$GUI/Retry.visible = true
+	$GUI/Menu.visible = true
+
 func _on_Timer_timeout():
 	$GUI/Full_Screen.visible = true
 	$GUI/Retry.visible = true
@@ -77,5 +83,15 @@ func Deleted_Add_Child():
 	var new_level = level_type.instance()
 	call_deferred("add_child", new_level)
 
-func Show_Hide_Key():
-	$GUI/Key.visible = !$GUI/Key.visible
+func Show_Key():
+	$GUI/Key.visible = true
+
+func Hide_Key():
+	$GUI/Key.visible = false
+
+func _on_Next_Level_pressed():
+	Deleted_Add_Child()
+	$GUI/Next_Level.visible = false
+	$GUI/Full_Screen.visible = false
+	$GUI/Retry.visible = false
+	$GUI/Menu.visible = false

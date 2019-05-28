@@ -34,3 +34,23 @@ func _on_Area2D_area_entered(area):
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("Player"):
 		$Santa.can_jump = false
+
+func _on_Area_Intro_area_entered(area):
+	if area.is_in_group("Player"):
+		$Santa.dead = true
+		$Santa/AnimatedSprite.play("Idle")
+		$Power_Intro/Animation_Power.play("Intro")
+
+func _on_Animation_Power_animation_finished(_anim_name):
+	$Power_Intro.queue_free()
+	$Santa.dead = false
+
+func _on_Door_01_area_entered(area):
+	if area.is_in_group("Player"):
+		if $Santa.key:
+			get_tree().get_nodes_in_group("Main")[0].Hide_Key()
+			$Santa.dead = true
+			$Santa/AnimatedSprite.play("Idle")
+			$Santa.visibily_notifier = true
+			get_tree().get_nodes_in_group("Main")[0].Next_Level()
+			Global.level = "02"

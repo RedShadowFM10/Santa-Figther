@@ -2,10 +2,11 @@
 
 [ext_resource path="res://GUI/Backgrounds/Sprites/Background_01.png" type="Texture" id=1]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Canvas_Background" type="CanvasLayer"]
 layer = -2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( -102.713, 123.019 )

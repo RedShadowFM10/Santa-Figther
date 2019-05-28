@@ -2,7 +2,7 @@ extends Node
 
 var intro = false
 
-var level = "1.1"
+var level = "1,1"
 
 var gui_gift = true
 
