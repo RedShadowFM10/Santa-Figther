@@ -7,6 +7,7 @@ var speed = 350
 var detect_enemies = false
 var visibily_notifier = false # Para evitar que de la señal si se cambia nivel, ejemplo 01 a 1.1
 var key = false # Si el jugador tiene la llave
+var intro = true
 
 # Estados
 var dead = false
@@ -63,6 +64,7 @@ var gifts = 3 # Liimite de regalos
 var list_gifts = [] # Contrendrá los regalos instanciados
 
 func _ready():
+	get_tree().get_nodes_in_group("Main")[0].santa_intro = false
 	Create_lives()
 	gui_gift = Global.gui_gift
 	if gui_gift:
@@ -82,7 +84,7 @@ func _physics_process(delta):
 		if !jump: # Para evitar que caiga demaisado rapido
 			move.y = 1
 			jump = true
-		if !dead && lives > 0: # Si está vivo
+		if !dead && lives > 0 && !intro: # Si está vivo
 			# Ajustar las colisiones
 			if kick_jump:
 				Kick_Frames()
@@ -108,7 +110,7 @@ func _physics_process(delta):
 		if !off_screen:
 			move.y = 1000 # Para evitar que rebote
 		jump = false
-		if !dead && lives > 0: # Si está vivo
+		if !dead && lives > 0 && !intro: # Si está vivo
 			if has_jumped:
 				has_jumped = false
 			
@@ -192,7 +194,7 @@ func _physics_process(delta):
 func Create_lives():
 	for i in lives:
 		var new_hp = hp_gui.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(new_hp)
+		$GUI.add_child(new_hp)
 		new_hp.global_position.x += offset * i
 		list_lives.append(new_hp)
 
@@ -200,7 +202,7 @@ func Add_Lives():
 	$SFX_Take_Item.play()
 	if lives < 3: # Limite
 		var new_hp = hp_gui.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(new_hp)
+		$GUI.add_child(new_hp)
 		new_hp.global_position.x += offset * lives
 		list_lives[lives].queue_free() # Elimina el corazon vacio en el Array
 		list_lives[lives] = new_hp # El Array vacio guarda el corazon nuevo
@@ -210,7 +212,7 @@ func Delete_Lives():
 	if lives > 0:
 		lives -= 1
 		var new_empty = hp_empty_gui.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(new_empty)
+		$GUI.add_child(new_empty)
 		new_empty.global_position.x += offset * lives
 		list_lives[lives].queue_free() # Elimina el corazon
 		list_lives[lives] = new_empty # El array vacio guarda el corazon nuevo
@@ -221,7 +223,7 @@ func Delete_Lives():
 func Create_Gifts():
 	for i in gifts:
 		var new_gift = gift_gui.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(new_gift)
+		$GUI.add_child(new_gift)
 		new_gift.global_position.x += offset * i
 		list_gifts.append(new_gift)
 
@@ -229,7 +231,7 @@ func Add_Gifts():
 	$SFX_Take_Item.play()
 	if gifts < 3: # Limite
 		var new_gift = gift_gui.instance()
-		get_tree().get_nodes_in_group("GUI")[0].add_child(new_gift)
+		$GUI.add_child(new_gift)
 		new_gift.global_position.x += offset * gifts
 		list_gifts[gifts] = new_gift
 		gifts += 1
@@ -422,13 +424,17 @@ func _on_Disable_Coll_timeout():
 
 # Si sale de la pantalla
 func _on_VisibilityNotifier2D_screen_exited():
-	if !visibily_notifier:
+	if !visibily_notifier && !intro:
 		off_screen = true
 		dead = true
 		lives = 0
 		move.x = 0
 		move.y = 0
 		get_tree().get_nodes_in_group("Main")[0].Santa_Dead()
+
+# Timer para el notifer
+func _on_Timer_timeout():
+	intro = false
 
 func _on_Area_Items_body_entered(body):
 	if gifts > 0 && body.is_in_group("Platform"):

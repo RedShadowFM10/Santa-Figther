@@ -8,7 +8,6 @@ var can_area = false
 var player
 
 func _ready():
-	player = get_tree().get_nodes_in_group("Player")[0]
 	move.y = -250
 	move = move_and_slide(move)
 
@@ -31,3 +30,6 @@ func _on_Area2D_area_entered(area):
 		get_tree().get_nodes_in_group("Door")[0].get_node("Open").visible = true
 		get_tree().get_nodes_in_group("Door")[0].get_node("Closed").visible = false
 		queue_free()
+
+func _on_Ready_timeout():
+	player = get_tree().get_nodes_in_group("Player")[0]

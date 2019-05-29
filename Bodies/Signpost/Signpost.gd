@@ -2,8 +2,6 @@ extends Area2D
 
 var count = 0
 
-var label = false
-
 var hit_anim = false
 
 var sfx_object_destroy
@@ -13,7 +11,7 @@ func _ready():
 	sfx_object_destroy = get_tree().get_nodes_in_group("SFX")[0].get_node("Object_Destroy")
 	sfx_hit_item = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Item")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if hit_anim:
 		if $AnimatedSprite.frame == 1:
 			$Label.margin_top = -22

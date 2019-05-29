@@ -6,6 +6,7 @@ var gift01_02 # variable para el regalo / True 01 / False 02
 var gift_direction # False izquierda / True derecha
 
 var santa_dead = false
+var santa_intro = false
 
 var timers
 var level
@@ -26,21 +27,26 @@ func _ready():
 	$Music.call_deferred("add_child", new_music)
 
 func _input(_event):
-	if Input.is_action_just_pressed("Esc") && !santa_dead:
+	if Input.is_action_just_pressed("Esc") && !santa_dead && !santa_intro:
 		get_tree().paused = !get_tree().paused
 		$GUI/Full_Screen.visible = !$GUI/Full_Screen.visible
 		$GUI/Retry.visible = !$GUI/Retry.visible
 		$GUI/Menu.visible = !$GUI/Menu.visible
 		$GUI/Pause.visible = !$GUI/Pause.visible
 	elif Input.is_action_just_pressed("Enter") && get_tree().paused:
+		timers = get_tree().get_nodes_in_group("Timer")
+		for timer in timers:
+			timer.stop()
 		$GUI/Full_Screen.visible = false
 		Fade_In_Out.reload_scene()
+		santa_intro = true
 	elif Input.is_action_just_pressed("Enter") && $GUI/Menu.visible:
 		timers = get_tree().get_nodes_in_group("Timer")
 		for timer in timers:
 			timer.stop()
 		$GUI/Full_Screen.visible = false
 		Fade_In_Out.reload_scene()
+		santa_intro = true
 
 func Gift_Instaciar(kind_gift, position, direction):
 	var new_gift = gift.instance()
@@ -57,19 +63,23 @@ func Gift_Instaciar(kind_gift, position, direction):
 # Ir al menu
 func _on_Menu_pressed():
 	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
+	santa_intro = true
 
 func _on_Retry_pressed():
 	Fade_In_Out.reload_scene()
+	santa_intro = true
 
 func Santa_Dead():
+	print("A")
 	santa_dead = true
 	$Timer.start()
 
 func Next_Level():
+	$GUI/Level_Complete.visible = true
 	$GUI/Next_Level.visible = true
-	$GUI/Full_Screen.visible = true
-	$GUI/Retry.visible = true
 	$GUI/Menu.visible = true
+	$GUI/Full_Screen.visible = true
+	santa_intro = true
 
 func _on_Timer_timeout():
 	$GUI/Full_Screen.visible = true
@@ -91,7 +101,7 @@ func Hide_Key():
 
 func _on_Next_Level_pressed():
 	Deleted_Add_Child()
+	$GUI/Level_Complete.visible = false
 	$GUI/Next_Level.visible = false
-	$GUI/Full_Screen.visible = false
-	$GUI/Retry.visible = false
 	$GUI/Menu.visible = false
+	$GUI/Full_Screen.visible = false

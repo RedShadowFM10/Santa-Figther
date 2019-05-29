@@ -1,8 +1,8 @@
 extends Node
 
-var intro = false
+var intro = true
 
-var level = "1,1"
+var level = "01"
 
 var gui_gift = true
 

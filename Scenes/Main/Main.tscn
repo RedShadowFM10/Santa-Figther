@@ -3,8 +3,8 @@
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Bodies/Gift/Gift.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GUI/Full_Screen/Full_Screen.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Fonts/Default.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/Default.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Bodies/Items/Key/Sprite/goldenkey.png" type="Texture" id=6]
 [ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=8]
@@ -14,11 +14,11 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
-font_data = ExtResource( 5 )
+font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 60
-font_data = ExtResource( 5 )
+font_data = ExtResource( 4 )
 
 [node name="Main" type="Node" groups=[
 "Main",
@@ -38,24 +38,10 @@ one_shot = true
 "GUI",
 ]]
 pause_mode = 2
+editor/display_folded = true
 
 [node name="Full_Screen" parent="GUI" instance=ExtResource( 3 )]
 visible = false
-
-[node name="Next_Level" type="Button" parent="GUI"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -175.5
-margin_top = -125.203
-margin_right = 175.5
-margin_bottom = -59.2026
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
-text = "NEXT LEVEL"
-flat = true
 
 [node name="Pause" type="Label" parent="GUI"]
 visible = false
@@ -70,6 +56,34 @@ margin_bottom = -60.0
 custom_fonts/font = SubResource( 1 )
 text = "PAUSE"
 
+[node name="Level_Complete" type="Label" parent="GUI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -140.0
+margin_right = 320.0
+margin_bottom = -60.0
+custom_fonts/font = SubResource( 1 )
+text = "LEVEL COMPLETE"
+
+[node name="Next_Level" type="Button" parent="GUI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.5
+margin_top = -50.0
+margin_right = 175.5
+margin_bottom = 16.0004
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
+text = "NEXT LEVEL"
+flat = true
+
 [node name="Retry" type="Button" parent="GUI"]
 visible = false
 anchor_left = 0.5
@@ -80,7 +94,7 @@ margin_left = -99.0
 margin_top = -50.0
 margin_right = 99.0
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "RETRY"
 flat = true
@@ -91,7 +105,7 @@ margin_left = 537.975
 margin_top = 378.059
 margin_right = 737.975
 margin_bottom = 455.059
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "MENU"
 flat = true

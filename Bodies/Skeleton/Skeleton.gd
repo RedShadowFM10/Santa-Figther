@@ -18,12 +18,13 @@ var attack = false
 var revive = false
 
 var player # Será igual a las propiedades del Santa
-var check = false # Para que verifique una vez
+var main
+var check
 
 var counter = 0 # Contador para los golpes recibidos
 
 func _ready():
-	player = get_tree().get_nodes_in_group("Player")[0]
+	main = get_tree().get_nodes_in_group("Main")[0]
 	sfx_hit_enemy = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Enemy")
 
 func _physics_process(delta):
@@ -32,13 +33,10 @@ func _physics_process(delta):
 	else:
 		move.y = 15 # Para evitar que rebote
 		
-		if player.dead && !check:
-			follow_player = false
-			movement = false
-			$Move.start()
-			check = true
-		
 		if !dead:
+			if !check && main.santa_dead:
+				Dead_Player()
+			
 			if !$RayCastFloor.is_colliding(): # Deteccion de precipicios
 				if follow_player:
 					follow_player = false
@@ -282,5 +280,14 @@ func Dead2():
 	$Revive.stop()
 	$Timer_Queue.start()
 
+func Dead_Player():
+	check = true
+	follow_player = false
+	movement = false
+	$Move.start()
+
 func _on_Timer_Queue_timeout():
 	queue_free()
+
+func _on_Ready_timeout():
+	player = get_tree().get_nodes_in_group("Player")[0]

@@ -13,11 +13,12 @@ var movement = false
 var idle = false
 
 var player
-var check = false
+var main
+var check
 var sfx_hit_enemy
 
 func _ready():
-	player = get_tree().get_nodes_in_group("Player")[0]
+	main = get_tree().get_nodes_in_group("Main")[0]
 	sfx_hit_enemy = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Enemy")
 	movement = true
 	idle = true
@@ -36,11 +37,9 @@ func _physics_process(delta):
 	else:
 		move.y = 15
 		if !dead:
-			if player.dead && !check:
-				follow_player = false
-				check = true
-				idle = true
-				movement = true
+			if !check && main.santa_dead:
+				Dead_Player()
+			
 			if is_on_wall():
 				if follow_player:
 					follow_player = false
@@ -127,5 +126,14 @@ func Dead():
 	$Area_Attack/CollisionShape2D.disabled = true
 	$Timer_Queue.start()
 
+func Dead_Player():
+	check = true
+	follow_player = false
+	idle = true
+	movement = true
+
 func _on_Timer_Queue_timeout():
 	queue_free()
+
+func _on_Ready_timeout():
+	player = get_tree().get_nodes_in_group("Player")[0]

@@ -77,8 +77,8 @@ shape = SubResource( 4 )
 position = Vector2( 106.262, 0 )
 
 [node name="Area2D" type="Area2D" parent="." groups=[
-"Enemy",
 "Attack_Enemy",
+"Enemy",
 ]]
 editor/display_folded = true
 visible = false
@@ -102,7 +102,15 @@ shape = SubResource( 6 )
 ]]
 wait_time = 3.0
 one_shot = true
+
+[node name="Ready" type="Timer" parent="." groups=[
+"Timer",
+]]
+wait_time = 0.1
+one_shot = true
+autostart = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="React" to="." method="_on_React_body_entered"]
 [connection signal="body_exited" from="React" to="." method="_on_React_body_exited"]
 [connection signal="timeout" from="Timer_Queue" to="." method="_on_Timer_Queue_timeout"]
+[connection signal="timeout" from="Ready" to="." method="_on_Ready_timeout"]

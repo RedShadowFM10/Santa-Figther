@@ -39,15 +39,16 @@ func _on_Signpost_area_exited(area):
 
 func _on_Area_Platform_body_entered(body):
 	if body.is_in_group("Player"):
-		$Santa.dead = true
+		get_tree().get_nodes_in_group("Main")[0].santa_intro = true
+		$Santa.intro = true
 		$Santa/AnimatedSprite.play("Idle")
+		$Santa.visibily_notifier = true
 		$Platforms/Platform4/Area_Platform.queue_free()
 		$Platforms/Platform4/AnimationPlayer.play("Nueva animación")
 		$Platforms/Platform4/Timer_Platform4.start()
 
 func _on_Timer_Platform4_timeout():
 	Global.level = "1,1"
-	$Santa.visibily_notifier = true
 	Fade_In_Out.effect_change_level()
 	$Platforms/Platform4/Timer_Fade_Effect.start()
 

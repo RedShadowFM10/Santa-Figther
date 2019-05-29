@@ -10,11 +10,6 @@ export (PackedScene) var gift_item
 var sfx_object_destroy
 var sfx_hit_item
 
-func _ready():
-	player = get_tree().get_nodes_in_group("Player")[0]
-	sfx_object_destroy = get_tree().get_nodes_in_group("SFX")[0].get_node("Object_Destroy")
-	sfx_hit_item = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Item")
-
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Attack"):
 		count += 1
@@ -40,3 +35,8 @@ func _on_Area2D_area_entered(area):
 func _on_AnimatedSprite_animation_finished():
 	if $AnimatedSprite.get_animation() == "Destroy":
 		queue_free()
+
+func _on_Ready_timeout():
+	player = get_tree().get_nodes_in_group("Player")[0]
+	sfx_object_destroy = get_tree().get_nodes_in_group("SFX")[0].get_node("Object_Destroy")
+	sfx_hit_item = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Item")

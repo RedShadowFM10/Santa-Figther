@@ -15,7 +15,6 @@ export (PackedScene) var gift_item
 
 func _ready():
 	sfx_frog = get_tree().get_nodes_in_group("SFX")[0].get_node("Frog")
-	player = get_tree().get_nodes_in_group("Player")[0]
 
 func _physics_process(delta):
 	if !is_on_floor():
@@ -70,3 +69,6 @@ func _on_Area2D_area_entered(area):
 			get_tree().get_nodes_in_group("Level")[0].call_deferred("add_child", new_gift)
 			new_gift.global_position = global_position
 		queue_free()
+
+func _on_Ready_timeout():
+	player = get_tree().get_nodes_in_group("Player")[0]

@@ -13,7 +13,6 @@ var player
 var sfx_hit_enemy
 
 func _ready():
-	player = get_tree().get_nodes_in_group("Player")[0]
 	sfx_hit_enemy = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Enemy")
 
 func _physics_process(delta):
@@ -89,3 +88,6 @@ func Dead():
 
 func _on_Timer_Queue_timeout():
 	queue_free()
+
+func _on_Ready_timeout():
+	player = get_tree().get_nodes_in_group("Player")[0]

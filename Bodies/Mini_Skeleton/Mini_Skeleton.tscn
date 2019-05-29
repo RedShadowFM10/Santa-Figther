@@ -20,11 +20,10 @@ extents = Vector2( 13.2388, 24.2151 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 13.8976, 24.5528 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6.36266, 18.173 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "Dead_Left"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -39,8 +38,7 @@ tracks/0/keys = {
 "values": [ 0.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Dead_Right"
+[sub_resource type="Animation" id=6]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -96,11 +94,11 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Attack"]
 position = Vector2( 1.03132, 5.73781 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dead_Left = SubResource( 4 )
-anims/Dead_Right = SubResource( 5 )
+anims/Dead_Left = SubResource( 5 )
+anims/Dead_Right = SubResource( 6 )
 
 [node name="RayCastReact" type="RayCast2D" parent="."]
 position = Vector2( 0, -13 )
@@ -128,5 +126,13 @@ cast_to = Vector2( 0, 80 )
 ]]
 wait_time = 3.0
 one_shot = true
+
+[node name="Ready" type="Timer" parent="." groups=[
+"Timer",
+]]
+wait_time = 0.1
+one_shot = true
+autostart = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Timer_Queue" to="." method="_on_Timer_Queue_timeout"]
+[connection signal="timeout" from="Ready" to="." method="_on_Ready_timeout"]
