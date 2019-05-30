@@ -2,14 +2,14 @@ extends Node
 
 var intro = true
 
-var level = "01"
+var level = "1,1"
 
-var gui_gift = true
+var gui_gift = false
 
-var can_punch = true
-var can_super_attack = true
-var can_kick = true
-var can_gift = true
+var can_punch = false
+var can_super_attack = false
+var can_kick = false
+var can_gift = false
 
 func Powers():
 	if level == "01":

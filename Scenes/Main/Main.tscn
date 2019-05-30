@@ -1,22 +1,29 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Bodies/Gift/Gift.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GUI/Full_Screen/Full_Screen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Fonts/Default.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Bodies/Items/Key/Sprite/goldenkey.png" type="Texture" id=6]
-[ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Sounds/SFX/Hit_Enemy.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Sounds/SFX/Object_Destroy.ogg" type="AudioStream" id=10]
-[ext_resource path="res://Sounds/SFX/Hit_Player.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Bodies/Items/Key/Sprite/goldenkey.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/SFX/Frog.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/SFX/Hit_Enemy.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/SFX/Object_Destroy.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/SFX/Hit_Player.ogg" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
 font_data = ExtResource( 4 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 4 )
+
 [sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 60
 font_data = ExtResource( 4 )
 
@@ -38,7 +45,6 @@ one_shot = true
 "GUI",
 ]]
 pause_mode = 2
-editor/display_folded = true
 
 [node name="Full_Screen" parent="GUI" instance=ExtResource( 3 )]
 visible = false
@@ -79,10 +85,15 @@ margin_left = -175.5
 margin_top = -50.0
 margin_right = 175.5
 margin_bottom = 16.0004
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "NEXT LEVEL"
 flat = true
+
+[node name="Timer_Next_Level" type="Timer" parent="GUI/Next_Level" groups=[
+"Timer",
+]]
+one_shot = true
 
 [node name="Retry" type="Button" parent="GUI"]
 visible = false
@@ -105,7 +116,7 @@ margin_left = 537.975
 margin_top = 378.059
 margin_right = 737.975
 margin_bottom = 455.059
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color_hover = Color( 0.45098, 0.45098, 0.45098, 1 )
 text = "MENU"
 flat = true
@@ -114,7 +125,7 @@ flat = true
 visible = false
 position = Vector2( 197.335, 35 )
 scale = Vector2( 0.13, 0.13 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="SFX" type="Node" parent="." groups=[
 "SFX",
@@ -123,28 +134,29 @@ pause_mode = 1
 editor/display_folded = true
 
 [node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 7 )
+stream = ExtResource( 6 )
 volume_db = -25.0
 
 [node name="Frog" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 8 )
+stream = ExtResource( 7 )
 volume_db = -5.0
 
 [node name="Hit_Enemy" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 9 )
+stream = ExtResource( 8 )
 volume_db = -10.0
 
 [node name="Object_Destroy" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 10 )
+stream = ExtResource( 9 )
 volume_db = -5.0
 
 [node name="Hit_Item" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = -8.0
 
 [node name="Music" type="Node" parent="."]
 pause_mode = 1
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="GUI/Next_Level" to="." method="_on_Next_Level_pressed"]
+[connection signal="timeout" from="GUI/Next_Level/Timer_Next_Level" to="." method="_on_Timer_Next_Level_timeout"]
 [connection signal="pressed" from="GUI/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="GUI/Menu" to="." method="_on_Menu_pressed"]

@@ -40,13 +40,13 @@ func _input(_event):
 		$GUI/Full_Screen.visible = false
 		Fade_In_Out.reload_scene()
 		santa_intro = true
-	elif Input.is_action_just_pressed("Enter") && $GUI/Menu.visible:
-		timers = get_tree().get_nodes_in_group("Timer")
-		for timer in timers:
-			timer.stop()
-		$GUI/Full_Screen.visible = false
-		Fade_In_Out.reload_scene()
-		santa_intro = true
+#	elif Input.is_action_just_pressed("Enter") && $GUI/Menu.visible:
+#		timers = get_tree().get_nodes_in_group("Timer")
+#		for timer in timers:
+#			timer.stop()
+#		$GUI/Full_Screen.visible = false
+#		Fade_In_Out.reload_scene()
+#		santa_intro = true
 
 func Gift_Instaciar(kind_gift, position, direction):
 	var new_gift = gift.instance()
@@ -62,15 +62,14 @@ func Gift_Instaciar(kind_gift, position, direction):
 
 # Ir al menu
 func _on_Menu_pressed():
-	get_tree().change_scene("res://Scenes/Menu/Menu.tscn")
 	santa_intro = true
+	Fade_In_Out.change_scene("res://Scenes/Menu/Menu.tscn")
 
 func _on_Retry_pressed():
-	Fade_In_Out.reload_scene()
 	santa_intro = true
+	Fade_In_Out.reload_scene()
 
 func Santa_Dead():
-	print("A")
 	santa_dead = true
 	$Timer.start()
 
@@ -100,6 +99,10 @@ func Hide_Key():
 	$GUI/Key.visible = false
 
 func _on_Next_Level_pressed():
+	Fade_In_Out.effect_change_level()
+	$GUI/Next_Level/Timer_Next_Level.start()
+
+func _on_Timer_Next_Level_timeout():
 	Deleted_Add_Child()
 	$GUI/Level_Complete.visible = false
 	$GUI/Next_Level.visible = false

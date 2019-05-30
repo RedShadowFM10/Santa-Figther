@@ -9,11 +9,11 @@ func _input(_event):
 			$Signposts/Signpost/Label.visible = false
 
 func _ready():
-#	$Santa.intro = true
+	$Santa.dead = true
 	$Santa/AnimatedSprite.play("Idle")
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	$Santa.intro = false
+	$Santa.dead = false
 
 func _on_Signpost_area_entered(area):
 	if area.is_in_group("Player"):
@@ -44,6 +44,7 @@ func _on_Area_Intro_area_entered(area):
 func _on_Animation_Power_animation_finished(_anim_name):
 	$Power_Intro.queue_free()
 	$Santa.intro = false
+	$Santa.can_punch = true
 
 func _on_Door_01_area_entered(area):
 	if area.is_in_group("Player"):

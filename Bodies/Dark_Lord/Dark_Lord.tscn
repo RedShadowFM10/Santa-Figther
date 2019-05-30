@@ -18,7 +18,7 @@
 [ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/10.png" type="Texture" id=16]
 [ext_resource path="res://Bodies/Dark_Lord/Sprites/Attack/11.png" type="Texture" id=17]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
@@ -31,28 +31,27 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 151.959, 210.513 )
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 100.265, 112.567 )
 
 [node name="Dark_Lord" type="KinematicBody2D"]
 pause_mode = 1
-editor/display_folded = true
 z_index = -6
 z_as_relative = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 4, 4 )
-frames = SubResource( 1 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 5 )
 animation = "Idle"
 flip_h = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 visible = false
-scale = Vector2( 4, 4 )
-frames = SubResource( 1 )
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 5 )
 animation = "Idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 50.3337, 9.5226 )
-shape = SubResource( 2 )
+position = Vector2( 42.1714, 24.4867 )
+shape = SubResource( 6 )
