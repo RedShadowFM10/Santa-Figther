@@ -1,28 +1,27 @@
 Sprites
 
-Explosion: https://opengameart.org/content/explosion-3
-Hearth Pixel: https://opengameart.org/content/heart-1616
-Santa Claus Pixel: https://opengameart.org/content/pixel-art-santa-sprites
-Skeleton: https://jesse-m.itch.io/skeleton-pack
-Tile Map 01, Background_01, Plataform: https://opengameart.org/users/buch
-Frog, Mini_Skeleton: https://opengameart.org/content/chibi-monsters-set-01
-Smaller, Larger: https://kenney.nl/assets/game-icons
-Mini_Monster_01 - 02: https://0x72.itch.io/dungeontileset-ii
-House: https://www.deviantart.com/drysmian/art/Swamp-Hut-inside-663169701
-Signpost, Barrel: https://elthen.itch.io/pixel-art-destructible-objects
-Key: https://opengameart.org/content/golden-and-silver-key-game-item
+Elthen
+Sogomn
+Nicole Marie T
+Jesse M
+Buch
+ansimuz
+Kenney
+Robert
+drysmian
+bevouliin.com
 
-SFX.
+SFX
 
-Explosion: https://freesound.org/people/timgormly/sounds/162792/
-Frog: https://opengameart.org/content/mutant-frog
-Punch, Kick: https://opengameart.org/content/3-melee-sounds
-Super_Attack, Hit_Enemy, Hit_Player, Object_Destroy: https://opengameart.org/content/37-hitspunches
-Take_Item: https://opengameart.org/content/50-cc0-retro-synth-sfx
-Monster_Damage: https://opengameart.org/content/slime-monster
+timgormly
+AntumDeluge
+remaxim
+Independent.nu
+rubberduck
+qubodup
 
 Music
 
-Beat&em_Up_Level: https://opengameart.org/content/arcade-level-tracks-8-bitchiptune
-Battle_in_the_winter: https://opengameart.org/content/battle-in-the-winter
-Final_Epic_Battle: https://opengameart.org/content/final-epic-battle
+wyver9
+jobromedia
+Telaron

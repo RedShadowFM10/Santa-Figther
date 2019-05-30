@@ -1,40 +1,39 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/Levels/02.gd" type="Script" id=1]
-[ext_resource path="res://Trials (Delete)/Line2D.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GUI/Backgrounds/Background_01.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Tile_Map/01/TileMap_01.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/03.png" type="Texture" id=6]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/02.png" type="Texture" id=7]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Sprites/02.png" type="Texture" id=8]
-[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Sprites/01.png" type="Texture" id=9]
-[ext_resource path="res://Bodies/Mini_Skeleton/Sprites/01.png" type="Texture" id=10]
-[ext_resource path="res://Bodies/Mini_Skeleton/Sprites/02.png" type="Texture" id=11]
-[ext_resource path="res://Bodies/Mini_Skeleton/Sprites/03.png" type="Texture" id=12]
-[ext_resource path="res://Bodies/Mini_Skeleton/Sprites/04.png" type="Texture" id=13]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/01.png" type="Texture" id=14]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/02.png" type="Texture" id=15]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/03.png" type="Texture" id=16]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/04.png" type="Texture" id=17]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/05.png" type="Texture" id=18]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/06.png" type="Texture" id=19]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/07.png" type="Texture" id=20]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/08.png" type="Texture" id=21]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/09.png" type="Texture" id=22]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/10.png" type="Texture" id=23]
-[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/11.png" type="Texture" id=24]
-[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/01.png" type="Texture" id=25]
-[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/02.png" type="Texture" id=26]
-[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/03.png" type="Texture" id=27]
-[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/04.png" type="Texture" id=28]
-[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/05.png" type="Texture" id=29]
-[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/06.png" type="Texture" id=30]
-[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=31]
+[ext_resource path="res://GUI/Backgrounds/Background_01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tile_Map/01/TileMap_01.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Bodies/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/03.png" type="Texture" id=5]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_01/Sprites/02.png" type="Texture" id=6]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Sprites/02.png" type="Texture" id=7]
+[ext_resource path="res://Bodies/Monsters/Mini_Monster_02/Sprites/01.png" type="Texture" id=8]
+[ext_resource path="res://Bodies/Mini_Skeleton/Sprites/01.png" type="Texture" id=9]
+[ext_resource path="res://Bodies/Mini_Skeleton/Sprites/02.png" type="Texture" id=10]
+[ext_resource path="res://Bodies/Mini_Skeleton/Sprites/03.png" type="Texture" id=11]
+[ext_resource path="res://Bodies/Mini_Skeleton/Sprites/04.png" type="Texture" id=12]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/01.png" type="Texture" id=13]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/02.png" type="Texture" id=14]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/03.png" type="Texture" id=15]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/04.png" type="Texture" id=16]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/05.png" type="Texture" id=17]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/06.png" type="Texture" id=18]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/07.png" type="Texture" id=19]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/08.png" type="Texture" id=20]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/09.png" type="Texture" id=21]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/10.png" type="Texture" id=22]
+[ext_resource path="res://Bodies/Skeleton/Sprites/Idle/11.png" type="Texture" id=23]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/01.png" type="Texture" id=24]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/02.png" type="Texture" id=25]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/03.png" type="Texture" id=26]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/04.png" type="Texture" id=27]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/05.png" type="Texture" id=28]
+[ext_resource path="res://Bodies/Dark_Lord/Sprites/Idle/06.png" type="Texture" id=29]
+[ext_resource path="res://Fonts/Pixellari.ttf" type="DynamicFontData" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 2.0
@@ -42,7 +41,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 2.0
@@ -50,7 +49,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Move",
 "speed": 6.0
@@ -58,7 +57,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 8.0
@@ -66,7 +65,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 7.0
@@ -74,11 +73,11 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=6]
 size = 35
-font_data = ExtResource( 31 )
+font_data = ExtResource( 30 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 50
-font_data = ExtResource( 31 )
+font_data = ExtResource( 30 )
 
 [node name="02" type="Control" groups=[
 "Level",
@@ -92,14 +91,12 @@ __meta__ = {
 "_edit_vertical_guides_": [ 6774.85 ]
 }
 
-[node name="Line2D" parent="." instance=ExtResource( 2 )]
+[node name="Canvas_Background" parent="." instance=ExtResource( 2 )]
 
-[node name="Canvas_Background" parent="." instance=ExtResource( 3 )]
-
-[node name="TileMap" parent="." instance=ExtResource( 4 )]
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
 tile_data = PoolIntArray( 1048576, 3, 0, 1048580, 4, 0, 1048584, 4, 0, 1048588, 4, 0, 1048592, 4, 0, 1048596, 4, 0, 1048600, 4, 0, 1048604, 4, 0, 1048608, 4, 0, 1048612, 4, 0, 1048616, 4, 0, 1048620, 4, 0, 1048624, 4, 0, 1048628, 4, 0, 1048632, 4, 0, 1048636, 4, 0, 1048640, 4, 0, 1048644, 4, 0, 1048648, 4, 0, 1048652, 4, 0, 1048656, 4, 0, 1048660, 5, 0 )
 
-[node name="Santa" parent="." instance=ExtResource( 5 )]
+[node name="Santa" parent="." instance=ExtResource( 4 )]
 position = Vector2( 242.946, 578.828 )
 
 [node name="Enemies" type="Node" parent="."]
@@ -110,7 +107,6 @@ position = Vector2( 327.089, 607.479 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 1
 playing = true
 flip_h = true
 
@@ -119,7 +115,6 @@ position = Vector2( 481.667, 616.191 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Idle"
-frame = 1
 playing = true
 flip_h = true
 
@@ -128,7 +123,6 @@ position = Vector2( 618.256, 615.501 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 3 )
 animation = "Move"
-frame = 3
 playing = true
 flip_h = true
 
@@ -137,7 +131,7 @@ position = Vector2( 773.239, 565.97 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 5
+frame = 1
 playing = true
 flip_h = true
 
@@ -148,7 +142,7 @@ z_index = -1
 z_as_relative = false
 frames = SubResource( 5 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Thanks" type="Label" parent="."]
