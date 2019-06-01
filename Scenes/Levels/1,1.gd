@@ -56,3 +56,7 @@ func _on_Door_01_area_entered(area):
 			$Santa.visibily_notifier = true
 			get_tree().get_nodes_in_group("Main")[0].Next_Level()
 			Global.level = "02"
+
+func _on_Area2D_2_body_entered(body):
+	if body.is_in_group("Player"):
+		$Platforms/Platform2/AnimationPlayer.play("Nueva animación")

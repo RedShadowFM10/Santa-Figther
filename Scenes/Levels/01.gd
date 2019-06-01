@@ -37,11 +37,16 @@ func _on_Signpost_area_exited(area):
 		$Signposts/Signpost/Label.visible = false
 		$Signposts/Signpost/Instructions.visible = false
 
+func _on_Area2D_3_body_entered(body):
+	if body.is_in_group("Player"):
+		$Platforms/Platform3/AnimationPlayer.play("Nueva animación")
+
 func _on_Area_Platform_body_entered(body):
 	if body.is_in_group("Player"):
 		get_tree().get_nodes_in_group("Main")[0].santa_intro = true
 		$Santa.intro = true
 		$Santa/AnimatedSprite.play("Idle")
+		$Santa.Adjust_Right()
 		$Santa.visibily_notifier = true
 		$Platforms/Platform4/Area_Platform.queue_free()
 		$Platforms/Platform4/AnimationPlayer.play("Nueva animación")

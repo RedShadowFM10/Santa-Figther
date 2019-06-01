@@ -44,7 +44,6 @@ size = 80
 font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -64,7 +63,7 @@ anchor_bottom = 0.5
 margin_top = -210.0
 margin_bottom = -119.0
 custom_fonts/font = SubResource( 1 )
-text = "SANTA FITGHTER"
+text = "SANTA THE FIGHTER"
 align = 1
 valign = 1
 

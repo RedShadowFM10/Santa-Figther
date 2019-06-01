@@ -17,6 +17,8 @@ var main
 var check = false
 var sfx_hit_enemy
 
+export var number_timer = 2.0
+
 func _ready():
 	main = get_tree().get_nodes_in_group("Main")[0]
 	sfx_hit_enemy = get_tree().get_nodes_in_group("SFX")[0].get_node("Hit_Enemy")
@@ -34,13 +36,13 @@ func _physics_process(delta):
 				if follow_player:
 					follow_player = false
 					$RayCastReact.enabled = true
-					$Idle.start(2)
+					$Idle.start(number_timer)
 				direction = !direction
 			if !$RayCastFloor.is_colliding():
 				if follow_player:
 					follow_player = false
 					$RayCastReact.enabled = true
-					$Idle.start(2)
+					$Idle.start(number_timer)
 				direction = !direction
 			if $RayCastReact.is_colliding():
 				var coll = $RayCastReact.get_collider()

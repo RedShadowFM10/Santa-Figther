@@ -200,7 +200,7 @@ func Create_lives():
 
 func Add_Lives():
 	$SFX_Take_Item.play()
-	if lives < 3: # Limite
+	if lives < 3 && !dead: # Limite
 		var new_hp = hp_gui.instance()
 		$GUI.add_child(new_hp)
 		new_hp.global_position.x += offset * lives
@@ -229,7 +229,7 @@ func Create_Gifts():
 
 func Add_Gifts():
 	$SFX_Take_Item.play()
-	if gifts < 3: # Limite
+	if gifts < 3 && !dead: # Limite
 		var new_gift = gift_gui.instance()
 		$GUI.add_child(new_gift)
 		new_gift.global_position.x += offset * gifts

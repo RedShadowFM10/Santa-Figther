@@ -100,13 +100,13 @@ tile_data = PoolIntArray( 1048576, 3, 0, 1048580, 4, 0, 1048584, 4, 0, 1048588, 
 position = Vector2( 242.946, 578.828 )
 
 [node name="Enemies" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Mini_Monster_01" type="AnimatedSprite" parent="Enemies"]
 position = Vector2( 327.089, 607.479 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
 animation = "Idle"
+frame = 1
 playing = true
 flip_h = true
 
@@ -115,23 +115,25 @@ position = Vector2( 481.667, 616.191 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "Idle"
+frame = 1
 playing = true
 flip_h = true
 
 [node name="Mini_Skeleton" type="AnimatedSprite" parent="Enemies"]
-position = Vector2( 618.256, 615.501 )
+position = Vector2( 630.231, 615.501 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 3 )
 animation = "Move"
+frame = 3
 playing = true
 flip_h = true
 
 [node name="Skeleton" type="AnimatedSprite" parent="Enemies"]
-position = Vector2( 773.239, 565.97 )
+position = Vector2( 784.186, 563.587 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 1
+frame = 9
 playing = true
 flip_h = true
 
@@ -142,7 +144,7 @@ z_index = -1
 z_as_relative = false
 frames = SubResource( 5 )
 animation = "Idle"
-frame = 2
+frame = 4
 playing = true
 
 [node name="Thanks" type="Label" parent="."]
@@ -150,9 +152,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -378.5
+margin_left = -423.0
 margin_top = -335.003
-margin_right = 378.5
+margin_right = 423.0
 margin_bottom = 12.997
 custom_fonts/font = SubResource( 6 )
 text = "THANKS FOR PLAYING!
@@ -163,7 +165,7 @@ WITHIN A FEW MONTHS I HOPE TO PUBLISH IT
 A SPECIAL THANK YOU TO ALL THE PEOPLE
 WHO HAVE PROVIDED ME THEIR SUPPORT
 
-THE DARK LORD IS WAITING FOR YOU..."
+REMEMBER, THE DARK LORD IS WAITING FOR YOU..."
 align = 1
 valign = 1
 
